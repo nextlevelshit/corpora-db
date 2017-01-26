@@ -1,0 +1,10 @@
+
+<!-- this is just to make the page pretty when rendering with pandoc -->
+
+---
+papersize: a4paper
+geometry: left=2.5cm
+geometry: top=2.5cm
+fontsize: 11pt
+
+---
