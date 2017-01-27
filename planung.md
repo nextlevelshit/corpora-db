@@ -1,8 +1,6 @@
 % Workshop 'Datenbanken' -- Ergebnisse DB Corpora
-% cmx
-% 26.1.2017
-
-
+% Claus-Michael Schlesinger | Michael Werner Czechowski
+% 26.1.2017 (v1.1)
 
 # Datenbank Corpora
 
