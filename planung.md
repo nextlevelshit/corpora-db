@@ -1,8 +1,10 @@
-% Workshop 'Datenbanken' -- Ergebnisse DB Corpora
+% DB Corpora -- Digital Humanities Uni S
 % Claus-Michael Schlesinger | Michael Werner Czechowski
-% 26.1.2017 (v1.1)
+% 26.1.2017 (v1.101)
 
-# Datenbank Corpora
+
+
+## Kurzbeschreibung
 
 - Corpusdaten für die computergestützte Textanalyse
 - Trennung von plain text und Metadaten
@@ -12,11 +14,7 @@
 
 Die Datenbank dient der Speicherung von Corpusdaten. Das Grundelement des Gesamtcorpus ist ein Einzeltext. Jeder Text kann erstens eine Reihe von Zuständen haben und ist zweitens durch eine Reihe von Metadaten markiert. Über die Suchfunktion einer Webanwendung können Subcorpora aus dem Gesamtcorpus zusammengestellt werden. Datenbank und Webanwendung dienen ausschließlich der Vorhaltung und Bereitstellung von Texten, es werden keinerlei Analysefunktionen und keine Schnittstellen für bereichsexterne Anwendungen bereitgestellt. Die Datenbank liegt direkt auf dem Compute-Server oder ist von dort aus erreichbar. Daten lassen sich sowohl über die Webanwendung als auch direkt aus der Datenbank auslesen (SQL-Abfragen nur für User, die auf dem Server eingelogged sind), sodass SQL-Abfragen in eigene Analyseskripte, die auf dem Computeserver ausgeführt werden, integriert werden können.
 
-## Usecases: Speichern und Bereitstellen
-
-Nutzerin A: 
-
-### Speichern
+# Usecase: Speichern und Bereitstellen
 
 - Datenhaltung
 - Datenoptimierung
@@ -31,9 +29,11 @@ Nutzerin A:
 	- Austausch (Repository)
 	- eigene Daten werden redundant gespeichert
 
---> DB Corpora für beides nutzbar, **aber:** Neuentwicklung, Stabilität und Integrität der Daten kann *nicht* garantiert werden!
+--> DB Corpora für beides nutzbar, **aber:** Neuentwicklung! Stabilität und Integrität der Daten kann *nicht* garantiert werden!
 
-## Anforderungen: Textzustände
+# Anforderungen 
+
+## Anforderungen Textzustände
 
 Textzustand      | Beschreibung
 ---------------- | -------------------------------------------------------------
@@ -45,7 +45,7 @@ annotiert        | TEI
 
 Datenfeld zum Text (alle Zustände): Dokumentation der Bearbeitungsschritte (Freitext)
 
-## Anforderungen: Metadaten
+## Anforderungen Metadaten
 
 - Werk
 	+ Titel (mandatory)
@@ -59,9 +59,11 @@ Datenfeld zum Text (alle Zustände): Dokumentation der Bearbeitungsschritte (Fre
 
 Notwendige Angaben sind *Name, Titel, Erscheinungsjahr*, alle anderen Angaben sind optional.
 
-Vorschlag für Metadatenformat: MODS, Dublin Core (evtl. für die Ausgabe bei Abfragen)
+Vorschlag für Metadatenformat: MODS, Bibtex, Dublin Core (evtl. für die Ausgabe bei Abfragen)
 
 ## Anforderungen Anwendung
+
+*nth = nice to have* 
 
 - initialer Upload
 	- Texte (in allen Zuständen) als plaintext-Datei (.txt)
@@ -72,7 +74,7 @@ Vorschlag für Metadatenformat: MODS, Dublin Core (evtl. für die Ausgabe bei Ab
 	- Alle Felder und Uploads müssen in einer separaten Maske bearbeitbar sein (Klärung der Rechteverteilung steht noch aus; darf jeder Nutzer Änderungen einbringen?)
 - Löschen
 	- Falls ein Dokument fehlerhaft ist oder nicht mehr benötigt wird, so kann jeder Nutzer eine Lösch-Anfrage stellen. Diese wird vom Admin überprüft und ggf. durchgeführt
-- Bulk-Upload *(nice-to-have)*
+- Bulk-Upload *(nice-to-have)* (in Ausnahmefällen skriptbasiert möglich, d.h. mit direktem Zugriff auf Datenbank und Speicher, nur mit Administratorrechten)
 - ergänzender Upload für bereits vorhandene Einträge (Zugang über frühe Weiche: Bearbeitungsmodus/Suchmodus), es können nur einzelne Texte bearbeitet werden
 	- Eingabemaske für Einzeltext mit allen Feldern
 	- Anzeige bereits vorhandener Daten (bei bereits vorhandenen Text(zuständen) nur Link zum Volltext (öffnet im neuen Fenster/Lightbox))
@@ -90,9 +92,9 @@ Vorschlag für Metadatenformat: MODS, Dublin Core (evtl. für die Ausgabe bei Ab
 	- Auswahl aus Ergebnisliste (Clickboxen?)
 	- Ausgebeformat: zip-Datei mit einzelnen Textfiles und Liste mit bibliografischen Angaben (Bibtex/MODS)
 
-Die Datenbank bietet neben der Webanwendung auch einen direkten low-level-Zugang (SQL-Abfragen, nur Lesen!) für NutzerInnen, die auf dem Server eingelogged sind.
+Die Datenbank bietet neben der Webanwendung auch einen direkten low-level-Zugang (SQL-Abfragen, nur Lesen!) für NutzerInnen, die am Server angemeldet sind. 
 
-## User Stories
+# User Stories
 
 ### Ansicht
 ID    | Beschreibung
@@ -110,7 +112,9 @@ US203 | Nutzerin möchte neue Gattung hinzufügen
 US204 | Nutzerin möchte weiteren Textzustand zu bestehendem Eintrag hinzufügen
 
 ### Bearbeitung 
-Hinweis: *Bereits hochgeladene Corpi können nicht nachträglich verändert werden. Lediglich die Metadaten können angepasst werden. Falls ein Corpus doch fehlerhaft sein sollte, so muss ein Lösch-Antrag an den Admin gestellt werden*
+
+Hinweis: *Bereits hochgeladene Texte vom Typ 'raw' können nicht nachträglich verändert werden. Ebenso können Autorennamen und Gattungsbezeichnungen nur angelegt, nicht geändert werden. Die Metadaten für einen einzelnen Eintrag können geändert bzw. neu ausgewählt werden. Änderungen von Autorennamen, Gattungsbezeichnungen und Ersteinträgen sind nur mit Administratorrechten möglich. Einzelne Textzustände können überschrieben werden.*
+
 
 ID    | Beschreibung
 ----- | ------------------------------------------------------------------------
@@ -121,15 +125,16 @@ US304 | Nutzerin möchte einen bestimmten Textzustand verändern
 
 
 ### Löschen
-Hinweis: *Bei allen Lösch-Antragen muss die Nutzerin eine Kontaktadressen angeben, sodass sie informiert werden kann, wie weit der Zustand der Bearbeitung ist.*
+Hinweis: *Bei allen Lösch-Anträgen muss die Nutzerin eine Kontaktadressen angeben, sodass sie informiert werden kann, wie weit der Zustand der Bearbeitung ist.*
 
 ID    | Beschreibung
 ----- | ------------------------------------------------------------------------
-US401 | Nutzerin möchte Lösch-Auftrag für bestimmten Corpus beantragen
+US401 | Nutzerin möchte Lösch-Auftrag für kompletten Eintrag beantragen
 US402 | Nutzerin möchte Lösch-Auftrag für bestimmten Autor beantragen
 US403 | Nutzerin möchte Lösch-Auftrag für bestimmte Gattung beantragen
-US404 | Nutzerin möchte Lösch-Auftrag für spezifischen Textzustand beantragen
+<!-- US404 | Nutzerin möchte Lösch-Auftrag für spezifischen Textzustand beantragen -->
 
+<!-- 
 ### Admin
 
 ID    | Beschreibung
@@ -141,4 +146,4 @@ US504 | Nutzerin kann als Admin Lösch-Antrag annehmen, jedoch erst nach doppelt
 US505 | Nutzerin kann als Admin Lösch-Antrag ablehnen; Benachrichtigung wird an Antragstellerin verschickt
 US506 | Nutzerin kann als Admin eigenes Passwort bearbeiten
 US507 | Nutzerin kann als Admin neuen Admin hinzufügen
-
+-->
