@@ -42,6 +42,7 @@ normalisiert     | ohne Zusatztexte (z.B. Projekt Gutenberg Paratexte)
 normalisiert 2   | Normalisierungen auf Zeichenebene (ins Kommentarfeld: welche Bearbeitungsschritte, genaue Zustandsbeschreibung des Texts)
 pos-tagged       | (ins Kommentarfeld: Tool + Version + Datum der Bearbeitung)
 annotiert        | TEI 
+freestyle        | beliebiger Zustand
 
 Datenfeld zum Text (alle Zustände): Dokumentation der Bearbeitungsschritte (Freitext)
 
@@ -49,17 +50,36 @@ Datenfeld zum Text (alle Zustände): Dokumentation der Bearbeitungsschritte (Fre
 
 - Werk
 	+ Titel (mandatory)
-	+ Erscheinungsjahr (mandatory)
+	+ Erscheinungsjahr (mandatory)	## möglichkeit, auch 'ohne jahr' aufnehmen
 	+ Gattung (Lyrik, Epik, Drama, Märchen) <!-- optional,  -->
+	+ deprecated: in einer spezialsuchmaske kann man sich das anzeigen lassen (ausführliche suche mit suchmasken über alle datenbankfelder)
+	+ Quelle (URL, eigener scan, bibliothekssignatur)
+	+ Autorname wie er im Dokument erscheint <!-- optional -->
+	+ version-ID (?)
+ 
 - Autor
 	+ Name (mandatory)
 	+ Geburtsjahr <!-- optional -->
 	+ Geschlecht <!-- optional -->
 	+ GND-Nummer (Gemeinsame Normdatei) <!-- optional bzw. nicht obligatorisch, weil manche autoren ohne gnd-nummern; entspricht viaf/via (hentschel-vortrag) -->
+	+ Institution (0,1)
 
 Notwendige Angaben sind *Name, Titel, Erscheinungsjahr*, alle anderen Angaben sind optional.
 
 Vorschlag für Metadatenformat: MODS, Bibtex, Dublin Core (evtl. für die Ausgabe bei Abfragen)
+
+
+<!--
+
+- fall: mehrere autoren
+- Was gehört zum text, was gehört nicht zum text? : frage nach den paratexten im zustand 'normalisiert'
+- löschen
+	- raw wird nicht gelöscht
+	- alle textlöschungen admin-bedingt
+	- wenn im feld nihcts steht, dann kann hochgeladen werden
+- erscheinungsjahr bei peggy = geburtsjahr des autors -> wird gelöst über die verknüpfung der tabellen, 
+ 
+-->
 
 ## Anforderungen Anwendung
 
@@ -88,9 +108,9 @@ Vorschlag für Metadatenformat: MODS, Bibtex, Dublin Core (evtl. für die Ausgab
 	- Metadaten und Volltexte *nth*
 - Bildschirmausgabe: Ergebnisliste (Suchfeld bleibt sichtbar)
 - Download:
-	- gesamte Ergebnisliste
+	- gesamte Ergebnisliste (csv)
 	- Auswahl aus Ergebnisliste (Clickboxen?)
-	- Ausgebeformat: zip-Datei mit einzelnen Textfiles und Liste mit bibliografischen Angaben (Bibtex/MODS)
+	- Ausgebeformat: zip-Datei mit einzelnen Textfiles und Liste mit bibliografischen Angaben (csv)
 
 Die Datenbank bietet neben der Webanwendung auch einen direkten low-level-Zugang (SQL-Abfragen, nur Lesen!) für NutzerInnen, die am Server angemeldet sind. 
 
