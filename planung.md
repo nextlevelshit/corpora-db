@@ -167,3 +167,16 @@ US505 | Nutzerin kann als Admin Lösch-Antrag ablehnen; Benachrichtigung wird an
 US506 | Nutzerin kann als Admin eigenes Passwort bearbeiten
 US507 | Nutzerin kann als Admin neuen Admin hinzufügen
 -->
+
+# Tech-Stack
+
+- LAMP
+- Laravel
+
+### Lizenz
+
+#### LAMP 
+GNU/Linux, ansonsten abhängig von softwareseitigen Lizenzbestimmungen
+
+#### Laravel
+MIT-Lizenz
