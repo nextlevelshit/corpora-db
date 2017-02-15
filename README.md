@@ -16,7 +16,7 @@ _`Composer` and `PHP` have to be installed previously._
 To provide all markdown files also as human readable PDF files use the following `git-hook`:
 
 ```bash
-  rm -rf .git/hooks && ln -s ../hooks .git/hooks`
+  rm -rf .git/hooks && ln -s ../hooks .git/hooks
 ```
 
 ## File Structure
