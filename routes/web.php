@@ -11,6 +11,29 @@
 |
 */
 
+/*
+|--------------------------------------------------------------------------
+| Index
+|--------------------------------------------------------------------------
+|
+| Display overview of last added and modified corpora entries. Show up
+| search formular and display options for adding new entry.
+|
+*/
 Route::get('/', function () {
-    return view('welcome');
+    return 'Index';
 });
+/*
+|--------------------------------------------------------------------------
+| Search
+|--------------------------------------------------------------------------
+|
+| Display only search formular with filtering options. If already started
+| enquiry
+|
+*/
+Route::get('search', function () {
+   return 'Suche';
+});
+
+

@@ -17,3 +17,6 @@ Claus-Michael Schlesinger:
 
 Michael Werner Czechowski: 
 <mail@dailysh.it>
+
+## License
+This software is distributed under GNU GPL.
