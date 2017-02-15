@@ -47,13 +47,13 @@ Route::post('search', function () {
 | Display details of entry and show editing and adding options.
 |
 */
-Route::get('entry/{id}', function ($entryId) {
+Route::get('entry/{numId}', function ($entryId) {
     return 'Eintrag anzeigen:' . $entryId;
-})->where('id', '[0-9]+');
+});
 
-Route::get('entry/{id}', function ($entryId) {
+Route::patch('entry/{numId}', function ($entryId) {
     return 'Eintrag bearbeiten:' . $entryId;
-})->where('id', '[0-9]+');
+});
 
 Route::put('entry', function () {
     return 'Eintrag hinzufügen';
@@ -66,9 +66,9 @@ Route::put('entry', function () {
 | Prepare bundled files for downloading one or more corpora entries
 |
 */
-Route::get('download/{id}', function ($entryId) {
+Route::get('download/{numId}', function ($entryId) {
     return 'Eintrag' . $entryId . ' herunterladen';
-})->where('id', '[0-9]+');
+});
 
 Route::post('download', function ($entryId) {
     return 'Mehrere Einträge herunterladen';
