@@ -9,7 +9,7 @@ while read -r line; do
 	if [[ $line =~ $regex ]]; then
 		file=${BASH_REMATCH[1]}
 
-		pandoc $file.md -o $file.pdf
+		pandoc $file.md pandoc.yaml -o $file.pdf
 		# compile markdown files to pdf
 		git add $file.pdf
 		# add compiled files to commit
