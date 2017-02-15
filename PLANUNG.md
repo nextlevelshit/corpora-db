@@ -69,7 +69,7 @@ Notwendige Angaben sind *Name, Titel, Erscheinungsjahr*, alle anderen Angaben si
 
 
 
-![Datenmodell DB Corpora](/home/cms/stgt/datenbanken/corpora/datenmodell_skizze.jpg)
+![ER Diagramm der Datenbank für DB Corpora](database-er-diagram.jpg)
 
 
 ## Definitionen
