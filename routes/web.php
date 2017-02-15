@@ -20,9 +20,7 @@
 | search formular and display options for adding new entry.
 |
 */
-Route::get('/', function () {
-    return 'Index';
-});
+Route::get('/', 'IndexController@showIndex')->name('index');
 /*
 |--------------------------------------------------------------------------
 | Search
@@ -32,13 +30,9 @@ Route::get('/', function () {
 | enquiry, load result page.
 |
 */
-Route::get('search', function () {
-   return 'Suche';
-});
+Route::get('search', 'SearchController@showIndex')->name('search');
 
-Route::post('search', function () {
-    return 'Suche gestartet';
-});
+Route::post('search', 'SearchController@showResults');
 /*
 |--------------------------------------------------------------------------
 | Details
@@ -70,6 +64,6 @@ Route::get('download/{numId}', function ($entryId) {
     return 'Eintrag' . $entryId . ' herunterladen';
 });
 
-Route::post('download', function ($entryId) {
+Route::post('download', function () {
     return 'Mehrere Einträge herunterladen';
 });
