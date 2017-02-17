@@ -8,11 +8,11 @@ class SearchController extends Controller
 {
     public function showIndex()
     {
-        return 'Suche';
+        return view('search.index');
     }
 
     public function showResults($data)
     {
-        return;
+        return view('search.results');
     }
 }

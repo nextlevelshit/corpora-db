@@ -20,7 +20,7 @@
 | search formular and display options for adding new entry.
 |
 */
-Route::get('/', 'IndexController@showIndex')->name('index');
+Route::get('/', 'DashboardController@showIndex')->name('dashboard');
 /*
 |--------------------------------------------------------------------------
 | Search
@@ -41,17 +41,11 @@ Route::post('search', 'SearchController@showResults');
 | Display details of entry and show editing and adding options.
 |
 */
-Route::get('entry/{numId}', function ($entryId) {
-    return 'Eintrag anzeigen:' . $entryId;
-});
+Route::get('entry/{numId}', 'EntryController@showDetails');
 
-Route::patch('entry/{numId}', function ($entryId) {
-    return 'Eintrag bearbeiten:' . $entryId;
-});
+Route::patch('entry/{numId}', 'EntryController@edit');
 
-Route::put('entry', function () {
-    return 'Eintrag hinzufügen';
-});
+Route::put('entry', 'EntryController@create');
 /*
 |--------------------------------------------------------------------------
 | Download
@@ -60,10 +54,6 @@ Route::put('entry', function () {
 | Prepare bundled files for downloading one or more corpora entries
 |
 */
-Route::get('download/{numId}', function ($entryId) {
-    return 'Eintrag' . $entryId . ' herunterladen';
-});
+Route::get('download/{numId}', 'DownloadController@downloadSingle');
 
-Route::post('download', function () {
-    return 'Mehrere Einträge herunterladen';
-});
+Route::post('download', 'DownloadController@downloadMultiple');
