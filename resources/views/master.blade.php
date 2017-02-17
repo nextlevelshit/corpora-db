@@ -1,5 +1,7 @@
 @include('_components.header')
 
+@include('_components.navigation')
+
 @section('title', 'test')
 
 @if ( ! empty($notification) )
@@ -10,6 +12,8 @@
         {{ $notification->content }}
     @endcomponent
 @endif
+
+<h1>@yield('title')</h1>
 
 @yield('content')
 

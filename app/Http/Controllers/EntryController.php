@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class EntryController extends Controller
 {
-    //
+    public function create()
+    {
+        return view('entry.create');
+    }
 }

@@ -8,7 +8,7 @@ class DownloadController extends Controller
 {
     public function downloadSingle($entryId)
     {
-        view('download.single')
+        view('download.single');
     }
 
     public function downloadMultiple($data)

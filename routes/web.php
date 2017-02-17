@@ -26,7 +26,7 @@ Route::get('/', 'DashboardController@showIndex')->name('dashboard');
 | Search
 |--------------------------------------------------------------------------
 |
-| Display only search formular with filtering options. If already started
+| Display only search formular with filtering options. If already starteed
 | enquiry, load result page.
 |
 */
@@ -43,9 +43,11 @@ Route::post('search', 'SearchController@showResults');
 */
 Route::get('entry/{numId}', 'EntryController@showDetails');
 
+Route::get('entry', 'EntryController@create')->name('entry.create');
+
 Route::patch('entry/{numId}', 'EntryController@edit');
 
-Route::put('entry', 'EntryController@create');
+Route::put('entry', 'EntryController@save');
 /*
 |--------------------------------------------------------------------------
 | Download
