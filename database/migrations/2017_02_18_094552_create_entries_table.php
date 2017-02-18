@@ -7,6 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateEntriesTable extends Migration
 {
     /**
+     * Run the migrations.
      * Entries are the mainly searchable increments with relations to
      * multiple authors, multiple texts and several identifing information.
      * Entries cannot be deleted, they can only be updated and purged by a

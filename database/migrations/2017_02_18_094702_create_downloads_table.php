@@ -24,7 +24,7 @@ class CreateDownloadsTable extends Migration
             $table->foreign('text_id')
                 ->references('id')
                 ->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }
