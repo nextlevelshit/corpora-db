@@ -15,6 +15,16 @@ class CreateDownloadsTable extends Migration
     {
         Schema::create('downloads', function (Blueprint $table) {
             $table->increments('id');
+
+            // foreign key constraint on entry
+            $table->foreign('entry_id')
+                ->references('id')->on('entries')
+                ->onDelete('cascade');
+            // foreign key constraint on texts
+            $table->foreign('text_id')
+                ->references('id')
+                ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }
