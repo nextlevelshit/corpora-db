@@ -5,7 +5,7 @@
 @section('title', 'test')
 
 @if ( ! empty($notification) )
-    @component('notification')
+    @component('_components.notification')
         @slot('title')
             {{ $notification->title }}
         @endslot

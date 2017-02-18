@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Notification;
 
 class EntryController extends Controller
 {
@@ -13,9 +14,8 @@ class EntryController extends Controller
 
     public function save(Request $request)
     {
-//        $notification = array('title' => 'Eintrag gespeichert', 'content' => 'Ihr Eintrag wurde erfolgreich gespeichert und ist unter folgender Adresse erreichbar: ');
-//        $notification;
-//        return view('entry.create')->with('notification', $notification);
-        return view('entry.create');
+        $notification = new Notification('Eintrag gespeichert', 'Ihr Eintrag wurde erfolgreich gespeichert und ist unter folgender Adresse erreichbar: ');
+
+        return view('entry.create')->with('notification', $notification);
     }
 }
