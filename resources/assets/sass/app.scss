@@ -1,11 +1,52 @@
+/*----------------------------------------------------------------
+* Settings
+*----------------------------------------------------------------
+*
+* Global variables, site-wide settings, config switches, etc.
+*/
+// Variables
 $dir-foundation: 'node_modules/foundation-sites/scss/';
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900');
 
-// Variables
+/*----------------------------------------------------------------
+* Generic
+*----------------------------------------------------------------
+*
+* Low-specificity, far-reaching rulesets (e.g. resets).
+*/
 
-// Foundation
-//@import 'settings';
-@import "node_modules/foundation-sites/scss/foundation";
+// Load Foundation Sites
+@import 'node_modules/foundation-sites/scss/foundation';
+@import 'generic.foundation';
+@import 'generic.foundation-settings';
+
+/*----------------------------------------------------------------
+* Base
+*----------------------------------------------------------------
+*
+* Unclassed HTML elements (e.g. a {}, blockquote {}, address {}).
+*/
+
+/*----------------------------------------------------------------
+* Helper classes
+*----------------------------------------------------------------
+*
+* Simple classes helpers (e.g. .fullheight {}).
+*/
+
+/*----------------------------------------------------------------
+* Components / UI
+*----------------------------------------------------------------
+*
+* Discrete, complete chunks of UI (e.g. .carousel {}).
+*/
+
+/*----------------------------------------------------------------
+* Overrides
+*----------------------------------------------------------------
+*
+* Discrete, complete chunks of UI (e.g. .carousel {}).
+*/
