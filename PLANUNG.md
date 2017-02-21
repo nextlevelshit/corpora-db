@@ -21,7 +21,7 @@ Die Datenbank dient der Speicherung von Corpusdaten. Das Grundelement des Gesamt
 
 ## Speichern
 
-#. primäre Datenbank 
+#. primäre Datenbank
 	- Verwaltung von eigenen Corpora
 	- eigene Daten werden nicht selbst gespeichert
 
@@ -41,7 +41,7 @@ raw              | ausgangszustand (vor jeder bearbeitung)
 normalisiert     | ohne Zusatztexte (z.B. Projekt Gutenberg Paratexte)
 normalisiert 2   | Normalisierungen auf Zeichenebene (ins Kommentarfeld: welche Bearbeitungsschritte, genaue Zustandsbeschreibung des Texts)
 pos-tagged       | (ins Kommentarfeld: Tool + Version + Datum der Bearbeitung)
-annotiert        | TEI 
+annotiert        | TEI
 freestyle        | beliebiger Zustand
 
 Datenfeld zum Text (alle Zustände): Dokumentation der Bearbeitungsschritte (Freitext)
@@ -53,11 +53,11 @@ Datenfeld zum Text (alle Zustände): Dokumentation der Bearbeitungsschritte (Fre
 	+ AutorIn (mandatory, mehrere sind möglich)
 	+ Erscheinungsjahr (mandatory, drei Möglichkeiten: Jahreszahl, nicht bekannt, ohne Jahr)
 	+ Gattung (Lyrik, Epik, Drama, Märchen) <!-- optional,  -->
-	+ deprecated (nur bei obsoleten Einträgen) 
+	+ deprecated (nur bei obsoleten Einträgen)
 	+ Quelle (URL, eigener scan, bibliothekssignatur)
 	+ Autorname wie er im Dokument erscheint <!-- optional -->
 	+ version-ID (freies Textfeld)
- 
+
 - Autor
 	+ Name (mandatory)
 	+ Geburtsjahr <!-- optional -->
@@ -69,13 +69,15 @@ Notwendige Angaben sind *Name, Titel, Erscheinungsjahr*, alle anderen Angaben si
 
 
 
-![ER Diagramm der Datenbank für DB Corpora](database-er-diagram.jpg)
+![ER Diagramm der Datenbank für DB Corpora als Tafelbild](database-erm-board.jpg)
+
+![ER Diagramm der Datenbank für DB Corpora im Designer](database-erm.jpg)
 
 
 ## Definitionen
 
 Eintrag
-:    Ein Eintrag entspricht einem und nur einem erfassten Text/Titel mit den verschiedenen Textzuständen. 
+:    Ein Eintrag entspricht einem und nur einem erfassten Text/Titel mit den verschiedenen Textzuständen.
 
 Textzustand
 :    Ein Text, der zu einem Eintrag gehört, hat immer einen der definierten Zustände raw, normalisiert, normalisiert 2, pos-tagged, annotiert, freestyle (Definition der Textzustände s.o.)
@@ -86,17 +88,17 @@ Paratext
 
 ## Datenhaltungsstrategie
 
-Die Daten werden inkrementell ergänzt, d.h. Textdateien werden nicht von der Festplatte gelöscht. In der Datenbank sind die aktuellen Textdateien entsprechend markiert und werden bei einer Suche über die Webanwendung nach Einträgen und Textzuständen entsprechend angezeigt. 
+Die Daten werden inkrementell ergänzt, d.h. Textdateien werden nicht von der Festplatte gelöscht. In der Datenbank sind die aktuellen Textdateien entsprechend markiert und werden bei einer Suche über die Webanwendung nach Einträgen und Textzuständen entsprechend angezeigt.
 Löschungen können nur mit Administratorrechten im direkten Zugriff auf das Textverzeichnis und auf die Datenbank vorgenommen werden.
 
 
 ## Anforderungen Anwendung
 
-*nth = nice to have* 
+*nth = nice to have*
 
 - initialer Upload
 	- Texte (in allen Zuständen) als plaintext-Datei (.txt)
-	- Metadaten 
+	- Metadaten
 		- über Formularfelder
 		- aus Literaturdatenbank bzw. aus formatierten Daten (bibtex/biblatex) *nth*
 - Bearbeitung
@@ -121,7 +123,7 @@ Löschungen können nur mit Administratorrechten im direkten Zugriff auf das Tex
 	- Auswahl aus Ergebnisliste (Clickboxen?)
 	- Ausgebeformat: zip-Datei mit einzelnen Textfiles und Liste mit bibliografischen Angaben (csv)
 
-Die Datenbank bietet neben der Webanwendung auch einen direkten low-level-Zugang (SQL-Abfragen, nur Lesen!) für NutzerInnen, die am Server angemeldet sind. 
+Die Datenbank bietet neben der Webanwendung auch einen direkten low-level-Zugang (SQL-Abfragen, nur Lesen!) für NutzerInnen, die am Server angemeldet sind.
 
 
 # User Stories
@@ -151,7 +153,7 @@ US202 | Nutzerin möchte neuen Autor mit weiteren Informationen anlegen
 US203 | Nutzerin möchte neue Gattung hinzufügen
 US204 | Nutzerin möchte weiteren Textzustand zu bestehendem Eintrag hinzufügen
 
-### Bearbeitung 
+### Bearbeitung
 
 Hinweis: *Bereits hochgeladene Texte können nicht nachträglich verändert werden. Ebenso können Autorennamen und Gattungsbezeichnungen nur angelegt, nicht geändert werden. Die Metadaten für einen einzelnen Eintrag können geändert bzw. neu ausgewählt werden. Änderungen von Autorennamen, Gattungsbezeichnungen und Einträgen sind nur mit Administratorrechten möglich. Hochgeladene Texte/Textzustände werden inkrementell gespeichert und können nur mit Administratorrechten gelöscht werden.*
 
@@ -192,14 +194,14 @@ US504 | Nutzerin möchte jeweils nur einen bestimmten Textzustand der ausgewähl
 
 # Tech-Stack
 
-### Verwendete Software 
+### Verwendete Software
 
 - LAMP-Server
 - Laravel
 
 ### Lizenzen
 
-#### LAMP 
+#### LAMP
 GNU/Linux, ansonsten abhängig von softwareseitigen Lizenzbestimmungen
 
 #### Laravel
@@ -207,5 +209,3 @@ MIT-Lizenz
 
 #### DB Corpora (Produkt)
 Die Anwendung wird mit einer GNU General Public License zur Verfügung gestellt
-
-
