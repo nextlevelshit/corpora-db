@@ -1,7 +1,15 @@
-<h5>Navigation</h5>
+<nav class="navigation">
+  <h5 class="navigation-header">Menü</h5>
 
-<ul>
-  <li><a href="{{ route('dashboard') }}">Übersicht</a></li>
-  <li><a href="{{ route('search') }}">Suche</a></li>
-  <li><a href="{{ route('entry.create') }}">Neuer Eintrag</a></li>
-</ul>
+  <ul class="navigation-list">
+    <li class="navigation-list-item">
+      <a class="navigation-list-item-link" href="{{ route('dashboard') }}">Übersicht</a>
+    </li>
+    <li class="navigation-list-item">
+      <a class="navigation-list-item-link" href="{{ route('search') }}">Suche</a>
+    </li>
+    <li class="navigation-list-item">
+      <a class="navigation-list-item-link" href="{{ route('entry.create') }}">Neuer Eintrag</a>
+    </li>
+  </ul>
+</nav>

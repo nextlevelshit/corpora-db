@@ -1,0 +1,38 @@
+// Navigation component in sidebar
+
+.navigation {
+  $this-padding: 1rem;
+
+  padding: 1rem 0;
+
+  &-header {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-weight: 700;
+    color: $medium-gray;
+
+    padding: 0 $this-padding;
+  }
+
+  &-list {
+    margin: 0;
+    list-style: none;
+
+    &-item {
+
+      &-link {
+        display: block;
+        color: $dark-gray;
+        padding: 1rem $this-padding;
+        background: $medium-gray;
+        font-weight: 700;
+
+        &:hover,
+        &:focus {
+
+        }
+      }
+    }
+  }
+}
