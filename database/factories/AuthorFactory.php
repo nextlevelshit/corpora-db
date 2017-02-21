@@ -16,6 +16,6 @@ use Faker\Generator;
 $factory->define(Author::class, function (Generator $faker) {
     return [
         'name' => $faker->name,
-        'year' => rand(0, 2000)
+        'year' => $faker->numberBetween(0, 2000)
     ];
 });
