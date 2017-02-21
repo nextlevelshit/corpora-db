@@ -1,5 +1,6 @@
-<div class="alert alert-danger">
-    <div class="alert-title">{{ $title }}</div>
-
-    {{ $slot }}
+<div class="callout primary">
+  <div class="column">
+    <h1>{{ $title }}</h1>
+    <p class="lead">{{ $slot }}</p>
+  </div>
 </div>

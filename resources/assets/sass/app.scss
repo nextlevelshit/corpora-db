@@ -20,8 +20,8 @@ $dir-foundation: 'node_modules/foundation-sites/scss/';
 
 // Load Foundation Sites
 @import 'node_modules/foundation-sites/scss/foundation';
-@import 'generic.foundation';
 @import 'generic.foundation-settings';
+@import 'generic.foundation-includes';
 
 /*----------------------------------------------------------------
 * Base
