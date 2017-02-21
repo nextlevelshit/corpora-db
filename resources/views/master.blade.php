@@ -2,7 +2,11 @@
 
 @section('title', 'DB Corpora')
 
-<h1>@yield('title')</h1>
+<div class="row">
+  <div class="column">
+    <h1>@yield('title')</h1>
+  </div>
+</div>
 
 @yield('content')
 

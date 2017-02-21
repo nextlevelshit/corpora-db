@@ -3,5 +3,9 @@
 @section('title', 'Übersicht')
 
 @section('content')
-  <p>Das ist das Dashboard</p>
+  <div class="row">
+    <div class="column">
+      <p>Das ist das Dashboard</p>
+    </div>
+  </div>
 @endsection

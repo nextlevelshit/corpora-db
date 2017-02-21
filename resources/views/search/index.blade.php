@@ -3,5 +3,9 @@
 @section('title', 'Suchmaske')
 
 @section('content')
-    <p>Das ist die Suchmaske</p>
+  <div class="row">
+    <div class="column">  
+      <p>Das ist die Suchmaske</p>
+    </div>
+  </div>
 @endsection

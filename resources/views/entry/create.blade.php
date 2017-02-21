@@ -3,7 +3,11 @@
 @section('title', 'Neuer Eintrag')
 
 @section('content')
-  <p>Neuen Eintrag erstellen</p>
+  <div class="row">
+    <div class="column">
+        <p>Neuen Eintrag erstellen</p>
+    </div>
+  </div>
 
   <form action="/entry" method="post">
     <input type="hidden" name="_method" value="PUT">

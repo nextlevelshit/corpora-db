@@ -33,5 +33,5 @@
             @endcomponent
         @endif
 
-        <div class="small-up-12 medium-up-12 large-up-10 columns">
+        <div class="small-up-12 medium-up-12 large-up-10">
           <div class="">
