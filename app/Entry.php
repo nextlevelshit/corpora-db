@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Genre;
 
 class Entry extends Model
 {
@@ -11,6 +10,6 @@ class Entry extends Model
 
     public function genre()
     {
-        return $this->hasOne('Genre');
+        return $this->belongsTo('App\Genre');
     }
 }
