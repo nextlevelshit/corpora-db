@@ -6,7 +6,9 @@ Database for collecting and refining corpus data. SQL database with web interfac
 ~~~~~
 1. git clone git@github.tik.uni-stuttgart.de:ac128227/db-corpora.git
 2. composer install
-3. php artisan serve
+3. php artisan migrate:install # initiate migrations
+4. php artisan migrate # migrate predefined tables to database
+5. php artisan serve
 ~~~~~
 
 _`Composer` and `PHP` have to be installed previously._
@@ -38,16 +40,16 @@ resources/ ----------| resources necessary for the front end only
   lang/ -------------| translations for system wide notifications etc.
   views/ ------------| blade (template engine) files
     components/ -----| partial templates for extending inside layout files
-routes/ -------------| 
+routes/ -------------|
   web.php -----------| stores routes for browser requestes
 ~~~~~
 
 ## Authors
 
-Claus-Michael Schlesinger: 
+Claus-Michael Schlesinger:
 <claus-michael.schlesinger@ilw.uni-stuttgart.de>
 
-Michael Werner Czechowski: 
+Michael Werner Czechowski:
 <mail@dailysh.it>
 
 ## License

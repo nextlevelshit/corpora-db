@@ -18,7 +18,7 @@ class CreateAuthorsTable extends Migration
 
             $table->string('name');
             // birth year of the author
-            $table->integer('year');
+            $table->integer('year')->nullable();
 
             $table->timestamps();
         });
