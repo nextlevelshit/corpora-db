@@ -16,13 +16,18 @@ class CreateTextsTable extends Migration
     Schema::create('texts', function (Blueprint $table) {
       $table->increments('id');
 
-      // foreign key constrain on entry
+      // foreign key constraint on entry
       $table->integer('entry_id')->unsigned();
       $table->foreign('entry_id')
             ->references('id')->on('entries')
             ->onDelete('cascade');
       // path to text files
       $table->string('path');
+      // foreign key constraint on states
+      $table->integer('state_id')->unsigned();
+      $table->foreign('state_id')
+            ->references('id')->on('states')
+            ->onDelete('cascade');
 
       $table->timestamps();
     });
