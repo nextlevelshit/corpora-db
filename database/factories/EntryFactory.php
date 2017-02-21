@@ -6,7 +6,7 @@
 |--------------------------------------------------------------------------
 |
 | Defining an automatically seeding factory for a entry model. Foreign keys
-| fave to be delivered from existing data, otherwise a factory will be
+| have to be delivered from existing data, otherwise a seeder will be
 | started.
 |
 */
@@ -21,7 +21,9 @@ $factory->define(Entry::class, function (Generator $faker) {
         'title' => $faker->sentence,
         'identifier' => $faker->word,
         'year' => $faker->numberBetween(0, 2000),
+        // TODO: if no author id delivered, seed database with minimum one author
         'author_id' => DB::table('authors')->inRandomOrder()->first()->id,
+        // TODO: if no genre id delivered, seed database with minimum one genre
         'genre_id' => DB::table('genres')->inRandomOrder()->first()->id
     ];
 });
