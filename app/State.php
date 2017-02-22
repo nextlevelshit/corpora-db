@@ -3,14 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Text;
 
-class States extends Model
+class State extends Model
 {
     protected $fillable = array('title', 'description');
 
     public function texts()
     {
-        // return $this->belongsToMany('Text');
+        return $this->belongsToMany('App\Text');
     }
 }

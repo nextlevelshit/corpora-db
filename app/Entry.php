@@ -17,4 +17,9 @@ class Entry extends Model
     {
         return $this->belongsTo('App\Genre');
     }
+
+    public function texts()
+    {
+        return $this->hasMany('App\Text');
+    }
 }

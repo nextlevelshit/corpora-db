@@ -58,6 +58,38 @@
                 </div>
             </div>
         </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="column">
+                <table class="stack">
+                    <tr>
+                        <th colspan="3" class="text-left">
+                            Hinterlegter Texte
+                        </th>
+                    </tr>
+                    @forelse ($entry->texts as $text)
+                        <tr>
+                            <td>
+                                {{-- {{ $text->state->title }} --}}
+                            </td>
+                            <td>
+                                {{ $text->path }}
+                            </td>
+                            <td>
+                                -
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td>
+                                Keine Texte hinterlegt.
+                            </td>
+                        </tr>
+                    @endforelse
+                </table>
+            </div>
+        </div>
     </div>
 
     @include('_components.back')
