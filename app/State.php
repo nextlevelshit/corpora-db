@@ -10,6 +10,6 @@ class State extends Model
 
     public function texts()
     {
-        return $this->belongsToMany('App\Text');
+        return $this->hasMany('App\Text');
     }
 }

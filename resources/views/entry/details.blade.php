@@ -74,13 +74,15 @@
                     @forelse ($entry->texts as $text)
                         <tr>
                             <td>
-                                {{-- {{ $text->state->title }} --}}
+                                {{ $text->state->title }}
                             </td>
                             <td>
-                                {{ $text->path }}
+                                <a href="{{ $text->path }}" target="_blank">
+                                    {{ $text->path }}
+                                </a>
                             </td>
                             <td>
-                                -
+                                {{ $text->updated_at }}
                             </td>
                         </tr>
                     @empty
