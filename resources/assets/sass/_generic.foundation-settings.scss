@@ -50,16 +50,16 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #66CDAA, //#1779ba,
+  primary: #55AB8E, //#1779ba,
   secondary: #9A3D5C, //#767676,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
 );
-$light-gray: #e6e6e6;
-$medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
-$black: #5C6567;
+$light-gray: scale-color($corpora-gray-base, $lightness: 62%); //#e6e6e6;
+$medium-gray: scale-color($corpora-gray-base, $lightness: 56%); //#cacaca;
+$dark-gray: scale-color($corpora-gray-base, $lightness: 20%); //#8a8a8a;
+$black: scale-color($corpora-gray-base, $lightness: -28%); //#5C6567;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;

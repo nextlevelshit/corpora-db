@@ -5,7 +5,11 @@
 * Global variables, site-wide settings, config switches, etc.
 */
 // Variables
-$dir-foundation: 'node_modules/foundation-sites/scss/';
+$corpora-foundation-dir: 'node_modules/foundation-sites/scss/';
+$corpora-transition: all 160ms;
+$corpora-gray-base: #3E4345;
+$corpora-sidebar-background: $corpora-gray-base;
+
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
@@ -54,3 +58,5 @@ $dir-foundation: 'node_modules/foundation-sites/scss/';
 *
 * Discrete, complete chunks of UI (e.g. .carousel {}).
 */
+
+@import 'overrides.off-canvas';

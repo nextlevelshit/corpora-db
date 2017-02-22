@@ -1,38 +1,48 @@
 // Navigation component in sidebar
 
 .navigation {
-  $this-padding: 1rem;
+    $this-padding: 1rem;
 
-  padding: 1rem 0;
+    padding: 1rem 0;
 
-  &-header {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    font-weight: 700;
-    color: $medium-gray;
-
-    padding: 0 $this-padding;
-  }
-
-  &-list {
-    margin: 0;
-    list-style: none;
-
-    &-item {
-
-      &-link {
-        display: block;
-        color: $dark-gray;
-        padding: 1rem $this-padding;
-        background: $medium-gray;
+    &-header {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
         font-weight: 700;
-
-        &:hover,
-        &:focus {
-
-        }
-      }
+        color: $white;
+        padding: 0 $this-padding 2rem;
     }
-  }
+
+    &-list {
+        margin: 0;
+        list-style: none;
+
+        &-item {
+
+            &-title {
+                color: lighten($light-gray, 40%);
+                text-transform: uppercase;
+                letter-spacing: 0.1rem;
+                font-weight: 700;
+                font-size: $small-font-size;
+                padding: 2rem $this-padding 0.2rem;
+            }
+
+            &-link {
+                display: block;
+                color: $light-gray;
+                padding: 0.4rem $this-padding;
+                // background: $medium-gray;
+                font-weight: 700;
+                transition: all 160ms;
+
+                &:hover,
+                &:focus {
+                    background: darken($corpora-sidebar-background, 8%);
+                    color: white;
+                }
+            }
+        }
+    }
 }
