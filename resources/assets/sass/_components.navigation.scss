@@ -9,9 +9,15 @@
         font-size: 1rem;
         text-transform: uppercase;
         letter-spacing: 0.2rem;
-        font-weight: 700;
+        font-weight: 900;
         color: $white;
         padding: 0 $this-padding 2rem;
+
+        span {
+            background: linear-gradient($secondary-color, $primary-color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     }
 
     &-list {

@@ -9,24 +9,20 @@ $corpora-foundation-dir: 'node_modules/foundation-sites/scss/';
 $corpora-transition: all 160ms;
 $corpora-gray-base: #3E4345;
 $corpora-sidebar-background: $corpora-gray-base;
-
-
+$corpora-header-font-family: 'Playfair Display';
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900');
-
 /*----------------------------------------------------------------
 * Generic
 *----------------------------------------------------------------
 *
 * Low-specificity, far-reaching rulesets (e.g. resets).
 */
-
 // Load Foundation Sites
 @import 'node_modules/foundation-sites/scss/foundation';
 @import 'generic.foundation-settings';
 @import 'generic.foundation-includes';
-
 /*----------------------------------------------------------------
 * Base
 *----------------------------------------------------------------
@@ -47,16 +43,13 @@ $corpora-sidebar-background: $corpora-gray-base;
 *
 * Discrete, complete chunks of UI (e.g. .carousel {}).
 */
-
 @import 'components.back';
 @import 'components.entry-details';
 @import 'components.navigation';
-
 /*----------------------------------------------------------------
 * Overrides
 *----------------------------------------------------------------
 *
 * Discrete, complete chunks of UI (e.g. .carousel {}).
 */
-
 @import 'overrides.off-canvas';

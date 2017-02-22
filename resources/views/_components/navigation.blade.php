@@ -1,5 +1,5 @@
 <nav class="navigation">
-    <h5 class="navigation-header">DB Corpora</h5>
+    <div class="navigation-header">Corpora<span>DB</span></div>
     <!-- Main Navigation -->
     <ul class="navigation-list">
         <li class="navigation-list-item">

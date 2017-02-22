@@ -8,9 +8,9 @@
             <table class="stack">
                 @if ($entries->count())
                     <tr>
-                        <th>Titel</th>
-                        <th>Gattung</th>
-                        <th>Änderungsdatum</th>
+                        <th class="text-left">Titel</th>
+                        <th class="text-left">Gattung</th>
+                        <th class="text-left">Änderungsdatum</th>
                     </tr>
                 @endif
 

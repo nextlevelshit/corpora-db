@@ -1,3 +1,7 @@
 .off-canvas {
-    background: $corpora-sidebar-background;    
+    background: $corpora-sidebar-background;
+
+    &-content {
+        margin: 2rem 0;
+    }
 }
