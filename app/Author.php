@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Entry;
 
 class Author extends Model
 {
@@ -11,6 +10,6 @@ class Author extends Model
 
     public function entries()
     {
-        return $this->belongsToMany('Entry');
+        return $this->hasMany('App\Entry');
     }
 }
