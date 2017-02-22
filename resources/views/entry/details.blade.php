@@ -57,6 +57,9 @@
                     Identifier
                 </div>
             </div>
+            <div class="column">
+                <a href="{{ route('entry.edit', $entry->id) }}" class="button hollow float-right">Eintrag bearbeiten</a>
+            </div>
         </div>
         <br>
         <br>
@@ -88,6 +91,7 @@
                         </tr>
                     @endforelse
                 </table>
+                <a href="#" class="button hollow float-right">Texte importieren</a>
             </div>
         </div>
     </div>

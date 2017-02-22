@@ -1,5 +1,12 @@
 .back {
+    margin: 1rem 0;
     &-link {
-        display: block;
+        // display: block;
+        opacity: 0.5;
+
+        &:hover,
+        &:focus {
+            opacity: 1;
+        }
     }
 }

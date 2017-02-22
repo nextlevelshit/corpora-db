@@ -9,7 +9,7 @@
             <a class="navigation-list-item-link" href="{{ route('search') }}">Suche</a>
         </li>
         <li class="navigation-list-item">
-            <a class="navigation-list-item-link" href="{{ route('entry.create') }}">Neuer Eintrag</a>
+            <a class="navigation-list-item-link" href="{{ route('entry.add') }}">Neuer Eintrag</a>
         </li>
     </ul>
     <!-- Last Activities -->

@@ -41,12 +41,10 @@ Route::post('search', 'SearchController@showResults');
 | Display details of entry and show editing and adding options.
 |
 */
-Route::get('entry/{numId}', 'EntryController@showDetails')->name('entry.details');
 
-Route::get('entry', 'EntryController@create')->name('entry.create');
-
-Route::patch('entry/{numId}', 'EntryController@edit');
-
+Route::get('entry/{numId}/edit', 'EntryController@edit')->name('entry.edit');
+Route::get('entry/{numId}', 'EntryController@details')->name('entry.details');
+Route::get('entry', 'EntryController@add')->name('entry.add');
 Route::put('entry', 'EntryController@save');
 /*
 |--------------------------------------------------------------------------
