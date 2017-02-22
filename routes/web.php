@@ -35,19 +35,28 @@ Route::get('search', 'SearchController@showIndex')->name('search');
 Route::post('search', 'SearchController@showResults');
 /*
 |--------------------------------------------------------------------------
-| Details
+| Entry Details and Forms
 |--------------------------------------------------------------------------
 |
 | Display details of entry and show editing and adding options.
 |
 */
-Route::get('entry/{numId}', 'EntryController@showDetails');
+Route::get('entry/{numId}', 'EntryController@showDetails')->name('entry.details');
 
 Route::get('entry', 'EntryController@create')->name('entry.create');
 
 Route::patch('entry/{numId}', 'EntryController@edit');
 
 Route::put('entry', 'EntryController@save');
+/*
+|--------------------------------------------------------------------------
+| Author Details and Forms
+|--------------------------------------------------------------------------
+|
+| Display details of entry and show editing and adding options.
+|
+*/
+Route::get('author/{numId}', 'AuthorController@showDetails')->name('author.details');
 /*
 |--------------------------------------------------------------------------
 | Download

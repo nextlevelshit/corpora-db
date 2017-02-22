@@ -1,0 +1,17 @@
+.entry-details {
+    margin: 4rem 0;
+
+
+    &-value {
+        margin-top: 1rem;
+        padding: 0.2rem 0.4rem;
+        font-weight: 700;
+    }
+
+    &-key {
+        border-top: 1px solid $light-gray;
+        padding: 0.2rem 0.4rem;
+        color: $dark-gray;
+        font-size: $small-font-size;
+    }
+}

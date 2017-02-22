@@ -17,11 +17,13 @@
                 @forelse ($entries as $entry)
                     <tr>
                         <td>
-                            {{ $entry->title }}
+                            <a href="{{ route('entry.details', $entry->id) }}">
+                                {{ $entry->title }}
 
-                            @if ($entry->identifier)
-                                <sup>[{{ $entry->identifier }}]</sup>
-                            @endif
+                                @if ($entry->identifier)
+                                    <sup>[{{ $entry->identifier }}]</sup>
+                                @endif
+                            </a>
                         </td>
 
                         <td>

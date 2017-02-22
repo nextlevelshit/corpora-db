@@ -44,6 +44,8 @@ $dir-foundation: 'node_modules/foundation-sites/scss/';
 * Discrete, complete chunks of UI (e.g. .carousel {}).
 */
 
+@import 'components.back';
+@import 'components.entry-details';
 @import 'components.navigation';
 
 /*----------------------------------------------------------------

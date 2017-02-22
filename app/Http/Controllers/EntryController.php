@@ -8,6 +8,13 @@ use App\Entry;
 
 class EntryController extends Controller
 {
+    public function showDetails($id)
+    {
+        $entry = Entry::findOrFail($id);
+        
+        return view('entry.details')->with('entry', $entry);
+    }
+
     public function create()
     {
         return view('entry.create');
