@@ -16,11 +16,6 @@ class AuthorController extends Controller
 
     public function search($searchTerm)
     {
-        $response = array();
-
-        $response['name'] = $searchTerm;
-        $response['id'] = 1000;
-
-        return array($response);
+        return array(Author::search($searchTerm)->get());
     }
 }

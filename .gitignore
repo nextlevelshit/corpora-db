@@ -10,3 +10,4 @@ Homestead.json
 Homestead.yaml
 .env
 *.log
+config/scout.php
