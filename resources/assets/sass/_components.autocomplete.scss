@@ -4,6 +4,8 @@
     position: relative;
 
     &-list {
+        z-index: 1;
+
         &.active {
             display: block;
         }

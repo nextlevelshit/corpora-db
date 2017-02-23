@@ -10,7 +10,7 @@
     </div>
 
     <form action="/entry" method="post">
-        <input type="hidden" name="_method" value="PUT">
+        {{-- <input type="hidden" name="_method" value="PUT"> --}}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <div class="row">
@@ -24,7 +24,7 @@
         </div>
         <div class="row">
             <div class="medium-6 column">
-                <autocomplete title="Autor" name="authors" placeholder="Mehrere Eingaben mit Kommata trennen"></autocomplete>
+                <autocomplete title="Autor" name="author" table="authors" placeholder="Mehrere Eingaben mit Kommata trennen"></autocomplete>
             </div>
             <div class="medium-6 column">
                 <label>Erscheinungsjahr
@@ -35,10 +35,20 @@
             </div>
         </div>
         <div class="row">
-            <div class="medium-12 column">
-                <label>
-                    What books did you read over summer break?
-                    <textarea placeholder="None"></textarea>
+            <div class="medium-6 column">
+                <label>Gattung
+                    <select name="genre_id">
+                        @foreach ($genres as $genre)
+                            <option value="{{ $genre->id }}">{{ $genre->title }}</option>
+                        @endforeach
+                    </select>
+                </label>
+            </div>
+            <div class="medium-6 column">
+                <label>Identifier
+                    <input type="text"
+                    name="identifier"
+                    placeholder="Text eindeutig markieren">
                 </label>
             </div>
         </div>

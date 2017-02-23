@@ -45,7 +45,7 @@ Route::post('search', 'SearchController@showResults');
 Route::get('entry/{numId}/edit', 'EntryController@edit')->name('entry.edit');
 Route::get('entry/{numId}', 'EntryController@details')->name('entry.details');
 Route::get('entry', 'EntryController@add')->name('entry.add');
-Route::put('entry', 'EntryController@save');
+Route::post('entry', 'EntryController@save');
 /*
 |--------------------------------------------------------------------------
 | Author Details and Forms

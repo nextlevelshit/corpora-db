@@ -5,7 +5,7 @@
         v-model="id"
         v-bind:name="name + '_id'" value="">
 
-        <input type="text" class="autocomplete-input"
+        <input type="text" class="autocomplete-input" autocomplete="off"
         v-model="term"
         v-bind:name="name"
         v-bind:placeholder="placeholder"
@@ -34,10 +34,10 @@
                 items: []
             }
         },
-        props: ['title', 'name', 'placeholder'],
+        props: ['title', 'name', 'table', 'placeholder'],
         methods: {
             triggerAutocomplete: function(event) {
-                var url = '/api/' + this.name + '/' + this.term
+                var url = '/api/' + this.table + '/' + this.term
 
                 this.$http.get(url).then(function(response) {
                     this.items = response.body[0];

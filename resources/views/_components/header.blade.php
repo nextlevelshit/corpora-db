@@ -33,7 +33,7 @@
                         @slot('title')
                             {{ $notification->title }}
                         @endslot
-                        {{ $notification->content }}
+                        {!! $notification->content !!}
                     @endcomponent
                 @endif
 
