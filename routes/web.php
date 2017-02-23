@@ -54,7 +54,7 @@ Route::put('entry', 'EntryController@save');
 | Display details of entry and show editing and adding options.
 |
 */
-Route::get('author/{numId}', 'AuthorController@showDetails')->name('author.details');
+Route::get('author/{numId}', 'AuthorController@details')->name('author.details');
 /*
 |--------------------------------------------------------------------------
 | Download

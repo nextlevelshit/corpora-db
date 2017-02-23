@@ -7,10 +7,20 @@ use App\Author;
 
 class AuthorController extends Controller
 {
-    public function showDetails($id)
+    public function details($id)
     {
         $author = Author::findOrFail($id);
 
         return view('author.details')->with('author', $author);
+    }
+
+    public function search($searchTerm)
+    {
+        $response = array();
+
+        $response['name'] = $searchTerm;
+        $response['id'] = 1000;
+
+        return array($response);
     }
 }

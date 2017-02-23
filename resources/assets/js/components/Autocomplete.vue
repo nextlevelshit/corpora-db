@@ -11,8 +11,8 @@
         v-bind:class="{ 'active': isActive }">
 
             <li class="autocomplete-list-item"
-            v-for="item in items"
-            v-on:click="selectFromAutocomplete">
+                v-for="item in items"
+                v-on:click="selectFromAutocomplete">
                 {{ item }}
             </li>
         </ul>
