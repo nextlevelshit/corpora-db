@@ -10,6 +10,6 @@ class Genre extends Model
 
     public function entries()
     {
-        // $this->belongsToMany('Entry');
+        $this->belongsToMany('Entry');
     }
 }

@@ -43,6 +43,7 @@ $corpora-header-font-family: 'Playfair Display';
 *
 * Discrete, complete chunks of UI (e.g. .carousel {}).
 */
+@import 'components.autocomplete';
 @import 'components.back';
 @import 'components.entry-details';
 @import 'components.navigation';

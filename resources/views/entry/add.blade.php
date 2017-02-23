@@ -13,8 +13,6 @@
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-        <example></example>
-
         <div class="row">
             <div class="medium-12 column">
                 <label>Titel
@@ -26,11 +24,7 @@
         </div>
         <div class="row">
             <div class="medium-6 column">
-                <label>Autor
-                    <input type="text"
-                    name="authors"
-                    placeholder="Mehrere Eingaben mit Kommata trennen">
-                </label>
+                <autocomplete title="Autor" name="authors" placeholder="Mehrere Eingaben mit Kommata trennen"></autocomplete>
             </div>
             <div class="medium-6 column">
                 <label>Erscheinungsjahr

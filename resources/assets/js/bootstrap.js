@@ -14,6 +14,7 @@ window.$ = window.jQuery = require('jquery');
  */
 
 window.Vue = require('vue');
+window.VueResource = require('vue-resource');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -21,12 +22,12 @@ window.Vue = require('vue');
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-// window.axios = require('axios');
-//
-// window.axios.defaults.headers.common = {
-//     'X-CSRF-TOKEN': window.Laravel.csrfToken,
-//     'X-Requested-With': 'XMLHttpRequest'
-// };
+window.axios = require('axios');
+
+window.axios.defaults.headers.common = {
+    'X-CSRF-TOKEN': window.Laravel.csrfToken,
+    'X-Requested-With': 'XMLHttpRequest'
+};
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
