@@ -7,6 +7,8 @@ use App\Notification;
 use App\Entry;
 use App\Author;
 use App\Genre;
+use App\Http\Requests;
+use Requests\CreateEntryRequest;
 
 class EntryController extends Controller
 {
@@ -35,7 +37,7 @@ class EntryController extends Controller
     }
 
     // save added or edited entry
-    public function save(Request $request)
+    public function save(Requests\CreateEntryRequest $request)
     {
         $input = $request->all();
 

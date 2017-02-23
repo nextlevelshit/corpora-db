@@ -28,12 +28,35 @@
                     </div>
                 </div>
 
-                @if ( ! empty($notification) )
+                @if ( !empty($notification) )
                     @component('_components.notification')
                         @slot('title')
                             {{ $notification->title }}
                         @endslot
+
+                        @slot('class')
+                            success
+                        @endslot
+
                         {!! $notification->content !!}
+                    @endcomponent
+                @endif
+
+                @if ( $errors->any() )
+                    @component('_components.notification')
+                        @slot('title')
+                            Es ist ein Fehler aufgetreten
+                        @endslot
+
+                        @slot('class')
+                            alert
+                        @endslot
+
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     @endcomponent
                 @endif
 

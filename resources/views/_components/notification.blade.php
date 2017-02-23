@@ -1,4 +1,4 @@
-<div class="callout success">
+<div class="callout {{ $class }}">
   <div class="row">
     <div class="column">
       <h3>{{ $title }}</h3>
