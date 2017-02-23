@@ -11,8 +11,9 @@
         v-bind:class="{ 'active': isActive }">
 
             <li class="autocomplete-list-item"
-            v-for="author in authors">
-                {{ author }}
+            v-for="item in items"
+            v-on:click="selectFromAutocomplete">
+                {{ item }}
             </li>
         </ul>
     </label>
@@ -24,7 +25,7 @@
             return {
                 isActive: false,
                 term: null,
-                authors: []
+                items: ['Schiller', 'Goethe']
             }
         },
         props: ['title', 'name', 'placeholder'],
@@ -32,12 +33,16 @@
             triggerAutocomplete: function(event) {
                 console.log(this.term);
 
-                this.$http.get('/api/authors', function(authors) {
-                    this.$set('authors', authors);
+                this.$http.get('/api/authors', function(items) {
+                    this.$set('items', items);
                 });
 
                 // display autocomplete suggestions
                 this.isActive = true;
+            },
+
+            selectFromAutocomplete: function(event) {
+                this.isActive = false;
             }
         }
     }
