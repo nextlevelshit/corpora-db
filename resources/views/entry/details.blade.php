@@ -33,7 +33,11 @@
             </div>
             <div class="column medium-6">
                 <div class="entry-details-value">
-                    {{ $entry->year }}
+                    @if ($entry->year)
+                        {{ $entry->year }}
+                    @else
+                        -
+                    @endif
                 </div>
                 <div class="entry-details-key">
                     Erscheinungsjahr
@@ -43,7 +47,11 @@
         <div class="row">
             <div class="column medium-6">
                 <div class="entry-details-value">
-                    {{ $entry->genre->title }}
+                    @if ($entry->genre)
+                        {{ $entry->genre->title }}
+                    @else
+                        -
+                    @endif
                 </div>
                 <div class="entry-details-key">
                     Gattung
@@ -51,7 +59,11 @@
             </div>
             <div class="column medium-6">
                 <div class="entry-details-value">
-                    {{ $entry->identifier }}
+                    @if ($entry->identifier)
+                        {{ $entry->identifier }}
+                    @else
+                        -
+                    @endif
                 </div>
                 <div class="entry-details-key">
                     Identifier

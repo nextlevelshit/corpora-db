@@ -40,14 +40,14 @@ class EntryController extends Controller
         $input = $request->all();
 
         // check if author already exists, otherwise create new one
-        if (empty($request->input('author_id'))) {
+        if (empty($request->input('author_id')) && !empty($request->input('author'))) {
             try {
                 $author = Author::create(['name' => $input['author']]);
                 // add author id to entry model
                 $input['author_id'] = $author->id;
             } catch(Exception $e) {
                 // save request data if error occured and fill form with input data
-                $request->flashExcept(['authors_id', 'author']);
+                $request->flashExcept(['author_id', 'author']);
                 // add notifcation including exception message
                 $notification = new Notification('Eintrag konnte nicht gespeichert werden', 'Sie haben versucht einen neuen Autor hinzuzufügen. Bitte geben Sie folgende Nachricht an Ihren Administator weiter: <blockquote>'.$e->getMessage().'</blockquote>');
             }
