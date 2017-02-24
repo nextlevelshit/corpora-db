@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Entry;
+use App\State;
+use App\Http\Requests;
 
 class TextController extends Controller
 {
@@ -21,9 +24,12 @@ class TextController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $entry = Entry::findOrFail($id);
+        $states = State::all();
+
+        return view('text.create', compact('entry', 'states'));
     }
 
     /**
@@ -32,9 +38,13 @@ class TextController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\TextRequest $request)
     {
-        //
+        $entry = Entry::findOrFail($id);
+
+        dd($entry);
+
+        $input = $request->all();
     }
 
     /**
@@ -66,7 +76,7 @@ class TextController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\TextRequest $request, $id)
     {
         //
     }

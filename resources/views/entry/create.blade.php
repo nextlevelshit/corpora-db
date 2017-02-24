@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <form action="{{ route('entry.strore') }}" method="post">
+    <form action="{{ route('entry.store') }}" method="post">
         {{-- <input type="hidden" name="_method" value="PUT"> --}}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
