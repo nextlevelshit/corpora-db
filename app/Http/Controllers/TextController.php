@@ -29,8 +29,6 @@ class TextController extends Controller
     */
     public function create($id)
     {
-        dd('test');
-
         $entry = Entry::findOrFail($id);
         $states = State::all();
 

@@ -41,7 +41,7 @@
                 <label>Gattung
                     <select name="genre_id">
                         @foreach ($genres as $genre)
-                            <option value="{{ $genre->id }}" @if ($genre->id === old('genre_id')) @endif>{{ $genre->title }}</option>
+                            <option value="{{ $genre->id }}" @if ($genre->id == old('genre_id')) selected @endif>{{ $genre->title }}</option>
                         @endforeach
                     </select>
                 </label>

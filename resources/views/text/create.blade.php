@@ -25,7 +25,7 @@
                 <label>Zustand
                     <select name="state_id">
                         @foreach ($states as $state)
-                            <option value="{{ $state->id }}" @if ($state->id === old('state_id')) @endif>{{ $state->title }}</option>
+                            <option value="{{ $state->id }}" @if ($state->id == old('state_id')) selected @endif>{{ $state->title }}</option>
                         @endforeach
                     </select>
                 </label>
