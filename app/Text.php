@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Text extends Model
 {
-    protected $fillable = array('path', 'content', 'state_id');
+    protected $fillable = array('path', 'content', 'state_id', 'entry_id');
 
     public function state()
     {

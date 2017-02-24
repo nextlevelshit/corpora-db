@@ -14,7 +14,9 @@
         </div>
     </div>
 
-    <form action="{{ route('entry.text.store', $entry->id) }}" method="post">
+    <form action="{{ route('entry.text.store', $entry->id) }}"
+          method="post"
+          enctype="multipart/form-data">
         {{-- <input type="hidden" name="_method" value="PUT"> --}}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -26,6 +28,13 @@
                             <option value="{{ $state->id }}" @if ($state->id === old('state_id')) @endif>{{ $state->title }}</option>
                         @endforeach
                     </select>
+                </label>
+            </div>
+            <div class="medium-6 column">
+                <label>Datei hochladen
+                   <input type="file"
+                          class=""
+                          name="path">
                 </label>
             </div>
         </div>

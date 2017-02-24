@@ -89,8 +89,8 @@
                                 {{ $text->state->title }}
                             </td>
                             <td>
-                                <a href="{{ $text->path }}" target="_blank">
-                                    {{ $text->path }}
+                                <a href="{{ asset($text->path) }}" target="_blank">
+                                    {{ asset($text->path) }}
                                 </a>
                             </td>
                             <td>

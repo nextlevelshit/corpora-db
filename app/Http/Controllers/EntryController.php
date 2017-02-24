@@ -74,7 +74,7 @@ class EntryController extends Controller
             // save request data if error occured and fill form with input data
             $request->flashExcept(['author_id', 'author']);
             // add notifcation including exception message
-            $notification = new Notification('Eintrag konnte nicht gespeichert werden', 'Bitte geben Sie folgende Nachricht an Ihren Administrator weiter: '.$e->getMessage().'</blockquote>');
+            $notification = new Notification('Eintrag konnte nicht gespeichert werden', 'Bitte geben Sie folgende Nachricht an Ihren Administrator weiter: <blockquote>'.$e->getMessage().'</blockquote>');
         }
 
         $genres = Genre::orderBy('title')->get();

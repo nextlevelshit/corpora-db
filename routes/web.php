@@ -72,5 +72,4 @@ Route::resource('entry.text', 'TextController', ['except' => [
 |
 */
 Route::get('download/{numId}', 'DownloadController@downloadSingle');
-
 Route::post('download', 'DownloadController@downloadMultiple');
