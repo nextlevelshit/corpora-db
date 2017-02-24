@@ -1,0 +1,30 @@
+.search {
+    &-list {
+        @include margin(small);
+
+        list-style-type: none;
+        margin-left: 0;
+
+        &-item {
+            padding: 0 0 2rem;
+
+            &-result {
+                padding: 0;
+                margin: 0;
+            }
+
+            &-info {
+                display: block;
+                font-size: $small-font-size;
+                color: $dark-gray;
+                list-style-type: none;
+                margin: 0;
+
+                &-item {
+                    display: inline-block;
+                    padding: 0 1rem 0 0;
+                }
+            }
+        }
+    }
+}
