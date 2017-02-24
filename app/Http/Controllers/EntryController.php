@@ -69,7 +69,8 @@ class EntryController extends Controller
 
         try {
             $entry = Entry::create($input);
-            $notification = new Notification('Eintrag erfolgreich erstellt', 'Ihr neuer Eintrag ist über folgende Adresse erreichbar: <a href="'.route('entry.details', $entry->id).'">'.route('entry.details', $entry->id).'</a>');
+            $link = route('entry.show', $entry->id);
+            $notification = new Notification('Eintrag erfolgreich erstellt', 'Ihr neuer Eintrag ist über folgende Adresse erreichbar: <a href="'.$link.'">'.$link.'</a>');
         } catch(Exception $e) {
             // save request data if error occured and fill form with input data
             $request->flashExcept(['author_id', 'author']);

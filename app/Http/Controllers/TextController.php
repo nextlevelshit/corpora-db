@@ -29,6 +29,8 @@ class TextController extends Controller
     */
     public function create($id)
     {
+        dd('test');
+
         $entry = Entry::findOrFail($id);
         $states = State::all();
 
@@ -71,6 +73,7 @@ class TextController extends Controller
             $request->flash();
             // add notifcation including exception message
             $notification = new Notification('Text konnte nicht importiert werden', 'Bitte geben Sie folgende Nachricht an Ihren Administrator weiter: <blockquote>'.$e->getMessage().'</blockquote>');
+
         }
 
         // redirect(route('entry.text.create', $id));
