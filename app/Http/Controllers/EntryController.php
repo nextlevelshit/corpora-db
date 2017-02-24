@@ -69,7 +69,7 @@ class EntryController extends Controller
 
         try {
             $entry = Entry::create($input);
-            $link = route('entry.show', $entry->id);
+            $link = route('entry.s', $entry->id);
             $notification = new Notification('Eintrag erfolgreich erstellt', 'Ihr neuer Eintrag ist über folgende Adresse erreichbar: <a href="'.$link.'">'.$link.'</a>');
         } catch(Exception $e) {
             // save request data if error occured and fill form with input data
@@ -105,8 +105,9 @@ class EntryController extends Controller
     public function edit($id)
     {
         $entry = Entry::findOrFail($id);
+        $genres = Genre::orderBy('title')->get();
 
-        return view('entry.edit', compact('entry'));
+        return view('entry.edit', compact('entry', 'genres'));
     }
 
     /**

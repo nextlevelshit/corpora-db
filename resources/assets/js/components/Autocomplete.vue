@@ -6,7 +6,7 @@
                v-bind:name="name + '_id'" value="">
 
         <input type="text" class="autocomplete-input" autocomplete="off"
-               v-model="term"
+               v-model="value"
                v-bind:name="name"
                v-bind:placeholder="placeholder"
                v-on:keyup="triggerAutocomplete">
@@ -22,7 +22,7 @@
         </ul>
 
         <div class="autocomplete-backdrop"
-             v-if="items.length"  
+             v-if="items.length"
              v-on:click="resetAutocomplete"></div>
     </label>
 </template>
@@ -31,17 +31,15 @@
     export default {
         data: function () {
             return {
-                term: null,
-                id: null,
                 items: []
             }
         },
-        props: ['title', 'name', 'table', 'placeholder'],
+        props: ['title', 'name', 'table', 'placeholder', 'id', 'value'],
         methods: {
             triggerAutocomplete: function(event) {
                 this.id = null;
 
-                var url = '/api/' + this.table + '/' + this.term
+                var url = '/api/' + this.table + '/' + this.value
 
                 this.$http.get(url).then(function(response) {
                     this.items = response.body[0];
@@ -53,7 +51,7 @@
             },
 
             selectFromAutocomplete: function(item) {
-                this.term = item.name;
+                this.value = item.name;
                 this.id = item.id;
                 this.resetAutocomplete();
             }

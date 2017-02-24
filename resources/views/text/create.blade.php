@@ -41,9 +41,7 @@
         <div class="row">
             <div class="medium-12 column">
                 <label>Kommentar
-                   <textarea name="comment">
-                       {{ old('comment') }}
-                   </textarea>
+                   <textarea name="comment">{{ old('comment') }}</textarea>
                 </label>
             </div>
         </div>
