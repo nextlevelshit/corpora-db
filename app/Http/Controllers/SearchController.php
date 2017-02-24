@@ -3,16 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Notification;
+use App\Entry;
+use App\Author;
+use App\Genre;
+use App\Http\Requests;
 
 class SearchController extends Controller
 {
-    public function showIndex()
+    public function index()
     {
         return view('search.index');
     }
 
-    public function showResults($data)
+    public function results(Request $request)
     {
-        return view('search.results');
+        $search = $request->all();
+
+        // dd($search[]);
+
+        return view('search.results', compact('search'));
     }
 }

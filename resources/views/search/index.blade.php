@@ -1,11 +1,20 @@
 @extends('master')
 
-@section('title', 'Suchmaske')
+@section('title', 'Suche')
 
 @section('content')
-  <div class="row">
-    <div class="column">  
-      <p>Das ist die Suchmaske</p>
+    <div class="row">
+        <div class="column">
+            <p>Das ist die Suchmaske</p>
+            <form action="{{ route('search.results') }}" method="post">
+                {{ csrf_field() }}
+                <div class="input-group">
+                    <input class="input-group-field" name="term" type="text">
+                    <div class="input-group-button">
+                        <input type="submit" class="button" value="Suchen">
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
 @endsection

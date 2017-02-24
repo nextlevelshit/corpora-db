@@ -6,7 +6,7 @@
             <a class="navigation-list-item-link" href="{{ route('entry.index') }}">Übersicht</a>
         </li>
         <li class="navigation-list-item">
-            <a class="navigation-list-item-link" href="{{ route('search') }}">Suche</a>
+            <a class="navigation-list-item-link" href="{{ route('search.index') }}">Suche</a>
         </li>
         <li class="navigation-list-item">
             <a class="navigation-list-item-link" href="{{ route('entry.create') }}">Neuer Eintrag</a>
@@ -21,13 +21,12 @@
                 </li>
                 @foreach ($latestSearchRequests as $request)
                     <li class="navigation-list-item">
-                        <a class="navigation-list-item-link"
-                           href="{{ route('export.show', $request->id) }}">
-                           {{ str_limit($request->title, $limit=40, $end='...') }}
-                       </a>
+                        <a class="navigation-list-item-link" href="{{ route('export.show', $request->id) }}">
+                            {{ str_limit($request->title, $limit=40, $end='...') }}
+                        </a>
                     </li>
-                </ul>
-            @endforeach
+                @endforeach
+            </ul>
         @endif
     </ul>
     {{-- Latest Activities --}}
@@ -39,13 +38,12 @@
                 </li>
                 @foreach ($latestExports as $export)
                     <li class="navigation-list-item">
-                        <a class="navigation-list-item-link"
-                           href="{{ route('export.show', $export->id) }}">
-                           {{ str_limit($export->title, $limit=40, $end='...') }}
-                       </a>
+                        <a class="navigation-list-item-link" href="{{ route('export.show', $export->id) }}">
+                            {{ str_limit($export->title, $limit=40, $end='...') }}
+                        </a>
                     </li>
-                </ul>
-            @endforeach
+                @endforeach
+            </ul>
         @endif
     </ul>
     {{-- Latest Entries  --}}
@@ -56,12 +54,11 @@
             </li>
             @foreach ($latestEntries as $entry)
                 <li class="navigation-list-item">
-                    <a class="navigation-list-item-link"
-                       href="{{ route('entry.show', $entry->id) }}">
-                       {{ str_limit($entry->title, $limit=40, $end='...') }}
-                   </a>
+                    <a class="navigation-list-item-link" href="{{ route('entry.show', $entry->id) }}">
+                        {{ str_limit($entry->title, $limit=40, $end='...') }}
+                    </a>
                 </li>
-            </ul>
-        @endforeach
+            @endforeach
+        </ul>
     @endif
 </nav>

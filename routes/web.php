@@ -32,8 +32,8 @@ Route::get('/', function () {
 | enquiry, load result page.
 |
 */
-Route::get('search', 'SearchController@showIndex')->name('search');
-Route::post('search', 'SearchController@showResults');
+Route::get('search', 'SearchController@index')->name('search.index');
+Route::post('search', 'SearchController@results')->name('search.results');
 /*
 |--------------------------------------------------------------------------
 | Entry Details and Forms
