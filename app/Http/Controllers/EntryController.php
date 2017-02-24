@@ -13,9 +13,13 @@ use Requests\CreateEntryRequest;
 class EntryController extends Controller
 {
     // add new entry
+
+
     public function add()
     {
         $genres = Genre::orderBy('title')->get();
+
+        // TODO: add author to form after validation fail
 
         return view('entry.add', compact('genres'));
     }
