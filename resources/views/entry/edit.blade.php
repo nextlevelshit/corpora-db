@@ -11,8 +11,9 @@
         </div>
     </div>
 
-    <form action="{{ route('entry.store') }}" method="post">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <form action="{{ route('entry.update', $entry->id) }}" method="post">
+        {{ method_field('PUT') }}
+        {{ csrf_field() }}
 
         <div class="row">
             <div class="medium-12 column">
@@ -64,8 +65,7 @@
         </div>
         <div class="row">
             <div class="medium-6 column">
-                <a href="#" class="hollow button">
-                    {{-- TODO: add functionality to abort button --}}
+                <a href="{{ route('entry.show', $entry->id) }}" class="hollow button">
                     Abbrechen
                 </a>
             </div>

@@ -37,7 +37,7 @@
                     @forelse ($author->entries as $entry)
                         <tr>
                             <td>
-                                <a href="{{ route('entry.details', $entry->id) }}">
+                                <a href="{{ route('entry.show', $entry->id) }}">
                                     {{ $entry->title }}
 
                                     @if ($entry->identifier)

@@ -8,7 +8,7 @@ use App\Entry;
 use App\Author;
 use App\Genre;
 use App\Http\Requests;
-use Requests\CreateEntryRequest;
+use Requests\EntryRequest;
 
 class EntryController extends Controller
 {
@@ -46,7 +46,7 @@ class EntryController extends Controller
     * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response
     */
-    public function store(Requests\CreateEntryRequest $request)
+    public function store(Requests\EntryRequest $request)
     {
         $input = $request->all();
 
@@ -69,7 +69,7 @@ class EntryController extends Controller
 
         try {
             $entry = Entry::create($input);
-            $link = route('entry.s', $entry->id);
+            $link = route('entry.show', $entry->id);
             $notification = new Notification('Eintrag erfolgreich erstellt', 'Ihr neuer Eintrag ist über folgende Adresse erreichbar: <a href="'.$link.'">'.$link.'</a>');
         } catch(Exception $e) {
             // save request data if error occured and fill form with input data
@@ -119,7 +119,41 @@ class EntryController extends Controller
     */
     public function update(Request $request, $id)
     {
-        //
+        $entry = Entry::findOrFail($id);
+        $input = $request->all();
+
+
+        // check if author already exists, otherwise create new one
+        if (empty($request->input('author_id')) && !empty($request->input('author'))) {
+            try {
+                $author = Author::create(['name' => $input['author']]);
+                // add author id to entry model
+                $input['author_id'] = $author->id;
+            } catch(Exception $e) {
+                // save request data if error occured and fill form with input data
+                $request->flashExcept(['author_id', 'author']);
+                // add notifcation including exception message
+                $notification = new Notification('Eintrag konnte nicht gespeichert werden', 'Sie haben versucht einen neuen Autor hinzuzufügen. Bitte geben Sie folgende Nachricht an Ihren Administator weiter: <blockquote>'.$e->getMessage().'</blockquote>');
+            }
+        } else {
+            // switch author name to id of entry model
+            $input['author_id'] = $input['author_id'];
+        }
+
+        try {
+            $entry->update($input);
+            $link = route('entry.show', $entry->id);
+            $notification = new Notification('Eintrag erfolgreich bearbeitet', 'Ihr neuer Eintrag ist über folgende Adresse erreichbar: <a href="'.$link.'">'.$link.'</a>');
+        } catch(Exception $e) {
+            // save request data if error occured and fill form with input data
+            $request->flashExcept(['author_id', 'author']);
+            // add notifcation including exception message
+            $notification = new Notification('Eintrag konnte nicht gespeichert werden', 'Bitte geben Sie folgende Nachricht an Ihren Administrator weiter: <blockquote>'.$e->getMessage().'</blockquote>');
+        }
+
+        $genres = Genre::orderBy('title')->get();
+
+        return view('entry.edit', compact('notification', 'entry', 'genres'));
     }
 
     /**
