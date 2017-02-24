@@ -30,6 +30,11 @@ $corpora-header-font-family: 'Playfair Display';
 * Unclassed HTML elements (e.g. a {}, blockquote {}, address {}).
 */
 
+html,
+body {
+    height: 100%;
+}
+
 /*----------------------------------------------------------------
 * Helper classes
 *----------------------------------------------------------------
