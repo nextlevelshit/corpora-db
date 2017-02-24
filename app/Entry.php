@@ -2,11 +2,24 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Entry extends Model
 {
+    use Searchable;
+
     protected $fillable = array('title', 'identifier', 'year', 'genre_id', 'author_id');
+
+    /**
+    * Get the index name for the model.
+    *
+    * @return string
+    */
+    public function searchableAs()
+    {
+        return 'entries_index';
+    }
 
     public function author()
     {

@@ -20,8 +20,10 @@ class SearchController extends Controller
     {
         $search = $request->all();
 
-        // dd($search[]);
+        $entries = Entry::search($search['term'])->get();
 
-        return view('search.results', compact('search'));
+        // dd($results);
+
+        return view('search.results', compact('search', 'entries'));
     }
 }
