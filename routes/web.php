@@ -20,7 +20,9 @@
 | search formular and display options for adding new entry.
 |
 */
-Route::get('/', 'DashboardController@showIndex')->name('dashboard');
+Route::get('/', function () {
+    return redirect('entry.index');
+});
 /*
 |--------------------------------------------------------------------------
 | Search
@@ -41,11 +43,7 @@ Route::post('search', 'SearchController@showResults');
 | Display details of entry and show editing and adding options.
 |
 */
-
-Route::get('entry/{numId}/edit', 'EntryController@edit')->name('entry.edit');
-Route::get('entry/{numId}', 'EntryController@details')->name('entry.details');
-Route::get('entry', 'EntryController@add')->name('entry.add');
-Route::post('entry', 'EntryController@save');
+Route::resource('entry', 'EntryController');
 /*
 |--------------------------------------------------------------------------
 | Author Details and Forms
@@ -55,6 +53,17 @@ Route::post('entry', 'EntryController@save');
 |
 */
 Route::get('author/{numId}', 'AuthorController@details')->name('author.details');
+/*
+|--------------------------------------------------------------------------
+| Texts Upload
+|--------------------------------------------------------------------------
+|
+| Display details of entry and show editing and adding options.
+|
+*/
+Route::resource('entry.text', 'TextController', ['except' => [
+    'update', 'destroy', 'edit'
+]]);
 /*
 |--------------------------------------------------------------------------
 | Download

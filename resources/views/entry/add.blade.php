@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <form action="/entry" method="post">
+    <form action="{{ route('entry.strore') }}" method="post">
         {{-- <input type="hidden" name="_method" value="PUT"> --}}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -51,7 +51,8 @@
                     <input type="text"
                            name="identifier"
                            placeholder="Text eindeutig markieren"
-                           value="{{ old('identifier') }}">
+                           value="{{ old('identifier') }}"
+                           disabled>
                 </label>
             </div>
         </div>

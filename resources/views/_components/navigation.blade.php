@@ -3,13 +3,13 @@
     <!-- Main Navigation -->
     <ul class="navigation-list">
         <li class="navigation-list-item">
-            <a class="navigation-list-item-link" href="{{ route('dashboard') }}">Übersicht</a>
+            <a class="navigation-list-item-link" href="{{ route('entry.index') }}">Übersicht</a>
         </li>
         <li class="navigation-list-item">
             <a class="navigation-list-item-link" href="{{ route('search') }}">Suche</a>
         </li>
         <li class="navigation-list-item">
-            <a class="navigation-list-item-link" href="{{ route('entry.add') }}">Neuer Eintrag</a>
+            <a class="navigation-list-item-link" href="{{ route('entry.create') }}">Neuer Eintrag</a>
         </li>
     </ul>
     <!-- Last Activities -->

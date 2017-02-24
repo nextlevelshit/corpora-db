@@ -12,36 +12,41 @@ use Requests\CreateEntryRequest;
 
 class EntryController extends Controller
 {
-    // add new entry
+    private $entriesOnDashboard = 20;
 
-
-    public function add()
+    /**
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function index()
     {
-        $genres = Genre::orderBy('title')->get();
+        $entries = Entry::latest()->take($this->entriesOnDashboard)->get();
 
+        return view('dashboard.index')->with('entries', $entries);
+    }
+
+    /**
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function create()
+    {
         // TODO: add author to form after validation fail
+
+        $genres = Genre::orderBy('title')->get();
 
         return view('entry.add', compact('genres'));
     }
 
-    // show details of specific entry
-    public function details($id)
-    {
-        $entry = Entry::findOrFail($id);
-
-        return view('entry.details', compact('entry'));
-    }
-
-    // edit specific entry
-    public function edit($id)
-    {
-        $entry = Entry::findOrFail($id);
-
-        return view('entry.edit', compact('entry'));
-    }
-
-    // save added or edited entry
-    public function save(Requests\CreateEntryRequest $request)
+    /**
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+    public function store(Requests\CreateEntryRequest $request)
     {
         $input = $request->all();
 
@@ -63,8 +68,8 @@ class EntryController extends Controller
         }
 
         try {
-             $entry = Entry::create($input);
-             $notification = new Notification('Eintrag erfolgreich erstellt', 'Ihr neuer Eintrag ist über folgende Adresse erreichbar: <a href="'.route('entry.details', $entry->id).'">'.route('entry.details', $entry->id).'</a>');
+            $entry = Entry::create($input);
+            $notification = new Notification('Eintrag erfolgreich erstellt', 'Ihr neuer Eintrag ist über folgende Adresse erreichbar: <a href="'.route('entry.details', $entry->id).'">'.route('entry.details', $entry->id).'</a>');
         } catch(Exception $e) {
             // save request data if error occured and fill form with input data
             $request->flashExcept(['author_id', 'author']);
@@ -75,5 +80,54 @@ class EntryController extends Controller
         $genres = Genre::orderBy('title')->get();
 
         return view('entry.add', compact('notification', 'genres'));
+    }
+
+    /**
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function show($id)
+    {
+        $entry = Entry::findOrFail($id);
+
+        return view('entry.details', compact('entry'));
+    }
+
+    /**
+    * Show the form for editing the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function edit($id)
+    {
+        $entry = Entry::findOrFail($id);
+
+        return view('entry.edit', compact('entry'));
+    }
+
+    /**
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function destroy($id)
+    {
+        //
     }
 }
