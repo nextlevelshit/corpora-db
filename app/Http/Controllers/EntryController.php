@@ -23,7 +23,7 @@ class EntryController extends Controller
     {
         $entries = Entry::latest()->take($this->entriesOnDashboard)->get();
 
-        return view('dashboard.index')->with('entries', $entries);
+        return view('entry.index')->with('entries', $entries);
     }
 
     /**
@@ -37,7 +37,7 @@ class EntryController extends Controller
 
         $genres = Genre::orderBy('title')->get();
 
-        return view('entry.add', compact('genres'));
+        return view('entry.create', compact('genres'));
     }
 
     /**
@@ -79,7 +79,7 @@ class EntryController extends Controller
 
         $genres = Genre::orderBy('title')->get();
 
-        return view('entry.add', compact('notification', 'genres'));
+        return view('entry.create', compact('notification', 'genres'));
     }
 
     /**
@@ -92,7 +92,7 @@ class EntryController extends Controller
     {
         $entry = Entry::findOrFail($id);
 
-        return view('entry.details', compact('entry'));
+        return view('entry.show', compact('entry'));
     }
 
     /**

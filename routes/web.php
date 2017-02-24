@@ -21,7 +21,7 @@
 |
 */
 Route::get('/', function () {
-    return redirect('entry.index');
+    return redirect(route('entry.index'));
 });
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +33,6 @@ Route::get('/', function () {
 |
 */
 Route::get('search', 'SearchController@showIndex')->name('search');
-
 Route::post('search', 'SearchController@showResults');
 /*
 |--------------------------------------------------------------------------
