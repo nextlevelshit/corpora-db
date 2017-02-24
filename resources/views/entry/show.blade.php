@@ -105,7 +105,7 @@
                         </tr>
                     @endforelse
                 </table>
-                <a href="#" class="button hollow float-right">Texte importieren</a>
+                <a href="{{ route('entry.text.create', $entry->id) }}" class="button hollow float-right">Texte importieren</a>
             </div>
         </div>
     </div>
