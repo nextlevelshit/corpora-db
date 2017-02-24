@@ -94,7 +94,7 @@
                                 </a>
                             </td>
                             <td>
-                                {{ $text->updated_at }}
+                                {{ $text->updated_at->format('d.m.Y H:i') }}
                             </td>
                         </tr>
                     @empty

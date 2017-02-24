@@ -17,8 +17,6 @@ class Controller extends BaseController
     {
         View::share('latestEntries', Entry::latest()->take(5)->get());
         View::share('latestSearchRequests', '');
-        // View::share('latestSearchRequests', Search::latest()->take(5)->get());
         View::share('latestExports', '');
-        // View::share('latestExports', Export::latest()->take(5)->get());
     }
 }

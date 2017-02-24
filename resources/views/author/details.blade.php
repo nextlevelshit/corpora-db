@@ -17,7 +17,11 @@
             </div>
             <div class="column medium-6">
                 <div class="entry-details-value">
-                    {{ $author->year }}
+                    @if ($author->year)
+                        {{ $author->year }}
+                    @else
+                        -
+                    @endif
                 </div>
                 <div class="entry-details-key">
                     Geburtsjahr
