@@ -2,6 +2,8 @@
 
 @section('title', 'DB Corpora')
 
+<div class="margin-large"></div>
+
 <div class="row">
   <div class="column">
     <h1>@yield('title')</h1>

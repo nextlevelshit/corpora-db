@@ -1,6 +1,5 @@
 .entry-details {
-    margin: 4rem 0;
-
+    @include margin();
 
     &-value {
         margin-top: 1rem;

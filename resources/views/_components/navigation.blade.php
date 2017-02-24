@@ -15,16 +15,25 @@
     <!-- Last Activities -->
     <ul class="navigation-list">
       <li class="navigation-list-item-title">
-        Zuletzt gesucht...
+        Zuletzt gesucht
       </li>
       <li class="navigation-list-item">
         <a class="navigation-list-item-link" href="#">Platzhalter</a>
       </li>
     </ul>
-    <!-- Last Activities -->
+    <!-- Latest Activities -->
     <ul class="navigation-list">
       <li class="navigation-list-item-title">
-        Zuletzt exportiert...
+        Zuletzt exportiert
+      </li>
+      <li class="navigation-list-item">
+        <a class="navigation-list-item-link" href="#">Platzhalter</a>
+      </li>
+    </ul>
+    <!-- Latest Entries -->
+    <ul class="navigation-list">
+      <li class="navigation-list-item-title">
+        Neuste Einträge
       </li>
       <li class="navigation-list-item">
         <a class="navigation-list-item-link" href="#">Platzhalter</a>

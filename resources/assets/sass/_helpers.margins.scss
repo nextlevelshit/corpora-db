@@ -1,0 +1,11 @@
+.margin {
+    &-small {
+        @include margin('small');
+    }
+    &-medium {
+        @include margin('medium');
+    }
+    &-large {
+        @include margin('large');
+    }
+}

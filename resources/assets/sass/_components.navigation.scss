@@ -3,6 +3,8 @@
 .navigation {
     $this-padding: 1rem;
 
+    @include margin('small');
+
     padding: 1rem 0;
 
     &-header {

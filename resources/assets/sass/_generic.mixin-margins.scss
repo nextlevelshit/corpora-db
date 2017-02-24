@@ -1,0 +1,12 @@
+@mixin margin($size: 'medium') {
+
+    $margin: $corpora-margin-base;
+
+    @if ($size == 'small') {
+        $margin: $corpora-margin-base / 2;
+    } @elseif ($size == 'large') {
+        $margin: $corpora-margin-base * 2.5;
+    }
+
+    margin-top: $margin;
+}

@@ -10,9 +10,11 @@ $corpora-transition: all 160ms;
 $corpora-gray-base: #3E4345;
 $corpora-sidebar-background: $corpora-gray-base;
 $corpora-header-font-family: 'Playfair Display';
+$corpora-margin-base: 2rem;
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900');
+
 /*----------------------------------------------------------------
 * Generic
 *----------------------------------------------------------------
@@ -23,13 +25,15 @@ $corpora-header-font-family: 'Playfair Display';
 @import 'node_modules/foundation-sites/scss/foundation';
 @import 'generic.foundation-settings';
 @import 'generic.foundation-includes';
+// Mixins
+@import 'generic.mixin-margins';
+
 /*----------------------------------------------------------------
 * Base
 *----------------------------------------------------------------
 *
 * Unclassed HTML elements (e.g. a {}, blockquote {}, address {}).
 */
-
 html,
 body {
     height: 100%;
@@ -42,6 +46,8 @@ body {
 * Simple classes helpers (e.g. .fullheight {}).
 */
 
+@import 'helpers.margins';
+
 /*----------------------------------------------------------------
 * Components / UI
 *----------------------------------------------------------------
@@ -52,6 +58,7 @@ body {
 @import 'components.back';
 @import 'components.entry-details';
 @import 'components.navigation';
+
 /*----------------------------------------------------------------
 * Overrides
 *----------------------------------------------------------------
