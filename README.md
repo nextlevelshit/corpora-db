@@ -8,18 +8,19 @@ Database for collecting and refining corpus data. SQL database with web interfac
 2. composer install
 3. php artisan migrate:install # initiate migrations
 4. php artisan migrate # migrate predefined tables to database
+5. php artisan storage:link # enable public file upload
 5. php artisan serve
 ~~~~~
 
 _`Composer` and `PHP` have to be installed previously._
 
-## Enabling Git Hooks
+## Configurations
 
-To provide all markdown files also as human readable PDF files use the following `git-hook`:
+~~~~~{bash}
+cp .env.example .env # copy environment variables for productive usage
+~~~~~
 
-```bash
-  rm -rf .git/hooks && ln -s ../hooks .git/hooks
-```
+After copied `.env.example` to `.env` the environment variables are active. This file should not be versioned, because it contains database credentials etc. Inside the prefilled environment variables the database settings are configurated for a `Homestead` setup. You can also use an ordinary MySQL sever to hold your data.
 
 ## File Structure
 As framework we are using Laravel 5.4 and serving from a self hosted server. For now this software is __heavily under construction__.
@@ -44,13 +45,21 @@ routes/ -------------|
   web.php -----------| stores routes for browser requestes
 ~~~~~
 
+## Optional: Enabling Git Hooks
+
+To provide all markdown files also as human readable PDF files use the following `git-hook`:
+
+```bash
+  rm -rf .git/hooks && ln -s ../hooks .git/hooks
+```
+
 ## Authors
 
-Claus-Michael Schlesinger:
-<claus-michael.schlesinger@ilw.uni-stuttgart.de>
-
-Michael Werner Czechowski:
+Michael Werner Czechowski (Planning, Programming):
 <mail@dailysh.it>
+
+Claus-Michael Schlesinger (Planning, Coordinator):
+<claus-michael.schlesinger@ilw.uni-stuttgart.de>
 
 ## License
 This software is distributed under GNU GPL.
