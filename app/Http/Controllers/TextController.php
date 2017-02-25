@@ -74,7 +74,6 @@ class TextController extends Controller
 
         }
 
-        // redirect(route('entry.text.create', $id));
         $states = State::all();
 
         return view('text.create', compact('notification', 'states', 'entry'));

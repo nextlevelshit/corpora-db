@@ -24,8 +24,6 @@ class SearchController extends Controller
         $entries = Entry::search($search['term'])->get();
         $states = State::all();
 
-        // dd($results);
-
         return view('search.results', compact('search', 'entries', 'states'));
     }
 
@@ -76,10 +74,13 @@ class SearchController extends Controller
         }
 
         try {
-            // $exportFile = $zipper->make($exportFileName)->add($exports);
             $zipper->close();
 
-            return response()->download($exportFileName);
+            if (file_exists($exportFileName)) {
+                response()->download($exportFileName);
+            } else {
+                return back()->withInput()->withErrors(['Der Export beinhaltete keine Dateien. Bitte versuchen Sie es erneut mit einer anderen Konstellation.']);
+            }
         } catch (Exception $e) {
             unset($e);
         }
