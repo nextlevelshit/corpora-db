@@ -18,33 +18,63 @@
                 </form>
             </div>
         </div>
-        <div class="margin"></div>
-        <div class="row">
-            <div class="column">
-                <ul class="search-list">
-                    @foreach ($entries as $entry)
-                        <li class="search-list-item">
-                            <h4 class="search-list-item-result">
-                                <a href="{{ route('entry.show', $entry->id) }}">
-                                    {{ $entry->title }}
-                                    @if ($entry->identifier)
-                                        <sup>[{{ $entry->identifier }}]</sup>
-                                    @endif
-                                </a>
-                            </h4>
-                            <ul class="search-list-item-info">
-                                @if ($entry->author)
-                                    <li class="search-list-item-info-item">{{ $entry->author->name }}</li>
-                                @endif
-                                @if ($entry->genre)
-                                    <li class="search-list-item-info-item">{{ $entry->genre->title }}</li>
-                                @endif
-                                <li class="search-list-item-info-item">{{ $entry->updated_at->format('d.m.Y H:i') }}</li>
-                            </ul>
-                        </li>
-                    @endforeach
-                </ul>
+        <form action="{{ route('search.export') }}" method="post">
+            {{ csrf_field() }}
+            <div class="row">
+                <div class="column">
+                    <div class="search-export">
+                        <fieldset class="fieldset">
+                            <legend>Exportieren</legend>
+                            @if ($states)
+                                @foreach ($states as $state)
+                                    <input id="{{ str_slug($state->title) }}" type="checkbox" name="states[]" value="{{ $state->id }}">
+                                    <label for="{{ str_slug($state->title) }}">{{ $state->title }}</label>
+                                @endforeach
+                            @endif
+                            <input type="submit" class="button tiny search-export-button" value="Exportieren">
+                            <input type="button" class="button hollow tiny search-export-button" value="Alle Einträge markieren" disabled>
+                        </fieldset>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="margin"></div>
+            <div class="row">
+                <div class="column">
+                    <ul class="search-list">
+                        @foreach ($entries as $entry)
+                            <li class="search-list-item">
+                                <div class="row">
+                                    <div class="small-1 column">
+                                        <label class="search-list-item-check">
+                                            <input type="checkbox" class="search-list-item-check-input" name="entries[]" value="{{ $entry->id }}">
+                                            <div class="search-list-item-check-trigger"></div>
+                                        </label>
+                                    </div>
+                                    <div class="small-11">
+                                        <h4 class="search-list-item-result">
+                                            <a href="{{ route('entry.show', $entry->id) }}">
+                                                {{ $entry->title }}
+                                                @if ($entry->identifier)
+                                                    <sup>[{{ $entry->identifier }}]</sup>
+                                                @endif
+                                            </a>
+                                        </h4>
+                                        <ul class="search-list-item-info">
+                                            @if ($entry->author)
+                                                <li class="search-list-item-info-item">{{ $entry->author->name }}</li>
+                                            @endif
+                                            @if ($entry->genre)
+                                                <li class="search-list-item-info-item">{{ $entry->genre->title }}</li>
+                                            @endif
+                                            <li class="search-list-item-info-item">{{ $entry->updated_at->format('d.m.Y H:i') }}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </form>
     </div>
 @endsection

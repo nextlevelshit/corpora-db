@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Notification;
 use App\Entry;
 use App\Author;
-use App\Genre;
+use App\State;
 use App\Http\Requests;
 
 class SearchController extends Controller
@@ -21,9 +21,16 @@ class SearchController extends Controller
         $search = $request->all();
 
         $entries = Entry::search($search['term'])->get();
+        $states = State::all();
 
         // dd($results);
 
-        return view('search.results', compact('search', 'entries'));
+        return view('search.results', compact('search', 'entries', 'states'));
+    }
+
+    public function export(Request $request)
+    {
+        dd($request->all());
+        return false;
     }
 }

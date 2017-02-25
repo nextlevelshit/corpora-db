@@ -1,4 +1,11 @@
 .search {
+    &-export {
+        &-button {
+            float: right;
+            margin: 0 0 0 1rem;
+        }
+    }
+
     &-list {
         @include margin(small);
 
@@ -7,6 +14,32 @@
 
         &-item {
             padding: 0 0 2rem;
+
+            &-check {
+                position: relative;
+                display: block;
+                height: 100%;
+                cursor: pointer;
+
+                &-input {
+                    opacity: 0;
+                }
+
+                &-input:checked + &-trigger {
+                    opacity: 1;
+                }
+
+                &-trigger {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    background: red;
+                    opacity: 0.3;
+                }
+            }
 
             &-result {
                 padding: 0;
@@ -27,4 +60,6 @@
             }
         }
     }
+
+
 }

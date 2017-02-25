@@ -34,6 +34,7 @@ Route::get('/', function () {
 */
 Route::get('search', 'SearchController@index')->name('search.index');
 Route::post('search', 'SearchController@results')->name('search.results');
+Route::post('search/export', 'SearchController@export')->name('search.export');
 /*
 |--------------------------------------------------------------------------
 | Entry Details and Forms
@@ -63,13 +64,3 @@ Route::get('author/{numId}', 'AuthorController@details')->name('author.details')
 Route::resource('entry.text', 'TextController', ['except' => [
     'update', 'destroy', 'edit'
 ]]);
-/*
-|--------------------------------------------------------------------------
-| Download
-|--------------------------------------------------------------------------
-|
-| Prepare bundled files for downloading one or more corpora entries
-|
-*/
-Route::get('download/{numId}', 'DownloadController@downloadSingle');
-Route::post('download', 'DownloadController@downloadMultiple');
