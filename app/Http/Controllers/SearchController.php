@@ -29,6 +29,11 @@ class SearchController extends Controller
         return view('search.results', compact('search', 'entries', 'states'));
     }
 
+    private function generateExportFileName($parts)
+    {
+        return 'storage/' . implode('_', $parts) . '.zip';
+    }
+
     public function export(Requests\ExportRequest $request)
     {
 
@@ -39,7 +44,11 @@ class SearchController extends Controller
         $title['term'] = str_slug($input['term']);
         $title['date'] = Carbon::now()->format('Ymd');
 
-        $exportFileName = 'storage/' . implode('_', $title) . '.zip';
+        $exportFileName = $this->generateExportFileName($title);
+
+        for ($title['version']=1; file_exists($exportFileName); $title['version']++) {
+            $exportFileName = $this->generateExportFileName($title);
+        }
 
         $zipper = new \Chumper\Zipper\Zipper;
         $zipper->make($exportFileName);
