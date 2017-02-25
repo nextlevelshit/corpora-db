@@ -6,12 +6,12 @@ Database for collecting and refining corpus data. SQL database with web interfac
 
 ## Installation
 ~~~~~
-1. git clone git@github.tik.uni-stuttgart.de:ac128227/db-corpora.git
-2. composer install
-3. php artisan migrate:install # initiate migrations
-4. php artisan migrate # migrate predefined tables to database
-5. php artisan storage:link # enable public file upload
-5. php artisan serve
+git clone git@github.tik.uni-stuttgart.de:ac128227/db-corpora.git
+composer install
+php artisan migrate:install # initiate migrations
+php artisan migrate # migrate predefined tables to database
+php artisan storage:link # enable public file upload
+php artisan serve
 ~~~~~
 
 _`Composer` and `PHP` have to be installed previously._
