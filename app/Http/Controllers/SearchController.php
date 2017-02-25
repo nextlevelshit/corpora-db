@@ -28,8 +28,10 @@ class SearchController extends Controller
         return view('search.results', compact('search', 'entries', 'states'));
     }
 
-    public function export(Request $request)
+    public function export(Requests\ExportRequest $request)
     {
+        // return response()->download('storage/190b07515e84cb724cfdbc66aa24e7dc6cc6f831e68130666a396982d318f003.txt');
+
         dd($request->all());
         return false;
     }

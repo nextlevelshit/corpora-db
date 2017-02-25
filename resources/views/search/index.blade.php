@@ -9,7 +9,7 @@
             <form action="{{ route('search.results') }}" method="post">
                 {{ csrf_field() }}
                 <div class="input-group">
-                    <input class="input-group-field" name="term" type="text">
+                    <input class="input-group-field" name="term" type="text" value="{{ old('term') }}">
                     <div class="input-group-button">
                         <input type="submit" class="button" value="Suchen">
                     </div>
