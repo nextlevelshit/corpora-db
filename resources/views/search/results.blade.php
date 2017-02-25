@@ -6,7 +6,7 @@
     <div class="search">
         <div class="row">
             <div class="column">
-                <p>Suchergebnisse für <strong>{{ $search['term'] }}</strong></p>
+                <p>{{ count($entries) }} Suchergebnisse für <strong>{{ $search['term'] }}</strong></p>
                 <form action="{{ route('search.results') }}" method="post">
                     {{ csrf_field() }}
                     <div class="input-group">
@@ -44,45 +44,67 @@
             <div class="margin"></div>
             <div class="row">
                 <div class="column">
-                    @if (count($entries) > 0)
-                        <ul class="search-list">
-                            @foreach ($entries as $entry)
-                                <li class="search-list-item">
-                                    <div class="row">
-                                        <div class="small-1 column">
-                                            <label class="search-list-item-check">
-                                                <input type="checkbox" class="search-list-item-check-input" name="entries[]" value="{{ $entry->id }}">
-                                                <div class="search-list-item-check-trigger">
-                                                    <i class="fa fa-check-square-o"></i>
+                    <ul class="tabs" data-active-collapse="true" id="results" data-tabs>
+                        <li class="tabs-title is-active">
+                            <a href="#results-entries" aria-selected="true">Einträge</a>
+                        </li>
+                        <li class="tabs-title">
+                            <a href="#results-authors">Autoren</a>
+                        </li>
+                        <li class="tabs-title">
+                            <a href="#results-texts">Texte</a>
+                        </li>
+                    </ul>
+                    <div class="tabs-content" data-tabs-content="results">
+                        <div class="tabs-panel is-active" id="results-entries">
+                            @if (count($entries) > 0)
+                                <ul class="search-list">
+                                    @foreach ($entries as $entry)
+                                        <li class="search-list-item">
+                                            <div class="row">
+                                                <div class="small-1 column">
+                                                    <label class="search-list-item-check">
+                                                        <input type="checkbox" class="search-list-item-check-input" name="entries[]" value="{{ $entry->id }}">
+                                                        <div class="search-list-item-check-trigger">
+                                                            <i class="fa fa-check-square-o"></i>
+                                                        </div>
+                                                    </label>
                                                 </div>
-                                            </label>
-                                        </div>
-                                        <div class="small-11">
-                                            <h4 class="search-list-item-result">
-                                                <a href="{{ route('entry.show', $entry->id) }}">
-                                                    {{ $entry->title }}
-                                                    @if ($entry->identifier)
-                                                        <sup>[{{ $entry->identifier }}]</sup>
-                                                    @endif
-                                                </a>
-                                            </h4>
-                                            <ul class="search-list-item-info">
-                                                @if ($entry->author)
-                                                    <li class="search-list-item-info-item">{{ $entry->author->name }}</li>
-                                                @endif
-                                                @if ($entry->genre)
-                                                    <li class="search-list-item-info-item">{{ $entry->genre->title }}</li>
-                                                @endif
-                                                <li class="search-list-item-info-item">{{ $entry->updated_at->format('d.m.Y H:i') }}</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    @else
-                        <h4>Die Suchanfrage lieferte keine Ergebnisse, bitte versuchen Sie es erneut.</h4>
-                    @endif
+                                                <div class="small-11">
+                                                    <h4 class="search-list-item-result">
+                                                        <a href="{{ route('entry.show', $entry->id) }}">
+                                                            {{ $entry->title }}
+                                                            @if ($entry->identifier)
+                                                                <sup>[{{ $entry->identifier }}]</sup>
+                                                            @endif
+                                                        </a>
+                                                    </h4>
+                                                    <ul class="search-list-item-info">
+                                                        @if ($entry->author)
+                                                            <li class="search-list-item-info-item">{{ $entry->author->name }}</li>
+                                                        @endif
+                                                        @if ($entry->genre)
+                                                            <li class="search-list-item-info-item">{{ $entry->genre->title }}</li>
+                                                        @endif
+                                                        <li class="search-list-item-info-item">{{ $entry->updated_at->format('d.m.Y H:i') }}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                <h4>Die Suchanfrage lieferte keine Ergebnisse, bitte versuchen Sie es erneut.</h4>
+                            @endif
+                        </div>
+                        <div class="tabs-panel" id="results-authors">
+                            Autoren
+                        </div>
+                        <div class="tabs-panel" id="results-texts">
+                            Texts
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </form>

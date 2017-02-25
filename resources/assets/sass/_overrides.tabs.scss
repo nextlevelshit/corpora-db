@@ -1,0 +1,10 @@
+.tabs {
+    &-title {
+        > a {
+            &:focus,
+            &[aria-selected='true'] {
+                color: $white !important;
+            }
+        }
+    }
+}
