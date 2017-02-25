@@ -35,15 +35,6 @@ class SearchController extends Controller
         $input = $request->all();
         $exports = array();
 
-        foreach ($input['entries'] as $id) {
-            $entry = Entry::findOrFail($id);
-
-            foreach ($input['states'] as $state) {
-                $text = $entry->textByState($state);
-
-                if ($text && file_exists($text->path)) $exports[] = $text->path;
-            }
-        }
         $title['app'] = str_slug(config('app.name'));
         $title['term'] = str_slug($input['term']);
         $title['date'] = Carbon::now()->format('Ymd');
@@ -51,10 +42,33 @@ class SearchController extends Controller
         $exportFileName = 'storage/' . implode('_', $title) . '.zip';
 
         $zipper = new \Chumper\Zipper\Zipper;
+        $zipper->make($exportFileName);
+
+        foreach ($input['entries'] as $id) {
+            $entry = Entry::findOrFail($id);
+
+            foreach ($input['states'] as $state) {
+                $text = $entry->textByState($state);
+
+                if ($text && file_exists($text->path)) {
+                    $file['author'] = str_slug($entry->author->name);
+                    $file['title'] = str_slug($entry->title);
+                    $file['state'] = str_slug($text->state->title);
+                    $file['year'] = $entry->year;
+
+                    $fileName = implode('_', $file) . '.txt';
+                    $fileContent = file_get_contents($text->path);
+
+                    $zipper->addString($fileName, $fileContent);
+
+                    unset($file);
+                }
+            }
+        }
 
         try {
-            $exportFile = $zipper->make($exportFileName)->add($exports);
-            $exportFile->close();
+            // $exportFile = $zipper->make($exportFileName)->add($exports);
+            $zipper->close();
 
             return response()->download($exportFileName);
         } catch (Exception $e) {
