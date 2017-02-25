@@ -7,6 +7,8 @@ use App\Notification;
 use App\Entry;
 use App\State;
 use App\Http\Requests;
+use Carbon\Carbon;
+// use Chumper\Zipper\Zipper;
 
 class SearchController extends Controller
 {
@@ -29,9 +31,6 @@ class SearchController extends Controller
 
     public function export(Requests\ExportRequest $request)
     {
-        // return response()->download('storage/190b07515e84cb724cfdbc66aa24e7dc6cc6f831e68130666a396982d318f003.txt');
-
-        // dd($request->all());
 
         $input = $request->all();
         $exports = array();
@@ -42,12 +41,24 @@ class SearchController extends Controller
             foreach ($input['states'] as $state) {
                 $text = $entry->textByState($state);
 
-                if ($text) $exports[] = $text->path;
+                if ($text && file_exists($text)) $exports[] = $text->path;
             }
         }
+        $title['app'] = str_slug(config('app.name'));
+        $title['term'] = str_slug($input['term']);
+        $title['date'] = Carbon::now()->format('Ymd');
 
-        dd($exports);
+        $exportFileName = 'storage/' . implode('_', $title) . '.zip';
 
-        return false;
+        $zipper = new \Chumper\Zipper\Zipper;
+
+        try {
+            $exportFile = $zipper->make($exportFileName)->add($exports);
+            $exportFile->close();
+
+            return response()->download($exportFileName);
+        } catch (Exception $e) {
+            unset($e);
+        }
     }
 }
