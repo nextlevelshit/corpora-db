@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Notification;
 use App\Entry;
-use App\Author;
 use App\State;
 use App\Http\Requests;
 
@@ -32,7 +31,23 @@ class SearchController extends Controller
     {
         // return response()->download('storage/190b07515e84cb724cfdbc66aa24e7dc6cc6f831e68130666a396982d318f003.txt');
 
-        dd($request->all());
+        // dd($request->all());
+
+        $input = $request->all();
+        $exports = array();
+
+        foreach ($input['entries'] as $id) {
+            $entry = Entry::findOrFail($id);
+
+            foreach ($input['states'] as $state) {
+                $text = $entry->textByState($state);
+
+                if ($text) $exports[] = $text->path;
+            }
+        }
+
+        dd($exports);
+
         return false;
     }
 }
