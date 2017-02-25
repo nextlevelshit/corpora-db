@@ -6,7 +6,7 @@
     <div class="search">
         <div class="row">
             <div class="column">
-                <p>{{ count($entries) }} Suchergebnisse für <strong>{{ $search['term'] }}</strong></p>
+                <p>{{ $results }} Suchergebnisse für <strong>{{ $search['term'] }}</strong></p>
                 <form action="{{ route('search.results') }}" method="post">
                     {{ csrf_field() }}
                     <div class="input-group">
@@ -46,13 +46,13 @@
                 <div class="column">
                     <ul class="tabs" data-active-collapse="true" id="results" data-tabs>
                         <li class="tabs-title is-active">
-                            <a href="#results-entries" aria-selected="true">Einträge</a>
+                            <a href="#results-entries" aria-selected="true">Einträge ({{ count($entries) }})</a>
                         </li>
                         <li class="tabs-title">
-                            <a href="#results-authors">Autoren</a>
+                            <a href="#results-authors">Autoren ({{ count($authors) }})</a>
                         </li>
                         <li class="tabs-title">
-                            <a href="#results-texts">Texte</a>
+                            <a href="#results-texts">Texte ({{ count($texts) }})</a>
                         </li>
                     </ul>
                     <div class="tabs-content" data-tabs-content="results">
@@ -94,7 +94,7 @@
                                     @endforeach
                                 </ul>
                             @else
-                                <h4>Die Suchanfrage lieferte keine Ergebnisse, bitte versuchen Sie es erneut.</h4>
+                                <h4>Es wurden keine Einträge zu diesem Suchbegriff gefunden.</h4>
                             @endif
                         </div>
                         <div class="tabs-panel" id="results-authors">
@@ -104,12 +104,12 @@
                                         <li class="search-list-item">
                                             <div class="row">
                                                 <div class="small-1 column">
-                                                    <label class="search-list-item-check">
+                                                    {{-- <label class="search-list-item-check">
                                                         <input type="checkbox" class="search-list-item-check-input" name="authors[]" value="{{ $author->id }}">
                                                         <div class="search-list-item-check-trigger">
                                                             <i class="fa fa-check-square-o"></i>
                                                         </div>
-                                                    </label>
+                                                    </label> --}}
                                                 </div>
                                                 <div class="small-11">
                                                     <h4 class="search-list-item-result">
@@ -131,11 +131,50 @@
                                     @endforeach
                                 </ul>
                             @else
-                                <h4>Die Suchanfrage lieferte keine Ergebnisse, bitte versuchen Sie es erneut.</h4>
+                                <h4>Es wurden keine Autoren zu diesem Suchbegriff gefunden.</h4>
                             @endif
                         </div>
                         <div class="tabs-panel" id="results-texts">
-                            Texts
+                            @if (count($texts) > 0)
+                                <ul class="search-list">
+                                    @foreach ($texts as $text)
+                                        <li class="search-list-item">
+                                            <div class="row">
+                                                <div class="small-1 column">
+                                                    {{-- <label class="search-list-item-check">
+                                                        <input type="checkbox" class="search-list-item-check-input" name="texts[]" value="{{ $text->id }}">
+                                                        <div class="search-list-item-check-trigger">
+                                                            <i class="fa fa-check-square-o"></i>
+                                                        </div>
+                                                    </label> --}}
+                                                </div>
+                                                <div class="small-11">
+                                                    <h4 class="search-list-item-result">
+                                                        <a href="{{ route('entry.show', $text->entry->id) }}" target="_blank">
+                                                            {{ $text->entry->title }}
+                                                        </a>
+                                                    </h4>
+                                                    <ul class="search-list-item-info">
+                                                        @if ($text->entry)
+                                                            <li class="search-list-item-info-item">
+                                                                Download: <a href="{{ $text->path }}" target="_blank">
+                                                                    {{ $text->path }}
+                                                                </a>
+                                                            </li>
+                                                        @endif
+                                                    </ul>
+                                                    @if ($text->result)
+                                                        {{-- <p>{{ str_limit($text->result, $limit=320, $end='...') }}</p> --}}
+                                                            <p>{!! str_replace($search['term'], '<strong>'.$search['term'].'</strong>', $text->result) !!}</p>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                <h4>Es wurden keine Texte zu diesem Suchbegriff gefunden.</h4>
+                            @endif
                         </div>
 
                     </div>

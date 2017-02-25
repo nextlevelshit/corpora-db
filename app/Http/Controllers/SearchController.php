@@ -7,6 +7,7 @@ use App\Notification;
 use App\Author;
 use App\Entry;
 use App\State;
+use App\Text;
 use App\Http\Requests;
 use Carbon\Carbon;
 
@@ -21,12 +22,43 @@ class SearchController extends Controller
     {
         $search = $request->all();
 
-        $entries = Entry::search($search['term'])->get();
-        $authors = Author::search($search['term'])->get();
         $states = State::all();
-        $results = count($entries) + count($authors);
+        // search entries with scout
+        $entries = Entry::search($search['term'])->get();
+        // search authors with scout
+        $authors = Author::search($search['term'])->get();
+        // add placeholder for texts
+        $texts = [];
+        // search texts by reading contents
+        foreach (Text::all() as $text) {
+            // break if file does not exist
+            if (!file_exists($text->path)) break;
+            // reading file
+            $handle = fopen($text->path, 'r');
+            // count lines
+            $line = 0;
+            // init as false
+            $valid = false;
+            while (($buffer = fgets($handle)) !== false) {
+                if (strpos($buffer, $search['term']) !== false) {
+                    // searched successfully
+                    $valid = true;
+                    // add search result to list
+                    $text->result = $this->getSurroundingLines(file($text->path), $line);
+                    // dd(file($text->path)[$line]);
+                    $texts[] = $text;
+                    // break loop after successfully found to save memory
+                    break;
+                }
+                $line++;
+            }
+            // close file after reading
+            fclose($handle);
+        }
+        // count results
+        $results = count($entries) + count($authors) + count($texts);
 
-        return view('search.results', compact('search', 'entries', 'states', 'authors', 'results'));
+        return view('search.results', compact('search', 'entries', 'states', 'authors', 'results', 'texts'));
     }
 
     private function generateExportFileName($parts)
@@ -83,4 +115,18 @@ class SearchController extends Controller
             return back()->withInput()->withErrors(['Der Export beinhaltete keine Dateien. Bitte versuchen Sie es erneut mit einer anderen Konstellation.']);
         }
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Helper Functions
+    |--------------------------------------------------------------------------
+    */
+
+   private function getSurroundingLines($file, $line) {
+       $output = $file[$line];
+
+       if($line == 0) return $output . $file[$line + 1] . $file[$line + 2];
+
+       return $file[$line - 1] . $output . $file[$line + 1];
+   }
 }
