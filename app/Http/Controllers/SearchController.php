@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Notification;
+use App\Author;
 use App\Entry;
 use App\State;
 use App\Http\Requests;
@@ -21,9 +22,11 @@ class SearchController extends Controller
         $search = $request->all();
 
         $entries = Entry::search($search['term'])->get();
+        $authors = Author::search($search['term'])->get();
         $states = State::all();
+        $results = count($entries) + count($authors);
 
-        return view('search.results', compact('search', 'entries', 'states'));
+        return view('search.results', compact('search', 'entries', 'states', 'authors', 'results'));
     }
 
     private function generateExportFileName($parts)
