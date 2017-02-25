@@ -83,7 +83,7 @@
                             Hinterlegter Texte
                         </th>
                     </tr>
-                    @forelse ($entry->texts as $text)
+                    @forelse ($entry->textsLatest() as $text)
                         <tr>
                             <td>
                                 {{ $text->state->title }}

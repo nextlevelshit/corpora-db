@@ -29,7 +29,7 @@ class CreateTextsTable extends Migration
                   ->references('id')->on('states')
                   ->onDelete('cascade');
             // comment
-            $table->text('comment');
+            $table->text('comment')->nullable();
 
             $table->timestamps();
         });

@@ -52,7 +52,9 @@
                                         <div class="small-1 column">
                                             <label class="search-list-item-check">
                                                 <input type="checkbox" class="search-list-item-check-input" name="entries[]" value="{{ $entry->id }}">
-                                                <div class="search-list-item-check-trigger"></div>
+                                                <div class="search-list-item-check-trigger">
+                                                    <i class="fa fa-check-square-o"></i>
+                                                </div>
                                             </label>
                                         </div>
                                         <div class="small-11">

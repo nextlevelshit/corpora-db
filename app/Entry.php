@@ -4,6 +4,7 @@ namespace App;
 
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
+use App\State;
 
 class Entry extends Model
 {
@@ -26,7 +27,7 @@ class Entry extends Model
         return $this->belongsTo('App\Author');
     }
 
-    public function genre()
+    public function genrhe()
     {
         return $this->belongsTo('App\Genre');
     }
@@ -39,5 +40,19 @@ class Entry extends Model
     public function textByState($state)
     {
         return $this->hasMany('App\Text')->latest()->where('texts.state_id', $state)->first();
+    }
+
+    public function textsLatest()
+    {
+        $states = State::all();
+        $texts = [];
+        // iterate through all given states
+        foreach ($states as $state) {
+            $text = $this->textByState($state->id);
+            // pick only on text of each state
+            if ($text) $texts[] = $text;
+        }
+
+        return $texts;
     }
 }

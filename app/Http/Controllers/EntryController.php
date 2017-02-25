@@ -23,7 +23,7 @@ class EntryController extends Controller
     {
         $entries = Entry::latest()->take($this->entriesOnDashboard)->get();
 
-        return view('entry.index')->with('entries', $entries);
+        return view('entry.index', compact('entries'));
     }
 
     /**
@@ -121,8 +121,6 @@ class EntryController extends Controller
     {
         $entry = Entry::findOrFail($id);
         $input = $request->all();
-
-
         // check if author already exists, otherwise create new one
         if (empty($request->input('author_id')) && !empty($request->input('author'))) {
             try {

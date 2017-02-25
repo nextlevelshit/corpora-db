@@ -10,7 +10,7 @@
                     <tr>
                         <th class="text-left">Titel</th>
                         <th class="text-left">Author</th>
-                        <th class="text-left">Gattung</th>
+                        <th class="text-left">Gattung</th> 
                         <th class="text-left">Änderungsdatum</th>
                     </tr>
                 @endif

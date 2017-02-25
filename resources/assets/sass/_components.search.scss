@@ -30,14 +30,15 @@
                 }
 
                 &-trigger {
+                    text-align: center;
                     display: block;
                     position: absolute;
+                    font-size: 2rem;
                     top: 0;
                     left: 0;
                     height: 100%;
                     width: 100%;
-                    background: red;
-                    opacity: 0.3;
+                    opacity: 0.2;
                 }
             }
 
