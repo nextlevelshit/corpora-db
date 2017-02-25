@@ -1,6 +1,8 @@
-# DB Corpora
+# CorporaDB
 
 Database for collecting and refining corpus data. SQL database with web interface for users and API for direct SQL requests.
+
+![Screenshot of CorporaDB search screen](corpora-screenshot.png)
 
 ## Installation
 ~~~~~
@@ -50,7 +52,7 @@ routes/ -------------|
 To provide all markdown files also as human readable PDF files use the following `git-hook`:
 
 ```bash
-  rm -rf .git/hooks && ln -s ../hooks .git/hooks
+  rm -rf .git/hooks && ln -s ../.hooks .git/hooks
 ```
 
 ## Authors

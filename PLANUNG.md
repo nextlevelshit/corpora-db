@@ -71,9 +71,9 @@ Notwendige Angaben sind *Name, Titel, Erscheinungsjahr*, alle anderen Angaben si
 
 ![ER Diagramm der Datenbank für DB Corpora als Tafelbild](database-erm-board.jpg)
 
-![ER Diagramm der Datenbank für DB Corpora im Designer](database-erm.jpg)
+![ER Diagramm der Datenbank für DB Corpora im Designer](database-erm.png)
 
-
+ 
 ## Definitionen
 
 Eintrag
