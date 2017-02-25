@@ -41,7 +41,7 @@ class SearchController extends Controller
             foreach ($input['states'] as $state) {
                 $text = $entry->textByState($state);
 
-                if ($text && file_exists($text)) $exports[] = $text->path;
+                if ($text && file_exists($text->path)) $exports[] = $text->path;
             }
         }
         $title['app'] = str_slug(config('app.name'));
