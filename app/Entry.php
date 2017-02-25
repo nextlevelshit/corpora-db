@@ -27,7 +27,7 @@ class Entry extends Model
         return $this->belongsTo('App\Author');
     }
 
-    public function genrhe()
+    public function genre()
     {
         return $this->belongsTo('App\Genre');
     }

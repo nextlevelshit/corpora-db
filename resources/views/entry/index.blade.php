@@ -10,7 +10,7 @@
                     <tr>
                         <th class="text-left">Titel</th>
                         <th class="text-left">Author</th>
-                        <th class="text-left">Gattung</th> 
+                        <th class="text-left">Gattung</th>
                         <th class="text-left">Änderungsdatum</th>
                     </tr>
                 @endif
@@ -28,13 +28,17 @@
                         </td>
 
                         <td>
-                            <a href="{{ route('author.details', $entry->author['id^']) }}">
+                            <a href="{{ route('author.details', $entry->author['id']) }}">
                                 {{ $entry->author['name'] }}
                             </a>
                         </td>
 
                         <td>
-                            {{ $entry->genre->title }}
+                            @if ($entry->genre)
+                                {{ $entry->genre->title }}
+                            @else
+                                -
+                            @endif
                         </td>
 
                         <td>

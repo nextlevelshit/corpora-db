@@ -8,7 +8,6 @@ use App\Entry;
 use App\State;
 use App\Http\Requests;
 use Carbon\Carbon;
-// use Chumper\Zipper\Zipper;
 
 class SearchController extends Controller
 {
@@ -73,16 +72,12 @@ class SearchController extends Controller
             }
         }
 
-        try {
-            $zipper->close();
+        $zipper->close();
 
-            if (file_exists($exportFileName)) {
-                response()->download($exportFileName);
-            } else {
-                return back()->withInput()->withErrors(['Der Export beinhaltete keine Dateien. Bitte versuchen Sie es erneut mit einer anderen Konstellation.']);
-            }
-        } catch (Exception $e) {
-            unset($e);
+        if (file_exists($exportFileName)) {
+            return response()->download($exportFileName);
+        } else {
+            return back()->withInput()->withErrors(['Der Export beinhaltete keine Dateien. Bitte versuchen Sie es erneut mit einer anderen Konstellation.']);
         }
     }
 }
