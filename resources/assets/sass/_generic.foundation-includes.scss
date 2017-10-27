@@ -5,9 +5,9 @@
 @include foundation-typography;
 @include foundation-forms;
 @include foundation-button;
-@include foundation-accordion;
-@include foundation-accordion-menu;
-@include foundation-badge;
+// @include foundation-accordion;
+// @include foundation-accordion-menu;
+// @include foundation-badge;
 @include foundation-breadcrumbs;
 @include foundation-button-group;
 @include foundation-callout;
@@ -26,10 +26,10 @@
 @include foundation-pagination;
 // @include foundation-progress-bar;
 // @include foundation-slider;
-@include foundation-sticky;
-@include foundation-reveal;
-@include foundation-switch;
-// @include foundation-table;
+// @include foundation-sticky;
+// @include foundation-reveal;
+// @include foundation-switch;
+@include foundation-table;
 @include foundation-tabs;
 // @include foundation-thumbnail;
 @include foundation-title-bar;
