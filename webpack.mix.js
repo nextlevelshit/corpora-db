@@ -15,8 +15,3 @@ mix.sass('resources/assets/sass/app.scss', 'public/css')
 
 mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js');
 mix.copy('node_modules/foundation-sites/dist/js/foundation.min.js', 'public/js');
-
-// mix.js([
-//    'node_modules/foundation-sites/dist/js/foundation.min.js',
-//    'resources/assets/js/app.js'
-// ], 'public/js/app.js');
