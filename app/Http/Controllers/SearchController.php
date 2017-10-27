@@ -125,7 +125,11 @@ class SearchController extends Controller
    private function getSurroundingLines($file, $line) {
        $output = $file[$line];
 
-       if($line == 0) return $output . $file[$line + 1] . $file[$line + 2];
+       if ($line == 0) {
+           if (!isset($file[$line + 2])) return $output;
+
+           return $output . $file[$line + 1] . $file[$line + 2];
+       }
 
        return $file[$line - 1] . $output . $file[$line + 1];
    }

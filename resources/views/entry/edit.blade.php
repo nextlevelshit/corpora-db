@@ -58,8 +58,7 @@
                     <input type="text"
                            name="identifier"
                            placeholder="Text eindeutig markieren"
-                           value="{{ $entry->identifier }}"
-                           disabled>
+                           value="{{ $entry->identifier }}">
                 </label>
             </div>
         </div>
