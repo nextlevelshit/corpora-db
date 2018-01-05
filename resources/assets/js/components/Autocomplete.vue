@@ -41,7 +41,7 @@
             triggerAutocomplete: function(event) {
                 this.newId = null;
 
-                var url = '/api/' + this.table + '/' + this.term
+                var url = '/corpora/api/' + this.table + '/' + this.term
 
                 this.$http.get(url).then(function(response) {
                     this.items = response.body[0];
