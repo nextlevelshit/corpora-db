@@ -56,7 +56,7 @@ npm run watch
 
 ## 2. Compile scripts and styles
 
-```
+```bash
 npm run production
 
 # DONE  Compiled successfully in 11152ms
