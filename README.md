@@ -5,14 +5,15 @@ Database for collecting and refining corpus data. SQL database with web interfac
 ![Screenshot of CorporaDB search screen](corpora-screenshot.png)
 
 ## Installation
-~~~~~
+
+```bash
 git clone git@github.tik.uni-stuttgart.de:ac128227/db-corpora.git
 composer install
 php artisan migrate:install # initiate migrations
 php artisan migrate # migrate predefined tables to database
 php artisan storage:link # enable public file upload
 php artisan serve
-~~~~~
+```
 
 _`Composer` and `PHP` have to be installed previously._
 
