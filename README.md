@@ -19,6 +19,8 @@ _`Composer` and `PHP` have to be installed previously._
 
 ## Development
 
+### 0. Install migrations and seed database
+
 ### 1. Starting local web server
 
 ```bash
@@ -31,7 +33,7 @@ php artisan serve
 Automatically compile, uglify and bundle JS, CSS files and fonts.
 
 ```bash
-npm run dev
+npm run watch
 # DONE  Compiled successfully in 4779ms
 #
 #                                                           Asset      Size  Chunks                    Chunk Names
@@ -39,7 +41,7 @@ npm run dev
 #  fonts/fontawesome-webfont.svg?912ec66d7572ff821749319396470bde    444 kB          [emitted]  [big]  
 #  fonts/fontawesome-webfont.ttf?b06871f281fee6b241d60582ae9369b9    166 kB          [emitted]         
 # fonts/fontawesome-webfont.woff?fee66e712a8a08eef5805a46892932ad     98 kB          [emitted]         
-# fonts/fontawesome-webfont.woff2?af7ae505a9eed503f8b8e6982036873e   77.2 kB          [emitted]         
+#fonts/fontawesome-webfont.woff2?af7ae505a9eed503f8b8e6982036873e   77.2 kB          [emitted]         
 #                                                      /js/app.js    857 kB       0  [emitted]  [big]  /js/app
 #                                                    /css/app.css    991 kB       0  [emitted]  [big]  /js/app
 #                                               mix-manifest.json  66 bytes          [emitted]         
@@ -48,11 +50,36 @@ npm run dev
 
 ```
 
+## Production
+
+## 1. Install migrations
+
+## 2. Compile scripts and styles
+
+```
+npm run production
+
+# DONE  Compiled successfully in 11152ms
+#
+#                                                           Asset      Size  Chunks                    Chunk Names
+#  fonts/fontawesome-webfont.eot?674f50d287a8c48dc19ba404d20fe713    166 kB          [emitted]         
+#  fonts/fontawesome-webfont.svg?912ec66d7572ff821749319396470bde    444 kB          [emitted]  [big]  
+#  fonts/fontawesome-webfont.ttf?b06871f281fee6b241d60582ae9369b9    166 kB          [emitted]         
+# fonts/fontawesome-webfont.woff?fee66e712a8a08eef5805a46892932ad     98 kB          [emitted]         
+#fonts/fontawesome-webfont.woff2?af7ae505a9eed503f8b8e6982036873e   77.2 kB          [emitted]         
+#                                                      /js/app.js    176 kB       0  [emitted]         /js/app
+#                                                    /css/app.css    108 kB       0  [emitted]         /js/app
+#                                               mix-manifest.json  66 bytes          [emitted]         
+#                                                js/jquery.min.js   86.7 kB          [emitted]         
+#                                            js/foundation.min.js    149 kB          [emitted]
+```
+
+
 ## Configurations
 
-~~~~~{bash}
+```bash
 cp .env.example .env # copy environment variables for productive usage
-~~~~~
+```
 
 After copied `.env.example` to `.env` the environment variables are active. This file should not be versioned, because it contains database credentials etc. Inside the prefilled environment variables the database settings are configurated for a `Homestead` setup. You can also use an ordinary MySQL sever to hold your data.
 
