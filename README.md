@@ -20,16 +20,16 @@ _`Composer` and `PHP` have to be installed previously._
 
 ### 1. Starting local web server
 
-~~~~~{bash}
+```bash
 php artisan serve
 # Laravel development server started: <http://127.0.0.1:8000>
-~~~~~
+```
 
 ### 2. Watch file changes for styles and scripts (SCCS, JS)
 
 Automatically compile, uglify and bundle JS, CSS files and fonts.
 
-~~~~~{bash}
+```bash
 npm run dev
 # DONE  Compiled successfully in 4779ms
 #
@@ -38,14 +38,14 @@ npm run dev
 #  fonts/fontawesome-webfont.svg?912ec66d7572ff821749319396470bde    444 kB          [emitted]  [big]  
 #  fonts/fontawesome-webfont.ttf?b06871f281fee6b241d60582ae9369b9    166 kB          [emitted]         
 # fonts/fontawesome-webfont.woff?fee66e712a8a08eef5805a46892932ad     98 kB          [emitted]         
-#fonts/fontawesome-webfont.woff2?af7ae505a9eed503f8b8e6982036873e   77.2 kB          [emitted]         
+# fonts/fontawesome-webfont.woff2?af7ae505a9eed503f8b8e6982036873e   77.2 kB          [emitted]         
 #                                                      /js/app.js    857 kB       0  [emitted]  [big]  /js/app
 #                                                    /css/app.css    991 kB       0  [emitted]  [big]  /js/app
 #                                               mix-manifest.json  66 bytes          [emitted]         
 #                                                js/jquery.min.js   86.7 kB          [emitted]         
 #                                            js/foundation.min.js    149 kB          [emitted]         
 
-~~~~~
+```
 
 ## Configurations
 
@@ -83,7 +83,7 @@ routes/ -------------|
 To provide all markdown files also as human readable PDF files use the following `git-hook`:
 
 ```bash
-  rm -rf .git/hooks && ln -s ../.hooks .git/hooks
+rm -rf .git/hooks && ln -s ../.hooks .git/hooks
 ```
 
 ## Authors
