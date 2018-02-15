@@ -28,9 +28,13 @@
                         </td>
 
                         <td>
-                            {{--  <a href="{{ route('author.details', $entry->author['id']) }}">
-                                {{ $entry->author['name'] }}
-                            </a>  --}}
+                            @forelse ($entry->author()->get() as $author)
+                                <div>
+                                    <a href="{{ route('author.details', $author->id) }}">{{ $author->name }}</a>
+                                </div>
+                            @empty
+                                -
+                            @endforelse
                         </td>
 
                         <td>
