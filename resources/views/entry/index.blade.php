@@ -28,9 +28,9 @@
                         </td>
 
                         <td>
-                            <a href="{{ route('author.details', $entry->author['id']) }}">
+                            {{--  <a href="{{ route('author.details', $entry->author['id']) }}">
                                 {{ $entry->author['name'] }}
-                            </a>
+                            </a>  --}}
                         </td>
 
                         <td>

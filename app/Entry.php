@@ -10,7 +10,7 @@ class Entry extends Model
 {
     use Searchable;
 
-    protected $fillable = array('title', 'identifier', 'year', 'genre_id', 'author_id');
+    protected $fillable = array('title', 'identifier', 'year', 'genre_id');
 
     /**
     * Get the index name for the model.
@@ -24,7 +24,7 @@ class Entry extends Model
 
     public function author()
     {
-        return $this->belongsTo('App\Author');
+        return $this->belongsToMany('App\Author');
     }
 
     public function genre()

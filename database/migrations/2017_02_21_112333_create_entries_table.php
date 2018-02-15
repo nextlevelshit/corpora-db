@@ -15,15 +15,9 @@ class CreateEntriesTable extends Migration
   {
     Schema::create('entries', function (Blueprint $table) {
       $table->increments('id');
-
       $table->string('title')->unique();
       // manually editable identifier
       $table->string('identifier')->nullable();
-      // foreign key constraint on author
-      $table->integer('author_id')->unsigned()->nullable();
-      $table->foreign('author_id')
-            ->references('id')->on('authors')
-            ->onDelete('cascade');
       // foreign key constraint on genre
       $table->integer('genre_id')->unsigned()->nullable();
       $table->foreign('genre_id')
@@ -31,7 +25,6 @@ class CreateEntriesTable extends Migration
             ->onDelete('cascade');
       // publishing year
       $table->integer('year')->nullable();
-
       $table->timestamps();
     });
   }

@@ -5,6 +5,20 @@
         margin-top: 1rem;
         padding: 0.2rem 0.4rem;
         font-weight: 700;
+
+        &.--authors {
+            a {
+                display: inline-block;
+
+                &:not(:first-child) {
+                    &::before {
+                        content: ', ';
+                        font-weight: normal;
+                        color: black;
+                    }
+                }
+            }
+        }
     }
 
     &-key {

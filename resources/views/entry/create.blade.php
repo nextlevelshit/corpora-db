@@ -25,7 +25,7 @@
         </div>
         <div class="row">
             <div class="medium-6 column">
-                <autocomplete title="Autor" name="author" table="authors" placeholder="Mehrere Eingaben mit Kommata trennen"></autocomplete>
+                <autocomplete title="Autor" name="author" table="authors" api="{{ url('/api') }}" value="{{ old('author') }}"></autocomplete>
             </div>
             <div class="medium-6 column">
                 <label>Erscheinungsjahr
@@ -58,8 +58,7 @@
         </div>
         <div class="row">
             <div class="medium-6 column">
-                <a href="#" class="hollow button">
-                    {{-- TODO: add functionality to abort button --}}
+                <a href="{{ route('entry.create') }}" class="hollow button">
                     Abbrechen
                 </a>
             </div>

@@ -1,63 +1,114 @@
 <template>
+
     <label class="autocomplete">
         {{ title }}
         <input type="hidden"
-               v-model="newId"
-               v-bind:name="name + '_id'">
+               v-model="selected"
+               v-bind:name="name">
 
-        <input type="text" class="autocomplete-input" autocomplete="off"
+        <div class="autocomplete-input" v-bind:class="{ '--focused': isFocused }">
+            <span class="autocomplete-input-tag" 
+            v-for="(item, index) in selected" :key="index"
+            v-on:click="remove(index)">{{ item.name }}</span>
+            <input type="text" class="autocomplete-input-inner" autocomplete="off"
                v-model="term"
-               v-bind:name="name"
+               v-focus="isFocused"
                v-bind:placeholder="placeholder"
-               v-on:keyup="triggerAutocomplete">
+               @focus="focusInput()"
+               @blur="blurInput($event)"
+               v-on:keyup="triggerAutocomplete()"
+               v-on:keydown.enter="addToSelected($event)"
+               v-on:keydown.delete="removeLastFromSelected()">
+        </div>
 
         <ul class="autocomplete-list"
-            v-bind:class="{ 'active': items.length }">
+            v-bind:class="{ 'active': suggestions.length }">
 
             <li class="autocomplete-list-item"
-                v-for="item in items"
+                v-for="item in suggestions" :key="item.id"
                 v-on:click="selectFromAutocomplete(item)">
                 {{ item.name }} <sup>[{{ item.id }}]</sup>
             </li>
         </ul>
 
         <div class="autocomplete-backdrop"
-             v-if="items.length"
+             v-if="suggestions.length"
              v-on:click="resetAutocomplete"></div>
+
     </label>
 </template>
 
+
 <script>
     export default {
-        data: function () {
+        directives: { focus: focus },
+        data: function() {
             return {
-                items: [],
+                selected: this.value ? JSON.parse(this.value) : [],
+                suggestions: [],
                 newId: this.id,
-                term: this.value
+                term: '',
+                isFocused: false
             }
         },
-        props: ['title', 'name', 'table', 'placeholder', 'id', 'value'],
+        props: ['title', 'name', 'table', 'placeholder', 'id', 'value', 'api'],
         methods: {
             triggerAutocomplete: function(event) {
-                this.newId = null;
+                // this.newId = null;
+                // Trim Search Term and remove leading Spaces and Comma. 
+                var searchTerm = this.term.substring(this.term.lastIndexOf(',') + 1).trim();
+                // Do not perform Search if Search Term is empty
+                if (searchTerm.length === 0) return;
 
-                var url = '/corpora/api/' + this.table + '/' + this.term
+                var url = `${this.api}/${this.table}/${searchTerm}`;
 
                 this.$http.get(url).then(function(response) {
-                    this.items = response.body[0];
+                    this.suggestions = response.body[0];
                 });
             },
 
             resetAutocomplete: function() {
-                this.items = [];
+                this.term = '';
+                this.suggestions = [];
             },
 
             selectFromAutocomplete: function(item) {
-                this.term = item.name;
-                this.newId = item.id;
+                this.selected.push(item);
                 this.resetAutocomplete();
+            },
+
+            addToSelected: function(event) {
+                event.preventDefault();
+
+                if(this.term.length === 0) return;
+
+                this.selected.push({
+                    name: this.term
+                });
+                this.resetAutocomplete();
+            },
+
+            removeLastFromSelected: function() {
+                if(this.term.length > 0) return;
+            
+                this.selected.pop();
+            },
+
+            remove: function(index) {
+                this.selected.splice(index, 1);
+            },
+
+            focusInput: function() {
+                this.isFocused = true;
+            },
+
+            blurInput: function(event) {
+                this.isFocused = false;
+                // TODO: Suggestion cannot be clicked, blur is earlier triggered than click
+                // this.addToSelected(event);
             }
-        }
+
+         }
     }
 </script>
 

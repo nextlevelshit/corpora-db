@@ -1,8 +1,52 @@
 .autocomplete {
+
+
     $this-item-height: $input-font-size + $form-spacing;
     $this-list-index: 1000;
 
     position: relative;
+
+    &-input {
+        @include form-element;
+
+        height: auto;
+
+        &-tag {
+            @include button;
+            padding: rem-calc(5) rem-calc(8);
+            margin: 0 rem-calc(6) rem-calc(1) 0;
+            border-radius: rem-calc(3);
+
+            &:after {
+                content: '  x';
+                font-weight: bold;
+                color: lighten($primary-color, 40%);
+                text-shadow: 1px 1px 0 darken($primary-color, 10%);
+            }
+        }
+
+        &-inner {
+            &,
+            &:active,
+            &:focus,
+            &:hover {
+                border: none;
+                display: inline-block;
+                height: auto;
+                width: auto;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+        }
+
+        &.--focused {
+            outline: none;
+            border: $input-border-focus;
+            background-color: $input-background-focus;
+            box-shadow: $input-shadow-focus;
+        }
+    }
 
     &-list {
         z-index: $this-list-index;

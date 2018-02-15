@@ -27,12 +27,11 @@
         </div>
         <div class="row">
             <div class="medium-6 column">
-                <autocomplete title="Autor"
+                <autocomplete title="AutorIn"
                               name="author"
                               table="authors"
-                              placeholder="Mehrere Eingaben mit Kommata trennen"
-                              id="{{ $entry->author_id }}"
-                              value="{{ $entry->author->name }}"></autocomplete>
+                              value="{{ $entry->author }}"
+                              api="{{ url('/api') }}"></autocomplete>
             </div>
             <div class="medium-6 column">
                 <label>Erscheinungsjahr

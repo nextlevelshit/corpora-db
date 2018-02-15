@@ -1,6 +1,6 @@
 
 window._ = require('lodash');
-// window.$ = window.jQuery = require('jquery');
+focus = require('vue-focus');
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces

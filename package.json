@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "foundation-sites": "^6.3.0"
+    "foundation-sites": "^6.3.0",
+    "vue-focus": "^2.1.0",
+    "vue-input-tag": "^1.0.1"
   }
 }
