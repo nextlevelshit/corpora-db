@@ -16,13 +16,16 @@
                v-bind:placeholder="placeholder"
                @focus="focusInput()"
                @blur="blurInput($event)"
+               v-on:mouseover="isHover = true"
+               v-on:mouseout="isHover = false"
                v-on:keyup="triggerAutocomplete()"
                v-on:keydown.enter="addToSelected($event)"
                v-on:keydown.delete="removeLastFromSelected()">
         </div>
 
         <ul class="autocomplete-list"
-            v-bind:class="{ 'active': suggestions.length }">
+            v-bind:class="{ 'active': suggestions.length }"
+                v-on:hover="isHovered">
 
             <li class="autocomplete-list-item"
                 v-for="item in suggestions" :key="item.id"
@@ -48,7 +51,8 @@
                 suggestions: [],
                 newId: this.id,
                 term: '',
-                isFocused: false
+                isFocused: false,
+                isHovered: true
             }
         },
         props: ['title', 'name', 'table', 'placeholder', 'id', 'value', 'api'],
@@ -104,8 +108,7 @@
 
             blurInput: function(event) {
                 this.isFocused = false;
-                // TODO: Suggestion cannot be clicked, blur is earlier triggered than click
-                // this.addToSelected(event);
+                if (!this.isHoverd) this.addToSelected(event);
             }
 
          }
