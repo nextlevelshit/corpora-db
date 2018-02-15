@@ -10,7 +10,7 @@
                 <form action="{{ route('search.results') }}" method="post">
                     {{ csrf_field() }}
                     <div class="input-group">
-                        <input class="input-group-field" type="text" name="term" value="{{ $search['term'] }}">
+                        <input class="input-group-field" type="text" autocomplete="off" autocorrect="off" name="term" value="{{ $search['term'] }}">
                         <div class="input-group-button">
                             <input type="submit" class="button" value="Suchen">
                         </div>
@@ -80,8 +80,11 @@
                                                         </a>
                                                     </h4>
                                                     <ul class="search-list-item-info">
-                                                        @if ($entry->author)
-                                                            <li class="search-list-item-info-item">{{ $entry->author->name }}</li>
+                                                        @if (count($entry->author()) > 0)
+                                                            @foreach ($entry->author()->get() as $author)
+                                                                <li class="search-list-item-info-item"><a href="{{ route('author.details', $author->id) }}">
+                                                                {{ $author->name }}</a></li>
+                                                            @endforeach
                                                         @endif
                                                         @if ($entry->genre)
                                                             <li class="search-list-item-info-item">{{ $entry->genre->title }}</li>

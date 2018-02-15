@@ -18,13 +18,14 @@
         </div>
         <div class="row">
             <div class="column medium-6">
-                <div class="entry-details-value --authors"><!--
+                <div class="entry-details-value --authors">
+                    <!--
                     @forelse ($entry->author()->get() as $author)
-                --><a href="{{ route('author.details', $author->id) }}">{{ $author->name }}</a><!--
+                        --><a href="{{ route('author.details', $author->id) }}">{{ $author->name }}</a><!--
                     @empty
-                -->-<!--
+                        -->-<!--
                     @endforelse
-                -->
+                    -->
                 </div>
                 <div class="entry-details-key">
                     AuthorIn

@@ -50,8 +50,8 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #55AB8E, //#1779ba,
-  secondary: #cfe443,//#306978,//#9A3D5C, //#767676,
+  primary: #CC0A4D,// #21ce99,// #55AB8E, //#1779ba,
+  secondary: #A70940,// #cfe443,//#306978,//#9A3D5C, //#767676,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
@@ -60,7 +60,7 @@ $light-gray: scale-color($corpora-gray-base, $lightness: 62%); //#e6e6e6;
 $medium-gray: scale-color($corpora-gray-base, $lightness: 56%); //#cacaca;
 $dark-gray: scale-color($corpora-gray-base, $lightness: 20%); //#8a8a8a;
 $black: scale-color($corpora-gray-base, $lightness: -28%); //#5C6567;
-$white: #fefefe;
+$white: #FAFCFF; //#fefefe;
 $body-background: $white;
 $body-font-color: $black;
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
