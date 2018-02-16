@@ -1,18 +1,22 @@
 @extends('master')
 
-@section('title', 'Suche')
+@section('title', '')
 
 @section('content')
+    <div>
+        <div class="logo text-center">Corpora<span>DB</span></div>
+    </div>
     <div class="row">
         <div class="column">
-            <p>Das ist die Suchmaske</p>
+            {{--  <p>Das ist die Suchmaske</p>  --}}
             <form action="{{ route('search.results') }}" method="post">
                 {{ csrf_field() }}
-                <div class="input-group">
-                    <input class="input-group-field" name="term" type="text" value="{{ old('term') }}" autocorrect="off" autocomplete="off">
-                    <div class="input-group-button">
-                        <input type="submit" class="button" value="Suchen">
-                    </div>
+                <div class="text-center">
+                    <input name="term" type="text" value="{{ old('term') }}" autocorrect="off" autocomplete="off">
+                </div>
+                <div class="text-center">
+                    <a href="{{ route('search.results') }}" class="button large hollow">Erweiterte Suche</a>
+                    <input type="submit" class="button large" value="Suchen">
                 </div>
             </form>
         </div>

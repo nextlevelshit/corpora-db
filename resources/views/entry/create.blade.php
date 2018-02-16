@@ -5,7 +5,8 @@
 @section('content')
     <div class="row">
         <div class="column">
-            <p>Neuen Eintrag erstellen</p>
+            <p>Einträge beinhalten alle Metainformationen und können nach dem Erstellen mit Textdokumenten verknüpft werden.</p>
+            <hr/>
         </div>
     </div>
 
@@ -15,23 +16,28 @@
 
         <div class="row">
             <div class="medium-12 column">
-                <label>Titel
+                <label class="{{ $errors->has('title') ? 'is-invalid-label' : '' }}">Titel
                     <input type="text"
-                           name="title"
-                           placeholder="Unter welchem Titel soll der Eintrag gefunden werden"
-                           value="{{ old('title') }}">
+                        name="title"
+                        placeholder="Pflichtfeld"
+                        autocorrect="off" autocomplete="off"
+                        class="{{ $errors->has('title') ? 'is-invalid-input' : '' }}"
+                        value="{{ old('title') }}">
+                    @if ($errors->has('title'))
+                        <span class="form-error is-visible">{{ $errors->first('title') }}</span>
+                    @endif
                 </label>
             </div>
         </div>
         <div class="row">
             <div class="medium-6 column">
-                <autocomplete title="Autor" name="author" table="authors" api="{{ url('/api') }}" value="{{ old('author') }}"></autocomplete>
+                <autocomplete title="Autor*in" name="author" table="authors" api="{{ url('/api') }}" value="{{ old('author') }}" placeholder="optional"></autocomplete>
             </div>
             <div class="medium-6 column">
                 <label>Erscheinungsjahr
-                    <input type="number"
+                    <input type="text"
                            name="year"
-                           placeholder="Bitte leer lassen, falls nicht eindeutig"
+                           placeholder="optional"
                            value="{{ old('year') }}">
                 </label>
             </div>
@@ -40,6 +46,7 @@
             <div class="medium-6 column">
                 <label>Gattung
                     <select name="genre_id">
+                        <option value="">Bitte auswählen...</option>
                         @foreach ($genres as $genre)
                             <option value="{{ $genre->id }}" @if ($genre->id == old('genre_id')) selected @endif>{{ $genre->title }}</option>
                         @endforeach
@@ -56,7 +63,11 @@
                 </label>
             </div>
         </div>
+
         <div class="row">
+            <div class="column medium-12">
+                <hr/>
+            </div>
             <div class="medium-6 column">
                 <a href="{{ route('entry.create') }}" class="hollow button">
                     Abbrechen

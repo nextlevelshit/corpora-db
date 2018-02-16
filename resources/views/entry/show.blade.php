@@ -80,7 +80,7 @@
                 <table class="stack">
                     <tr>
                         <th colspan="3" class="text-left">
-                            Hinterlegter Texte
+                            Verknüpfte Textdokumente
                         </th>
                     </tr>
                     @forelse ($entry->textsLatest() as $text)

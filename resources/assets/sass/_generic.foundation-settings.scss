@@ -50,20 +50,20 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #CC0A4D,// #21ce99,// #55AB8E, //#1779ba,
-  secondary: #A70940,// #cfe443,//#306978,//#9A3D5C, //#767676,
-  success: #3adb76,
+  primary: #2D8BAD, //#CC0A4D,// #21ce99,// #55AB8E, //#1779ba,
+  secondary: #4FADA5, // #A70940,// #cfe443,//#306978,//#9A3D5C, //#767676,
+  success: #BADBAD, //#3adb76,
   warning: #ffae00,
-  alert: #cc4b37,
+  alert: #DB2118, //#cc4b37,
 );
 $light-gray: scale-color($corpora-gray-base, $lightness: 62%); //#e6e6e6;
 $medium-gray: scale-color($corpora-gray-base, $lightness: 56%); //#cacaca;
 $dark-gray: scale-color($corpora-gray-base, $lightness: 20%); //#8a8a8a;
 $black: scale-color($corpora-gray-base, $lightness: -28%); //#5C6567;
-$white: #FAFCFF; //#fefefe;
+$white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -105,7 +105,7 @@ $block-grid-max: 8;
 // ------------------
 
 $header-font-family: $corpora-header-font-family;
-$header-font-weight: $global-weight-normal;
+$header-font-weight: 200;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: inherit;
@@ -365,7 +365,7 @@ $input-prefix-border: 1px solid $medium-gray;
 $input-prefix-padding: 1rem;
 $form-label-color: $black;
 $form-label-font-size: rem-calc(14);
-$form-label-font-weight: $global-weight-normal;
+$form-label-font-weight: $global-weight-bold;
 $form-label-line-height: 1.8;
 $select-background: $white;
 $select-triangle-color: $dark-gray;

@@ -1,9 +1,12 @@
 @extends('master')
 
-@section('title', 'Suchergebnisse')
+@section('title', '')
 
 @section('content')
     <div class="search">
+        <div>
+            <div class="logo text-center">Corpora<span>DB</span></div>
+        </div>
         <div class="row">
             <div class="column">
                 <p>{{ $results }} Suchergebnisse für <strong>{{ $search['term'] }}</strong></p>

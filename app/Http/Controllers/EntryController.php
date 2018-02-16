@@ -77,7 +77,7 @@ class EntryController extends Controller
             $notification = new Notification('Eintrag erfolgreich erstellt', 'Ihr neuer Eintrag ist über folgende Adresse erreichbar: <a href="'.$link.'">'.$link.'</a>');
         } catch(Exception $e) {
             // save request data if error occured and fill form with input data
-            $request->flashExcept(['author_id', 'author']);
+            $request->flashExcept(['author']);
             // add notifcation including exception message
             $notification = new Notification('Eintrag konnte nicht gespeichert werden', 'Bitte geben Sie folgende Nachricht an Ihren Administrator weiter: <blockquote>'.$e->getMessage().'</blockquote>');
         }

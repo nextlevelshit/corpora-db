@@ -11,6 +11,7 @@
                     {{ $entry->title }}
                 </a>
             </p>
+            <hr/>
         </div>
     </div>
 
@@ -31,10 +32,13 @@
                 </label>
             </div>
             <div class="medium-6 column">
-                <label>Datei hochladen
+                <label class="{{ $errors->has('path') ? 'is-invalid-label' : '' }}">Datei hochladen
                    <input type="file"
-                          class=""
-                          name="path">
+                        class="button"
+                        name="path">
+                    @if ($errors->has('path'))
+                        <span class="form-error is-visible">{{ $errors->first('path') }}</span>
+                    @endif
                 </label>
             </div>
         </div>
@@ -47,8 +51,7 @@
         </div>
         <div class="row">
             <div class="medium-6 column">
-                <a href="#" class="hollow button">
-                    {{-- TODO: add functionality to abort button --}}
+                <a href="{{ route('entry.text.create', $entry->id) }}" class="hollow button">
                     Abbrechen
                 </a>
             </div>

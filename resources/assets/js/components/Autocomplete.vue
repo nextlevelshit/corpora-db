@@ -2,6 +2,7 @@
 
     <label class="autocomplete">
         {{ title }}
+
         <input type="hidden"
                v-model="selected"
                v-bind:name="name">
@@ -16,16 +17,13 @@
                v-bind:placeholder="placeholder"
                @focus="focusInput()"
                @blur="blurInput($event)"
-               v-on:mouseover="isHover = true"
-               v-on:mouseout="isHover = false"
                v-on:keyup="triggerAutocomplete()"
                v-on:keydown.enter="addToSelected($event)"
                v-on:keydown.delete="removeLastFromSelected()">
         </div>
 
         <ul class="autocomplete-list"
-            v-bind:class="{ 'active': suggestions.length }"
-                v-on:hover="isHovered">
+            v-bind:class="{ 'active': suggestions.length }">
 
             <li class="autocomplete-list-item"
                 v-for="item in suggestions" :key="item.id"
@@ -52,7 +50,7 @@
                 newId: this.id,
                 term: '',
                 isFocused: false,
-                isHovered: true
+                isHovered: false
             }
         },
         props: ['title', 'name', 'table', 'placeholder', 'id', 'value', 'api'],
@@ -108,7 +106,7 @@
 
             blurInput: function(event) {
                 this.isFocused = false;
-                if (!this.isHoverd) this.addToSelected(event);
+                if (!this.suggestions.length) this.addToSelected(event);
             }
 
          }

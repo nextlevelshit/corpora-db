@@ -1,7 +1,5 @@
 @include('_components.header')
 
-@section('title', 'DB Corpora')
-
 <div class="margin-large"></div>
 
 <div class="row">

@@ -1,5 +1,5 @@
 <nav class="navigation">
-    <div class="navigation-header">Corpora<span>DB</span></div>
+    <div class="navigation-header --inverted">Corpora<span>DB</span></div>
     <!-- Main Navigation -->
     <ul class="navigation-list">
         <li class="navigation-list-item">

@@ -9,13 +9,15 @@ $corpora-foundation-dir: 'node_modules/foundation-sites/scss/';
 $corpora-transition: all 160ms;
 $corpora-gray-base: #3E4345;
 $corpora-sidebar-background: $corpora-gray-base;
-$corpora-header-font-family: 'Playfair Display';
+$corpora-header-font-family: 'Source Sans Pro', serif;
 $corpora-margin-base: 2rem;
 
 $global-lineheight: 2;
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900');
+// @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
+// @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Open+Sans:400,600,70');
+
 
 /*----------------------------------------------------------------
 * Generic
@@ -69,6 +71,21 @@ input[type='file'] {
 @import 'components.entry-details';
 @import 'components.navigation';
 @import 'components.search';
+
+.logo {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-weight: 900;
+    padding: 0 0 5rem 0;
+
+    span {
+        color: $primary-color;
+        background: linear-gradient($secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
 
 /*----------------------------------------------------------------
 * Overrides

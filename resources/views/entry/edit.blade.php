@@ -8,6 +8,7 @@
             <p>
                 Zugehöriger Eintrag: <a href="{{ route('entry.show', $entry->id) }}">{{ route('entry.show', $entry->id) }}</a>
             </p>
+            <hr/>
         </div>
     </div>
 
@@ -27,7 +28,7 @@
         </div>
         <div class="row">
             <div class="medium-6 column">
-                <autocomplete title="AutorIn"
+                <autocomplete title="Autor*in"
                               name="author"
                               table="authors"
                               value="{{ $entry->author }}"
@@ -35,9 +36,9 @@
             </div>
             <div class="medium-6 column">
                 <label>Erscheinungsjahr
-                    <input type="number"
+                    <input type="text"
                            name="year"
-                           placeholder="Bitte leer lassen, falls nicht eindeutig"
+                           placeholder="optional"
                            value="{{ $entry->year }}">
                 </label>
             </div>
@@ -46,6 +47,7 @@
             <div class="medium-6 column">
                 <label>Gattung
                     <select name="genre_id">
+                        <option value="">Bitte auswählen...</option>
                         @foreach ($genres as $genre)
                             <option value="{{ $genre->id }}" @if ($genre->id == $entry->genre_id) selected @endif>{{ $genre->title }}</option>
                         @endforeach
@@ -57,11 +59,15 @@
                     <input type="text"
                            name="identifier"
                            placeholder="Text eindeutig markieren"
+                           disabled="disabled"
                            value="{{ $entry->identifier }}">
                 </label>
             </div>
         </div>
         <div class="row">
+            <div class="medium-12 column">
+                <hr/>
+            </div>
             <div class="medium-6 column">
                 <a href="{{ route('entry.show', $entry->id) }}" class="hollow button">
                     Abbrechen

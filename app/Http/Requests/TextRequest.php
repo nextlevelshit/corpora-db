@@ -25,7 +25,7 @@ class TextRequest extends FormRequest
     {
         return [
             'state_id' => 'required',
-            'path' => 'required|file|mimes:txt'
+            'path' => 'required|file|mimes:txt,xml'
         ];
     }
 }
