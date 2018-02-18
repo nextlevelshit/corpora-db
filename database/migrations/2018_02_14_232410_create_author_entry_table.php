@@ -14,11 +14,11 @@ class CreateAuthorEntryTable extends Migration
     public function up()
     {
         Schema::create('author_entry', function (Blueprint $table) {
-            $table->integer('author_id')->unsigned()->nullable();
+            $table->integer('author_id')->unsigned()->index();
             $table->foreign('author_id')->references('id')
                   ->on('authors')->onDelete('cascade');
       
-            $table->integer('entry_id')->unsigned()->nullable();
+            $table->integer('entry_id')->unsigned()->index();
             $table->foreign('entry_id')->references('id')
                   ->on('entries')->onDelete('cascade');
 
