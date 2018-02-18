@@ -1,16 +1,26 @@
 <nav class="navigation">
-    <div class="navigation-header --inverted">Corpora<span>DB</span></div>
-    <!-- Main Navigation -->
+    <div class="navigation-header --inverted">
+        <a href="{{ route('search.index') }}">
+            Corpora<span>DB</span>
+        </a>
+    </div>
+    {{--  Main Navigation --}}
     <ul class="navigation-list">
-        <li class="navigation-list-item">
-            <a class="navigation-list-item-link" href="{{ route('entry.index') }}">Übersicht</a>
-        </li>
         <li class="navigation-list-item">
             <a class="navigation-list-item-link" href="{{ route('search.index') }}">Suche</a>
         </li>
         <li class="navigation-list-item">
             <a class="navigation-list-item-link" href="{{ route('entry.create') }}">Neuer Eintrag</a>
         </li>
+        <li class="navigation-list-item-title">
+            Übersicht
+        </li>
+        <li class="navigation-list-item">
+            <a class="navigation-list-item-link" href="{{ route('entry.index') }}">Einträge</a>
+        </li>
+        {{--  <li class="navigation-list-item">
+            <a class="navigation-list-item-link" href="{{ route('author.index') }}">Autoren</a>
+        </li>  --}}
     </ul>
     {{-- Latest Search Requests --}}
     <ul class="navigation-list">

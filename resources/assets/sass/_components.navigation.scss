@@ -21,6 +21,16 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        a {
+            color: $white;
+
+            &:hover,
+            &:focus {
+                color: $white;
+                opacity: 0.8;
+            }
+        }
     }
 
     &-list {

@@ -11,7 +11,7 @@
                         <th class="text-left">Titel</th>
                         <th class="text-left">Author</th>
                         <th class="text-left">Gattung</th>
-                        <th class="text-left">Änderungsdatum</th>
+                        <th class="text-left">Erscheinungsjahr</th>
                     </tr>
                 @endif
 
@@ -46,7 +46,11 @@
                         </td>
 
                         <td>
-                            {{ $entry->updated_at->format('d.m.Y H:i') }}
+                            @if ($entry->year)
+                                {{ $entry->year }}
+                            @else
+                                -
+                            @endif
                         </td>
                     </tr>
                 @empty

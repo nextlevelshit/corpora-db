@@ -20,9 +20,7 @@
 | search formular and display options for adding new entry.
 |
 */
-Route::get('/', function () {
-    return redirect(route('entry.index'));
-});
+Route::get('/', 'SearchController@index')->name('search.index');
 /*
 |--------------------------------------------------------------------------
 | Search
@@ -32,7 +30,10 @@ Route::get('/', function () {
 | enquiry, load result page.
 |
 */
-Route::get('search', 'SearchController@index')->name('search.index');
+Route::get('search', function() {
+    redirect('search.index');
+});
+Route::get('search/help', 'SearchController@index')->name('search.help');
 Route::post('search', 'SearchController@results')->name('search.results');
 Route::post('search/export', 'SearchController@export')->name('search.export');
 /*

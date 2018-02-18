@@ -18,6 +18,13 @@ class SearchController extends Controller
         return view('search.index');
     }
 
+    public function advanced() {
+        $states = State::all();
+        $search['term'] = '';
+
+        return view('search.results', compact('search', 'states'));
+    }
+
     public function results(Request $request)
     {
         $search = $request->all();
