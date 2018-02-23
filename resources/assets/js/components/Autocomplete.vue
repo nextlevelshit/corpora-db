@@ -15,8 +15,8 @@
                v-model="term"
                v-focus="isFocused"
                v-bind:placeholder="placeholder"
-               @focus="focusInput()"
-               @blur="blurInput($event)"
+               v-on:focus="focusInput()"
+               v-on:blur="blurInput($event)"
                v-on:keyup="triggerAutocomplete()"
                v-on:keydown.enter="addToSelected($event)"
                v-on:keydown.delete="removeLastFromSelected()">
@@ -59,13 +59,13 @@
                 // this.newId = null;
                 // Trim Search Term and remove leading Spaces and Comma. 
                 var searchTerm = this.term.substring(this.term.lastIndexOf(',') + 1).trim();
-                // Do not perform Search if Search Term is empty
-                if (searchTerm.length === 0) return;
+                // Do not perform Search if Search Term is to short
+                if (searchTerm.length < 3) return;
 
                 var url = `${this.api}/${this.table}/${searchTerm}`;
 
                 this.$http.get(url).then(function(response) {
-                    this.suggestions = response.body[0];
+                    this.suggestions = response.body;
                 });
             },
 
@@ -106,7 +106,7 @@
 
             blurInput: function(event) {
                 this.isFocused = false;
-                if (!this.suggestions.length) this.addToSelected(event);
+                if (!this.suggestions) this.addToSelected(event);
             }
 
          }

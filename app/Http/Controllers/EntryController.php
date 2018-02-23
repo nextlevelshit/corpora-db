@@ -33,8 +33,6 @@ class EntryController extends Controller
     */
     public function create()
     {
-        // TODO: add author to form after validation fail
-
         $genres = Genre::orderBy('title')->get();
 
         return view('entry.create', compact('genres'));
@@ -46,8 +44,9 @@ class EntryController extends Controller
     * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response
     */
-    public function store(EntryRequest $request)
+    public function store(Requests\EntryRequest $request)
     {
+       
         $input = $request->all();
         $authors = json_decode($request->input('author'));
         $authorsIds = [];
@@ -121,7 +120,7 @@ class EntryController extends Controller
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
-    public function update(Request $request, $id)
+    public function update(Requests\EntryRequest $request, $id)
     {
         $entry = Entry::findOrFail($id);
         $input = $request->all();
@@ -142,6 +141,9 @@ class EntryController extends Controller
                 $authorsIds[] = $author->id;
             }
         }
+
+        // dd($entry['fillable']);
+        // dd($input);
 
         try {
             $entry->update($input);

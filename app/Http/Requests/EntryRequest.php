@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use Illuminate\Http\Request;
 
 class EntryRequest extends FormRequest
 {
@@ -23,8 +25,30 @@ class EntryRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title' => 'required|unique:entries'
-        ];
+        switch($this->method())
+        {
+            case 'GET':
+            case 'DELETE':
+            {
+                return [];
+            }
+            case 'POST':
+            {
+                return [
+                    'title' => 'required|unique:entries'
+                ];
+            }
+            case 'PUT':
+            case 'PATCH':
+            {
+                return [
+                    'title' => [
+                        'required',
+                        Rule::unique('entries')->ignore($this->entry)
+                    ]
+                ];
+            }
+            default:break;
+        }
     }
 }

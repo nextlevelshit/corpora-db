@@ -16,7 +16,11 @@ class AuthorController extends Controller
 
     public function search($searchTerm)
     {
-        if (count($searchTerm) < 2) return;
-        return array(Author::search($searchTerm)->get());
+        return response()->json(
+            Author::search($searchTerm)
+                ->get()
+                ->sortBy('name')
+                ->all()
+        );
     }
 }
