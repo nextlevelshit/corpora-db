@@ -11,6 +11,7 @@ git clone https://github.com/nextlevelshit/corpora-db.git
 cd corpora-db
 yarn # or "npm i"
 composer install
+mv .env.example .env # configure environment, database credentials etc.
 php artisan migrate:install # initiate migrations
 php artisan migrate # migrate predefined tables to database
 php artisan storage:link # enable public file upload
