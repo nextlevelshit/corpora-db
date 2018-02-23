@@ -7,8 +7,8 @@ Database for collecting and refining corpus data. SQL database with web interfac
 ## Installation
 
 ```bash
-git clone git@github.tik.uni-stuttgart.de:ac128227/db-corpora.git
-cd db-corpora
+git clone https://github.com/nextlevelshit/corpora-db.git
+cd corpora-db
 composer install
 php artisan migrate:install # initiate migrations
 php artisan migrate # migrate predefined tables to database
