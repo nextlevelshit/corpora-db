@@ -24,7 +24,7 @@
                 <div class="title-bar hide-for-large">
                     <div class="title-bar-left">
                         <button class="menu-icon" type="button" data-open="my-info"></button>
-                        <span class="title-bar-title">Menü öffnen</span>
+                        <span class="title-bar-title">Menü</span>
                     </div>
                 </div>
 
