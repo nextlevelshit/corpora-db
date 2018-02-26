@@ -15,6 +15,10 @@ mv .env.example .env # configure environment, database credentials etc.
 php artisan migrate:install # initiate migrations
 php artisan migrate # migrate predefined tables to database
 php artisan storage:link # enable public file upload
+find /home/corpora/corpora-db/ -type f -exec chmod 644 {} \;  # grant 644 permissions to all files
+find /home/corpora/corpora-db/ -type d -exec chmod 755 {} \;  # grant 755 permissions to all folders
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
 ```
 
 _`Composer` and `PHP` have to be installed previously._
