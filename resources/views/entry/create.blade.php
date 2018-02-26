@@ -31,14 +31,14 @@
     </div>
     <div class="row">
       <div class="medium-6 column">
-        <autocomplete title="Autor*in" name="author" table="authors" api="{{ url('/api') }}" value="{{ old('author') }}" placeholder="optional"></autocomplete>
+        <autocomplete title="Autor*in" name="author" table="authors" api="{{ url('/api') }}" value="{{ old('author') }}" placeholder="Mehrfacheingabe mit Enter trennen"></autocomplete>
       </div>
       <div class="medium-6 column">
         <label>Erscheinungsjahr
           <input type="text"
-          name="year"
-          placeholder="optional"
-          value="{{ old('year') }}">
+            name="year"
+            placeholder=""
+            value="{{ old('year') }}">
         </label>
       </div>
     </div>
