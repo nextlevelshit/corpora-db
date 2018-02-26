@@ -34,16 +34,16 @@
     <div class="row">
       <div class="medium-6 column">
         <autocomplete title="Autor*in"
-        name="author"
-        table="authors"
-        value="{{ $entry->author }}"
-        api="{{ url('/api') }}"></autocomplete>
+          name="author"
+          table="authors"
+          value="{{ $entry->author }}"
+          api="{{ url('/api') }}"></autocomplete>
       </div>
       <div class="medium-6 column">
         <label>Erscheinungsjahr
           <input type="text"
           name="year"
-          placeholder="optional"
+          placeholder=""
           value="{{ $entry->year }}">
         </label>
       </div>
