@@ -75,7 +75,6 @@ class SearchController extends Controller
 
     public function export(Requests\ExportRequest $request)
     {
-
         $input = $request->all();
         $exports = array();
 
@@ -89,7 +88,10 @@ class SearchController extends Controller
             $exportFileName = $this->generateExportFileName($title);
         }
 
+        $files = glob('public/files/*');
+
         $zipper = new \Chumper\Zipper\Zipper;
+        // $zipper->make('public/test.zip')->add($files)->close();
         $zipper->make($exportFileName);
 
         foreach ($input['entries'] as $id) {
@@ -99,7 +101,9 @@ class SearchController extends Controller
                 $text = $entry->textByState($state);
 
                 if ($text && file_exists($text->path)) {
-                    $file['author'] = str_slug($entry->author->name);
+                    // dd($entry->author->name);
+
+                    // $file['author'] = str_slug($entry->author->name);
                     $file['title'] = str_slug($entry->title);
                     $file['state'] = str_slug($text->state->title);
                     $file['year'] = $entry->year;
@@ -114,12 +118,17 @@ class SearchController extends Controller
             }
         }
 
-        $zipper->close();
-
-        if (file_exists($exportFileName)) {
-            return response()->download($exportFileName);
-        } else {
-            return back()->withInput()->withErrors(['Der Export beinhaltete keine Dateien. Bitte versuchen Sie es erneut mit einer anderen Konstellation.']);
+        // dd($zipper);
+ 
+        try {
+            $zipper->close();
+            if (file_exists($exportFileName)) {
+                return response()->download($exportFileName);
+            } else {
+                return back()->withInput()->withErrors(['Der Export beinhaltete keine Dateien. Bitte versuchen Sie es erneut mit einer anderen Konstellation.']);
+            }
+        } catch(Exception $e) {
+            return back()->withInput()->withErrors(['Es ist zu einem unerwarteten Fehler gekommen. Bitte versuchen Sie es erneut.']);
         }
     }
 
