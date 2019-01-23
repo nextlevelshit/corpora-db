@@ -14,12 +14,16 @@
     "jquery": "^3.1.1",
     "laravel-mix": "^4.0.14",
     "lodash": "^4.17.11",
-    "vue": "^2.1.10",
-    "vue-resource": "^1.2.0"
+    "resolve-url-loader": "2.3.1",
+    "sass": "^1.16.1",
+    "sass-loader": "7.*",
+    "vue": "^2.5.22",
+    "vue-resource": "^1.2.0",
+    "vue-template-compiler": "^2.5.22"
   },
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "foundation-sites": "^6.3.0",
+    "foundation-sites": "^6.5.1",
     "vue-focus": "^2.1.0",
     "vue-input-tag": "^1.0.1"
   }
