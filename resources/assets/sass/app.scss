@@ -5,12 +5,14 @@
 * Global variables, site-wide settings, config switches, etc.
 */
 // Variables
-$corpora-foundation-dir: 'node_modules/foundation-sites/scss/';
+$corpora-foundation-dir: '~foundation-sites/scss/';
 $corpora-transition: all 160ms;
 $corpora-gray-base: #3E4345;
 $corpora-sidebar-background: $corpora-gray-base;
 $corpora-header-font-family: 'Source Sans Pro', serif;
 $corpora-margin-base: 2rem;
+
+$fa-font-path: './corpora/fonts';
 
 $global-lineheight: 2;
 // Fonts
@@ -26,11 +28,11 @@ $global-lineheight: 2;
 * Low-specificity, far-reaching rulesets (e.g. resets).
 */
 // Load Foundation Sites
-@import 'node_modules/foundation-sites/scss/foundation';
+@import '~foundation-sites/scss/foundation';
 @import 'generic.foundation-settings';
 @import 'generic.foundation-includes';
 // Load Fontawesome
-@import 'node_modules/font-awesome/scss/font-awesome';
+@import '~font-awesome/scss/font-awesome';
 // @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
 // Mixins
 @import 'generic.mixin-margins';

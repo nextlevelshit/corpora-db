@@ -68,9 +68,9 @@ npm run watch
 
 ## Production
 
-## 1. Install migrations
+### 1. Install migrations
 
-## 2. Compile scripts and styles
+### 2. Compile scripts and styles
 
 ```bash
 npm run production
@@ -90,6 +90,14 @@ npm run production
 #                                             js/foundation.min.js    149 kB          [emitted]
 ```
 
+### 3. Grant permissions to generated files
+
+After generating CSS, JS and Font files they have to get the right permissions:
+
+```bash
+find /home/corpora/corpora-db/public -type f -exec chmod 644 {} \;  # grant 644 permissions to all files
+find /home/corpora/corpora-db/public -type d -exec chmod 755 {} \;  # grant 755 permissions to all folders
+```
 
 ## Configurations
 
