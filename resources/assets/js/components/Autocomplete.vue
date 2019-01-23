@@ -39,7 +39,6 @@
     </label>
 </template>
 
-
 <script>
     export default {
         directives: { focus: focus },

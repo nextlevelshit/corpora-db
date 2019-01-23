@@ -61,7 +61,6 @@ class TextController extends Controller
         // store public path to database
         $input['path'] = $privateUploadDir . implode($new, '.');
         $input['entry_id'] = $id;
-
         try {
             $text = Text::create($input);
             $path = asset($input['path']);

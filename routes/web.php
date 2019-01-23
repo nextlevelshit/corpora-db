@@ -31,7 +31,7 @@ Route::get('/', 'SearchController@index')->name('search.index');
 |
 */
 Route::get('search', function() {
-    redirect('search.index');
+    return redirect()->route('search.index');
 });
 Route::get('search/help', 'SearchController@index')->name('search.help');
 Route::post('search', 'SearchController@results')->name('search.results');

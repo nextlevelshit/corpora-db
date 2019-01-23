@@ -37,6 +37,11 @@ class Entry extends Model
         return $this->hasMany('App\Text');
     }
 
+    // public function availableExportExtensions()
+    // {
+    //     return $this->hasMany('App\Text');
+    // }
+
     public function textByState($state)
     {
         return $this->hasMany('App\Text')->latest()->where('texts.state_id', $state)->first();

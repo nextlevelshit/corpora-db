@@ -3,5 +3,5 @@
 @section('title', '')
 
 @section('content')
-    @include('search.header')
+  @include('search.header')
 @endsection

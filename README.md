@@ -19,6 +19,7 @@ find /home/corpora/corpora-db/ -type f -exec chmod 644 {} \;  # grant 644 permis
 find /home/corpora/corpora-db/ -type d -exec chmod 755 {} \;  # grant 755 permissions to all folders
 chmod -R 775 storage
 chmod -R 775 bootstrap/cache
+chmod -R u+x node_modules
 ```
 
 _`Composer` and `PHP` have to be installed previously._

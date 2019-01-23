@@ -28,7 +28,6 @@ class SearchController extends Controller
     public function results(Request $request)
     {
         $search = $request->all();
-
         $states = State::all();
         // search entries with scout
         $entries = Entry::search($search['term'])->get();
@@ -88,10 +87,7 @@ class SearchController extends Controller
             $exportFileName = $this->generateExportFileName($title);
         }
 
-        $files = glob('public/files/*');
-
         $zipper = new \Chumper\Zipper\Zipper;
-        // $zipper->make('public/test.zip')->add($files)->close();
         $zipper->make($exportFileName);
 
         foreach ($input['entries'] as $id) {
@@ -101,9 +97,7 @@ class SearchController extends Controller
                 $text = $entry->textByState($state);
 
                 if ($text && file_exists($text->path)) {
-                    // dd($entry->author->name);
-
-                    // $file['author'] = str_slug($entry->author->name);
+	            //$file['author'] = str_slug($entry->author->name);
                     $file['title'] = str_slug($entry->title);
                     $file['state'] = str_slug($text->state->title);
                     $file['year'] = $entry->year;
