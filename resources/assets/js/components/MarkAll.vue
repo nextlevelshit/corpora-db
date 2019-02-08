@@ -10,21 +10,22 @@
 </template>
 
 <script>
-    export default {
-        directives: { },
-        data: function() {
-            return {
-                isEnabled: false
-            }
-        },
-        props: ['identfier'],
-        methods: {
-          enable: function() {
-            console.log('is enabling');
-          },
-          disable: function() {
-            console.log('is disabling');
-          }
+  export default {
+    name: 'MarkAll',
+    directives: { },
+    data: function() {
+        return {
+            isEnabled: false
         }
+    },
+    props: ['identfier'],
+    methods: {
+      enable: function() {
+        console.log('is enabling');
+      },
+      disable: function() {
+        console.log('is disabling');
+      }
     }
+  }
 </script>

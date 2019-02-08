@@ -3,8 +3,7 @@
     <li class="search-list-item">
       <div class="row">
         <div class="small-2 medium-1 column">
-          <mark-all identifier=".search-list-item-check-input"></mark-all>
-          <autocomplete>
+          <MarkAll identifier=".search-list-item-check-input"></MarkAll>
         </div>
         <div class="small-10 medium-11">
           <h4>

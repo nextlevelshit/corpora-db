@@ -41,6 +41,7 @@
 
 <script>
     export default {
+        name: 'Autocomplete',
         directives: { focus: focus },
         data: function() {
             return {
