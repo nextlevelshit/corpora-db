@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', '')
+{{-- @section('title', 'test') --}}
 
 @section('content')
   @include('search.header')

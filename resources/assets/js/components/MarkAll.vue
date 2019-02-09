@@ -1,8 +1,5 @@
 <template>
   <label class="search-list-item-check">
-    <!-- <input type="checkbox" 
-           class="search-list-item-check-input" 
-           name="markAllEntries"/> -->
       <div class="search-list-item-check-trigger"
            v-bind:class="{ 'is-enabled': isEnabled }">
         <i class="fa fa-check-square-o"
@@ -62,14 +59,4 @@
   }
 </script>
 
-<style lang="scss">
-  .search-list-item-check-trigger {
-
-    &.is-enabled {
-      opacity: 1
-    }
-  }
-</style>
-
-
-<!--  styles can be found in resources/assets/sass/_components.autocomplete.scss -->
+<!--  styles can be found in resources/assets/sass/_components.search.scss -->
