@@ -41,6 +41,9 @@
 
 <script>
     export default {
+        mounted() {
+            console.log('Component mounted.')
+        },
         directives: { focus: focus },
         data: function() {
             return {

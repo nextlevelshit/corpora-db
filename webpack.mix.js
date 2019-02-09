@@ -12,7 +12,7 @@ const mix = require('laravel-mix');
  */
 mix
   .setResourceRoot('/')
-  .setPublicPath('corpora/public')
+  //.setPublicPath('corpora/public')
   .js('resources/assets/js/app.js', 'public/js')
   .sass('resources/assets/sass/app.scss', 'public/css')
   .options({
