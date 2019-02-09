@@ -3,7 +3,7 @@
     <li class="search-list-item">
       <div class="row">
         <div class="small-2 medium-1 column">
-          <mark-all identifier=".search-list-item-check-input"></mark-all>
+          <mark-all parent="#entriesList" identifier="[name='entries[]']"></mark-all>
         </div>
         <div class="small-10 medium-11">
           <h4>
@@ -12,7 +12,9 @@
         </div>
       </div>
     </li>
-    <hr>
+  </ul>  
+  <hr>
+  <ul class="search-list" id="entriesList">
     @each('search.results.entriesItem', $entries, 'entry')
   </ul>
 @else

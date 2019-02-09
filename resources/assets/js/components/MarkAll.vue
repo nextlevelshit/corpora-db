@@ -1,10 +1,12 @@
 <template>
   <label class="search-list-item-check">
-    <input type="checkbox" 
+    <!-- <input type="checkbox" 
            class="search-list-item-check-input" 
-           name="markAllEntries">
-      <div class="search-list-item-check-trigger">
-        <i class="fa fa-check-square-o"></i>
+           name="markAllEntries"/> -->
+      <div class="search-list-item-check-trigger"
+           v-bind:class="{ 'is-enabled': isEnabled }">
+        <i class="fa fa-check-square-o"
+           v-on:click="toggle"></i>
       </div>
   </label>
 </template>
@@ -14,17 +16,60 @@
     directives: { },
     data: function() {
       return {
-        isEnabled: false
+        allEnabled() {
+          return Array
+            .from(this.checkboxesEl, checkbox => {
+              return checkbox.checked
+            })
+            .every(checked => checked === true)
+        },
+        isEnabled: false,
+        checkboxesEl: [],
+        parentEl: {}
       }
     },
-    props: ['identfier'],
+    props: ['identifier', 'parent'],
+    mounted() {
+      this.checkboxesEl
+        = document.querySelectorAll(this.identifier)
+      this.parentEl
+        = document.querySelector(this.parent)
+
+      this.parentEl
+        .addEventListener('click', (event) => {
+          if (event.target.closest(this.identifier)) {
+            this.isEnabled = this.allEnabled()
+          }
+        })
+    },
     methods: {
-      enable: function() {
-        console.log('is enabling');
+      enable() {
+        this.isEnabled = true
+        this.checkboxesEl
+          .forEach(checkbox => checkbox.checked = true)
       },
-      disable: function() {
-        console.log('is disabling');
+      disable() {
+        this.isEnabled = false
+        this.checkboxesEl
+          .forEach(checkbox => checkbox.checked = false)
+      },
+      toggle() {
+        this.allEnabled()
+          ? this.disable()
+          : this.enable()
       }
     }
   }
 </script>
+
+<style lang="scss">
+  .search-list-item-check-trigger {
+
+    &.is-enabled {
+      opacity: 1
+    }
+  }
+</style>
+
+
+<!--  styles can be found in resources/assets/sass/_components.autocomplete.scss -->
