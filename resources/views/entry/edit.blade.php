@@ -33,11 +33,11 @@
     </div>
     <div class="row">
       <div class="medium-6 column">
-        <autocomplete title="Autor*in"
+        <auto-complete title="Autor*in"
           name="author"
           table="authors"
           value="{{ $entry->author }}"
-          api="{{ url('/api') }}"></autocomplete>
+          api="{{ url('/api') }}"></auto-complete>
       </div>
       <div class="medium-6 column">
         <label>Erscheinungsjahr

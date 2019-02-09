@@ -13,8 +13,8 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('autocomplete', require('./components/Autocomplete.vue'));
-Vue.component('mark-all', require('./components/MarkAll.vue'));
+Vue.component('auto-complete', require('./components/Autocomplete.vue').default);
+Vue.component('mark-all', require('./components/MarkAll.vue').default);
 
 const app = new Vue({
     el: '#corpora'

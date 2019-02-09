@@ -4,7 +4,6 @@
       <div class="row">
         <div class="small-2 medium-1 column">
           <mark-all identifier=".search-list-item-check-input"></mark-all>
-          <autocomplete>
         </div>
         <div class="small-10 medium-11">
           <h4>
