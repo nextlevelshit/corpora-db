@@ -50,13 +50,13 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #385EAF, //#2D8BAD, //#CC0A4D,// #21ce99,// #55AB8E, //#1779ba,
+  primary: #1D73AD, //#2D8BAD, //#CC0A4D,// #21ce99,// #55AB8E, //#1779ba,
   secondary: #4FADA5, // #A70940,// #cfe443,//#306978,//#9A3D5C, //#767676,
   success: #BADBAD, //#3adb76,
   warning: #ffae00,
   alert: #DB2118, //#cc4b37,
 );
-$light-gray: scale-color($corpora-gray-base, $lightness: 62%); //#e6e6e6;
+$light-gray: scale-color($corpora-gray-base, $lightness: 76%); //#e6e6e6;
 $medium-gray: scale-color($corpora-gray-base, $lightness: 56%); //#cacaca;
 $dark-gray: scale-color($corpora-gray-base, $lightness: 20%); //#8a8a8a;
 $black: scale-color($corpora-gray-base, $lightness: -28%); //#5C6567;
@@ -69,7 +69,7 @@ $global-margin: 1rem;
 $global-padding: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: 500;
-$global-radius: 0;
+$global-radius: rem-calc(5);
 $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
@@ -146,7 +146,7 @@ $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
-$hr-border: 1px solid $medium-gray;
+$hr-border: 1px solid $light-gray;
 $hr-margin: rem-calc(20) auto;
 $list-lineheight: $paragraph-lineheight;
 $list-margin-bottom: $paragraph-margin-bottom;
@@ -566,18 +566,18 @@ $show-header-for-stacked: false;
 // --------
 
 $tab-margin: 0;
-$tab-background: $white;
-$tab-color: $primary-color;
-$tab-background-active: $primary-color;
+$tab-background: transparent;
+$tab-color: $body-font-color;
+$tab-background-active: transparent;
 $tab-active-color: $primary-color;
-$tab-item-font-size: rem-calc(12);
-$tab-item-background-hover: $white;
+$tab-item-font-size: rem-calc(20);
+$tab-item-background-hover: transparent;
 $tab-item-padding: 1.25rem 1.5rem;
 $tab-expand-max: 6;
-$tab-content-background: $white;
-$tab-content-border: $light-gray;
+$tab-content-background: transparent;
+$tab-content-border: transparent;
 $tab-content-color: $body-font-color;
-$tab-content-padding: 1rem;
+$tab-content-padding: 0;
 
 // 34. Thumbnail
 // -------------

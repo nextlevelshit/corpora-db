@@ -1,10 +1,24 @@
 .tabs {
-    &-title {
-        > a {
-            &:focus,
-            &[aria-selected='true'] {
-                color: $white !important;
-            }
-        }
+  border-bottom: 1px solid $light-gray;
+
+  &-title {
+    border-bottom: 2px solid transparent;
+
+    &.is-active {
+      border-color: $primary-color;
     }
+
+    > a {
+      outline: none;
+
+      &:focus,
+      &[aria-selected='true'] {
+        // color: $white !important;
+      }
+    }
+  }
+
+  &-content {
+    padding: rem-calc(20) 0;
+  }
 }

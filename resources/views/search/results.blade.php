@@ -6,6 +6,17 @@
 
   @include('search.header')
 
+  @if (empty($results))
+    <div class="row margin-large">
+      <div class="column">
+        <h3>Keine Suchergebnisse gefunden</h3>
+        <p>
+          <strong>Tipp!</strong> Suchen Sie nach <i>Titeln</i>, <i>Erscheinungsjahren</i>, <i>Autor*innen</i> oder sogar nach <i>Textstellen</i> innerhalb der importierten Textdateien.
+        </p>
+      </div>
+    </div>
+  @endif
+
   <div class="search">
 
     <form action="{{ route('search.export') }}" method="post">

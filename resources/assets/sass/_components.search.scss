@@ -1,21 +1,32 @@
 .search {
 
   &-header {
-    background: lighten($primary-color, 50%);
+    background: #e9f3f6;
     padding: rem-calc(30) 0;
     border-bottom: 1px solid lighten($primary-color, 40%);
   }
 
+  &-bar {
+    position: relative;
+
+    button {
+      position: absolute;
+      right: rem-calc(3);
+      top: rem-calc(3.5);
+      margin: 0;
+    }
+  }
+
   &-export {
 
-    &-button {
-      float: right;
-      margin: 0 0 0 1rem;
-    }
+    // &-button {
+    //   float: right;
+    //   margin: 0 0 0 1rem;
+    // }
 
-    .fieldset {
-      margin: -0.725rem
-    }
+    // .fieldset {
+    //   margin: -0.725rem
+    // }
   }
 
   &-list {
@@ -46,8 +57,8 @@
           text-align: center;
           display: block;
           position: absolute;
-          font-size: 2rem;
-          top: -0.5rem;
+          font-size: 1.6rem;
+          top: 0;
           left: 0;
           height: 100%;
           width: 100%;
@@ -78,9 +89,9 @@
     &.mark-all {
 
       .search-list-item {
-        padding: 0;
 
         &-check-trigger {
+          top: - rem-calc(6);
 
           &.is-enabled {
             opacity: 1

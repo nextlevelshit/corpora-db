@@ -5,7 +5,7 @@
         <div class="small-2 medium-1 column">
           <mark-all parent="#entriesList" identifier="[name='entries[]']"></mark-all>
         </div>
-        <div class="small-10 medium-11">
+        <div class="small-10 medium-11 column">
           <h5>
             Alle {{ count($entries) }} Einträge markieren
           </h5>
@@ -13,7 +13,7 @@
       </div>
     </li>
   </ul>  
-  <hr>
+  
   <ul class="search-list" id="entriesList">
     @each('search.results.entriesItem', $entries, 'entry')
   </ul>

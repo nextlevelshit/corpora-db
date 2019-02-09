@@ -8,7 +8,7 @@
         </div>
       </label>
     </div>
-    <div class="small-10 medium-11">
+    <div class="small-10 medium-11 column">
       <h4 class="search-list-item-result">
         <a href="{{ route('entry.show', $entry->id) }}">
           {{ $entry->title }}
