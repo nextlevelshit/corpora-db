@@ -1,6 +1,6 @@
 @include('_components.header')
 
-@hasSection('navigation')
+@hasSection('title')
   <div class="margin-large"></div>
 
   <div class="row">
