@@ -11,9 +11,6 @@
 
 <script>
   export default {
-    mounted() {
-      console.log('MarkAll mounted.')
-    },
     directives: { },
     data: function() {
       return {
