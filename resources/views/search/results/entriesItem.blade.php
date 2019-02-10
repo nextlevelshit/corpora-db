@@ -34,15 +34,14 @@
         @endif
         @if ($entry->year)
           <li class="search-list-item-info-item">
-            {{ $entry->year }} erschienen
+            {{ $entry->year }}
           </li>
         @endif
-        {{--  @php(dump($entry))  --}}
-        {{--  @if ($entry->year)
+        @foreach ($entry->availableStates() as $state)
           <li class="search-list-item-info-item">
-            {{ $entry->year }} erschienen
+            {{ $state }}
           </li>
-        @endif  --}}
+        @endforeach 
       </ul>
     </div>
   </div>

@@ -37,10 +37,19 @@ class Entry extends Model
         return $this->hasMany('App\Text');
     }
 
-    // public function availableExportExtensions()
-    // {
-    //     return $this->hasMany('App\Text');
-    // }
+    public function availableStates()
+    {
+        $states = State::all();
+        $availableStates = [];
+        // iterate through all given states
+        foreach ($states as $state) {
+            $text = $this->textByState($state->id);
+            // pick only one text of each state
+            if ($text) $availableStates[] = $state->title;
+        }
+
+        return $availableStates;
+    }
 
     public function textByState($state)
     {
@@ -54,7 +63,7 @@ class Entry extends Model
         // iterate through all given states
         foreach ($states as $state) {
             $text = $this->textByState($state->id);
-            // pick only on text of each state
+            // pick only one text of each state
             if ($text) $texts[] = $text;
         }
 
