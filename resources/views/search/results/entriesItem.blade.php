@@ -37,11 +37,13 @@
             {{ $entry->year }}
           </li>
         @endif
-        @foreach ($entry->availableStates() as $state)
+        @foreach ($entry->textsLatest() as $text)
           <li class="search-list-item-info-item">
-            {{ $state }}
+            <a href="{{ asset($text->path) }}" target="_blank">
+              {{ $text->state->title }}
+            </a>
           </li>
-        @endforeach 
+        @endforeach
       </ul>
     </div>
   </div>
