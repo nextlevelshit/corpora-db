@@ -13,7 +13,7 @@ const mix = require('laravel-mix');
 mix
   .setResourceRoot('/')
   //.setPublicPath('corpora/public')
-  .js('resources/assets/js/app.js', 'public/js')
+  .js('resources/assets/js/app.js', 'public/js')  
   .sass('resources/assets/sass/app.scss', 'public/css')
   .options({
     processCssUrls: false
@@ -21,4 +21,4 @@ mix
 
 mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js');
 mix.copy('node_modules/foundation-sites/dist/js/foundation.min.js', 'public/js');
-mix.copy('node_modules/font-awesome/fonts/', 'public/fonts', false);
+mix.copy('node_modules/font-awesome/fonts/', 'public/fonts', false);mix.copy('resources/assets/images/', 'public/images', false);
