@@ -7,7 +7,10 @@
 // Variables
 $corpora-foundation-dir: '~foundation-sites/scss/';
 $corpora-transition: all 160ms;
-$corpora-gray-base: #3E4345;
+$corpora-gray-base: #1F2429;
+$corpora-primary: #1D73AD; //#1D73AD
+$corpora-secondary: #E8A26D; //#4FADA5
+$corpora-warning: #E8A26D; //#ffae00
 $corpora-sidebar-background: $corpora-gray-base;
 $corpora-header-font-family: 'Source Sans Pro', serif;
 $corpora-margin-base: 2rem;
@@ -49,7 +52,7 @@ body {
 }
 
 mark {
-    background-color: lighten($primary-color, 46%);
+    background-color: lighten($corpora-warning, 18%);
 }
 
 /*----------------------------------------------------------------

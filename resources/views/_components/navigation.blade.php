@@ -7,22 +7,32 @@
     {{--  Main Navigation --}}
     <ul class="navigation-list">
         <li class="navigation-list-item">
-            <a class="navigation-list-item-link" href="{{ route('search.index') }}">Suchmaschine</a>
+            <a class="navigation-list-item-link" href="{{ route('search.index') }}">
+                <i class="fa fa-search"></i> Suchmaschine 
+            </a>
         </li>
         <li class="navigation-list-item">
-            <a class="navigation-list-item-link" href="{{ route('entry.create') }}">Eintrag hinzufügen</a>
+            <a class="navigation-list-item-link" href="{{ route('entry.create') }}">
+                <i class="fa fa-file-text-o"></i> Eintrag hinzufügen 
+            </a>
         </li>
         <li class="navigation-list-item">
-            <a class="navigation-list-item-link" href="{{ route('author.create') }}">Autor*in hinzufügen</a>
+            <a class="navigation-list-item-link" href="{{ route('author.create') }}">
+                <i class="fa fa-user"></i> Autor*in hinzufügen 
+            </a>
         </li>
         <li class="navigation-list-item-title">
             Übersicht
         </li>
         <li class="navigation-list-item">
-            <a class="navigation-list-item-link" href="{{ route('entry.index') }}">Einträge</a>
+            <a class="navigation-list-item-link" href="{{ route('entry.index') }}">
+                <i class="fa fa-copy"></i> Einträge
+            </a>
         </li>
         <li class="navigation-list-item">
-            <a class="navigation-list-item-link" href="{{ route('author.index') }}">Autor*innen</a>
+            <a class="navigation-list-item-link" href="{{ route('author.index') }}">
+                <i class="fa fa-users"></i> Autor*innen
+            </a>
         </li>
     </ul>
     <hr>
