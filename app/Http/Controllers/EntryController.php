@@ -21,7 +21,7 @@ class EntryController extends Controller
     */
     public function index()
     {
-        $entries = Entry::paginate(30);
+        $entries = Entry::orderBy('title', 'asc')->paginate(30);
 
         return view('entry.index', compact('entries'));
     }
