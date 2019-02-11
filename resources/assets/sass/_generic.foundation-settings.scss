@@ -54,7 +54,7 @@ $foundation-palette: (
   secondary: #4FADA5, // #A70940,// #cfe443,//#306978,//#9A3D5C, //#767676,
   success: #BADBAD, //#3adb76,
   warning: #ffae00,
-  alert: #DB2118, //#cc4b37,
+  alert: #EF524A, //#cc4b37,
 );
 $light-gray: scale-color($corpora-gray-base, $lightness: 76%); //#e6e6e6;
 $medium-gray: scale-color($corpora-gray-base, $lightness: 56%); //#cacaca;
@@ -275,11 +275,11 @@ $buttongroup-radius-on-each: true;
 $callout-background: $white;
 $callout-background-fade: 70%;
 $callout-border: none;
-$callout-margin: 0 0 1rem 0;
-$callout-padding: 1rem 0 1.5rem;
+$callout-margin: 0;
+$callout-padding: 1rem 0;
 $callout-font-color: $body-font-color;
 $callout-font-color-alt: $body-background;
-$callout-radius: $global-radius;
+$callout-radius: 0;
 $callout-link-tint: 30%;
 
 // 14. Card

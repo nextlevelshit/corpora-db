@@ -30,11 +30,11 @@ Route::get('/', 'SearchController@index')->name('search.index');
 | enquiry, load result page.
 |
 */
-Route::get('search', function() {
-    return redirect()->route('search.index');
-});
+// Route::get('search', function() {
+//     return redirect()->route('search.index');
+// });
 Route::get('search/help', 'SearchController@index')->name('search.help');
-Route::post('search', 'SearchController@results')->name('search.results');
+Route::get('search', 'SearchController@results')->name('search.results');
 Route::post('search/export', 'SearchController@export')->name('search.export');
 /*
 |--------------------------------------------------------------------------

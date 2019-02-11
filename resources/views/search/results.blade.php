@@ -17,11 +17,41 @@
     </div>
   @endif
 
+  @if ($errors->has('entries') || $errors->has('states'))
+    <div class="margin-small"></div>
+    <div class="row">
+      <div class="column medium-8 large-9">
+          @if ($errors->has('entries') && $errors->has('states'))
+            <h5>Anleitug zum Exportieren</h5>
+            <p>
+              Für einen erfolgreichen Export markieren Sie bitte zunächst welche Einträge, die Sie herunterladen möchten Danach wählen Sie bitte die gewünschten Dateitypen aus. Eine Mehrauswahl ist zulässig.
+            </p>
+            <h5>Hinweis</h5>
+            <p>
+              Falls Sie alle Suchergebnisse exportieren möchten, benutzen Sie bitte die Schaltfläche »Alle {{ count($entries) }} Einträge markieren«.
+            </p>
+          @else
+            <h5>Hinweis</h5>
+            @if ($errors->has('entries'))
+              <p>
+                Bitte markieren Sie die Einträge, die Sie exportieren möchten.
+              </p>
+            @endif
+            @if ($errors->has('states'))
+              <p>
+                Bitte wählen Sie welche Textarten exportiert werden sollen.
+              </p>
+            @endif
+          @endif
+      </div>
+    </div>
+  @endif
+
   <div class="search">
 
     <form action="{{ route('search.export') }}" method="post">
       {{-- Add search term to form for autofill if validation fails --}}
-      <input type="hidden" name="term" value="{{ $search['term'] }}">
+      <input type="hidden" name="term" value="{{ $term }}">
       {{ csrf_field() }}
 
       @if (!empty($results) > 0)

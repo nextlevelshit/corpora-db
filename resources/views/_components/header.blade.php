@@ -43,6 +43,8 @@
                 @endif
 
                 @if ( $errors->any() )
+                    {{--  @dump($errors)  --}}
+
                     @component('_components.notification')
                         @slot('title')
                             Es ist ein Fehler aufgetreten

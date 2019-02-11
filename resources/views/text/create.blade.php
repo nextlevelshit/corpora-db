@@ -18,12 +18,11 @@
     <form action="{{ route('entry.text.store', $entry->id) }}"
           method="post"
           enctype="multipart/form-data">
-        {{-- <input type="hidden" name="_method" value="PUT"> --}}
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        {{ csrf_field() }}
 
         <div class="row">
             <div class="medium-6 column">
-                <label>Zustand
+                <label>Dateityp
                     <select name="state_id">
                         @foreach ($states as $state)
                             <option value="{{ $state->id }}" @if ($state->id == old('state_id')) selected @endif>{{ $state->title }}</option>
@@ -50,6 +49,9 @@
             </div>
         </div>
         <div class="row">
+            <div class="column medium-12">
+                <hr/>
+            </div>
             <div class="medium-6 column">
                 <a href="{{ route('entry.text.create', $entry->id) }}" class="hollow button">
                     Abbrechen
@@ -62,8 +64,4 @@
             </div>
         </div>
     </form>
-@endsection
-
-@section('javascript')
-    window.Laravel = { csrfToken: '{{ csrf_token() }}' };
 @endsection

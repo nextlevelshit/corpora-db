@@ -12,8 +12,6 @@ class EntriesTableSeeder extends Seeder
     */
     public function run()
     {
-        // dd(Author);
-
         $authors = Author::all();
 
         factory('App\Entry', 2000)->create()->each(function ($entry) use ($authors) {
