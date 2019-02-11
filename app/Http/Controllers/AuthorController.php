@@ -7,6 +7,19 @@ use App\Author;
 
 class AuthorController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+    */
+    public function index()
+    {
+        $authors = Author::paginate(30);
+
+        return view('author.index', compact('authors'));
+    }
+
+
     public function details($id)
     {
         $author = Author::findOrFail($id);

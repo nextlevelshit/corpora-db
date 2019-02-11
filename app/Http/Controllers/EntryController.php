@@ -21,7 +21,7 @@ class EntryController extends Controller
     */
     public function index()
     {
-        $entries = Entry::latest()->take($this->entriesOnDashboard)->get();
+        $entries = Entry::paginate(30);
 
         return view('entry.index', compact('entries'));
     }
@@ -128,6 +128,8 @@ class EntryController extends Controller
         $authorsIds = [];
 
         // dd($authors);
+        // dd($entry['fillable']);
+        // dd($input);
 
         foreach($authors as $author) {
             if (empty($author->id)) {

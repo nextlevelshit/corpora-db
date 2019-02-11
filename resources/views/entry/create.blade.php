@@ -65,7 +65,7 @@
         <hr/>
       </div>
       <div class="medium-6 column">
-        <button type="clear" class="hollow button">
+        <button type="reset" class="hollow button">
           Abbrechen
         </button>
       </div>

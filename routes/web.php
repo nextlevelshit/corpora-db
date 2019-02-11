@@ -53,6 +53,7 @@ Route::resource('entry', 'EntryController');
 | Display details of entry and show editing and adding options.
 |
 */
+Route::get('author', 'AuthorController@index')->name('author.index');
 Route::get('author/{numId}', 'AuthorController@details')->name('author.details');
 /*
 |--------------------------------------------------------------------------

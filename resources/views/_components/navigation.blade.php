@@ -18,9 +18,9 @@
         <li class="navigation-list-item">
             <a class="navigation-list-item-link" href="{{ route('entry.index') }}">Einträge</a>
         </li>
-        {{--  <li class="navigation-list-item">
-            <a class="navigation-list-item-link" href="{{ route('author.index') }}">Autoren</a>
-        </li>  --}}
+        <li class="navigation-list-item">
+            <a class="navigation-list-item-link" href="{{ route('author.index') }}">Autor*innen</a>
+        </li>
     </ul>
     {{-- Latest Search Requests --}}
     <ul class="navigation-list">
