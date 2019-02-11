@@ -29,7 +29,7 @@
             @if ($text->result)
               {{-- <p>{{ str_limit($text->result, $limit=320, $end='...') }}</p> --}}
               <p>
-                {!! str_replace($term, '<strong>'.$term.'</strong>', $text->result) !!}
+                {!! str_replace($term, '<mark>'.$term.'</mark>', $text->result) !!}
               </p>
             @endif
           {{--  </div>
