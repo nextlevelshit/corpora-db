@@ -127,10 +127,6 @@ class EntryController extends Controller
         $authors = json_decode($request->input('author'));
         $authorsIds = [];
 
-        // dd($authors);
-        // dd($entry['fillable']);
-        // dd($input);
-
         foreach($authors as $author) {
             if (empty($author->id)) {
                 try {

@@ -4,7 +4,7 @@
         {{ title }}
 
         <input type="hidden"
-               v-model="selected"
+               v-model="selectedString"
                v-bind:name="name">
 
         <div class="autocomplete-input" v-bind:class="{ '--focused': isFocused }">
@@ -44,6 +44,7 @@
         directives: { focus: focus },
         data: function() {
             return {
+                selectedString: this.value ? this.value : '',
                 selected: this.value ? JSON.parse(this.value) : [],
                 suggestions: [],
                 newId: this.id,
@@ -75,6 +76,7 @@
 
             selectFromAutocomplete: function(item) {
                 this.selected.push(item);
+                this.updateSelectedString();
                 this.resetAutocomplete();
             },
 
@@ -86,17 +88,24 @@
                 this.selected.push({
                     name: this.term
                 });
+                this.updateSelectedString();
                 this.resetAutocomplete();
+            },
+
+            updateSelectedString: function() {
+                this.selectedString = JSON.stringify(this.selected);
             },
 
             removeLastFromSelected: function() {
                 if(this.term.length > 0) return;
             
                 this.selected.pop();
+                this.updateSelectedString();
             },
 
             remove: function(index) {
                 this.selected.splice(index, 1);
+                this.updateSelectedString();
             },
 
             focusInput: function() {
@@ -105,7 +114,11 @@
 
             blurInput: function(event) {
                 this.isFocused = false;
-                if (!this.suggestions) this.addToSelected(event);
+                if (this.suggestions.length === 0) {
+                    console.log(event);
+                    this.addToSelected(event);
+                    this.updateSelectedString();
+                } 
             }
 
          }
