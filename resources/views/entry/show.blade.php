@@ -28,7 +28,7 @@
                     -->
                 </div>
                 <div class="entry-details-key">
-                    AuthorIn
+                    Author*in
                 </div>
             </div>
             <div class="column medium-6">
