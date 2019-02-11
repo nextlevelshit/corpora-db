@@ -67,7 +67,7 @@
                 </li>
                 <li class="tabs-title">
                   <a href="#results-authors">
-                    Autoren ({{ count($authors) }})
+                    Autor*innen ({{ count($authors) }})
                   </a>
                 </li>
                 <li class="tabs-title">

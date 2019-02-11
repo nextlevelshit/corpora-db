@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Neuer Eintrag')
+@section('title', 'Eintrag hinzufügen')
 
 @section('content')
   <div class="row">
@@ -11,7 +11,7 @@
   </div>
 
   <form action="{{ route('entry.store') }}" method="post">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    {{ csrf_field() }}
     
     <div class="row">
       <div class="medium-12 column">

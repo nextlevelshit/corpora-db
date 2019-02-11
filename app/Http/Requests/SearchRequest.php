@@ -23,8 +23,6 @@ class SearchRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'term': 'required|min:3'
-        ];
+        return true;
     }
 }

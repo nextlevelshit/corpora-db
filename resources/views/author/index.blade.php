@@ -17,7 +17,7 @@
         @forelse ($authors as $author)
           <tr>
             <td>
-              <a href="{{ route('author.details', $author->id) }}">{{ $author->name }}</a>
+              <a href="{{ route('author.show', $author->id) }}">{{ $author->name }}</a>
             </td>
 
             <td>

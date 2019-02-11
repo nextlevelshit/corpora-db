@@ -41,7 +41,7 @@ class EntryController extends Controller
     /**
     * Store a newly created resource in storage.
     *
-    * @param  \Illuminate\Http\Request  $request
+    * @param  \App\Http\Requests\EntryRequest  $request
     * @return \Illuminate\Http\Response
     */
     public function store(Requests\EntryRequest $request)
@@ -116,7 +116,7 @@ class EntryController extends Controller
     /**
     * Update the specified resource in storage.
     *
-    * @param  \Illuminate\Http\Request  $request
+    * @param  \App\Http\Requests\EntryRequest  $request
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
@@ -151,7 +151,7 @@ class EntryController extends Controller
             $entry->author()->sync($authorsIds);
             $link = route('entry.show', $entry->id);
             // add notifcation with new entry information
-            $notification = new Notification('Eintrag erfolgreich bearbeitet', 'Ihr neuer Eintrag ist über folgende Adresse erreichbar: <a href="'.$link.'">'.$link.'</a>');
+            $notification = new Notification('Eintrag erfolgreich bearbeitet', 'Der Eintrag ist über folgende Adresse erreichbar: <a href="'.$link.'">'.$link.'</a>');
         } catch(Exception $e) {
             // save request data if error occured and fill form with input data
             $request->flashExcept(['author']);

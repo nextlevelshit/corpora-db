@@ -21,7 +21,7 @@
         @if (count($entry->author()) > 0)
           @foreach ($entry->author()->get() as $author)
             <li class="search-list-item-info-item">
-              <a href="{{ route('author.details', $author->id) }}">
+              <a href="{{ route('author.show', $author->id) }}">
                 {{ $author->name }}
               </a>
             </li>

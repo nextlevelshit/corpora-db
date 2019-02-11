@@ -10,7 +10,7 @@
     </div>
     <div class="small-11">
       <h4 class="search-list-item-result">
-        <a href="{{ route('author.details', $author->id) }}">
+        <a href="{{ route('author.show', $author->id) }}">
           {{ $author->name }}
         </a>
       </h4>

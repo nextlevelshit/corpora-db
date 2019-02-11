@@ -7,10 +7,13 @@
     {{--  Main Navigation --}}
     <ul class="navigation-list">
         <li class="navigation-list-item">
-            <a class="navigation-list-item-link" href="{{ route('search.index') }}">Suche</a>
+            <a class="navigation-list-item-link" href="{{ route('search.index') }}">Suchmaschine</a>
         </li>
         <li class="navigation-list-item">
-            <a class="navigation-list-item-link" href="{{ route('entry.create') }}">Neuer Eintrag</a>
+            <a class="navigation-list-item-link" href="{{ route('entry.create') }}">Eintrag hinzufügen</a>
+        </li>
+        <li class="navigation-list-item">
+            <a class="navigation-list-item-link" href="{{ route('author.create') }}">Autor*in hinzufügen</a>
         </li>
         <li class="navigation-list-item-title">
             Übersicht
@@ -22,6 +25,7 @@
             <a class="navigation-list-item-link" href="{{ route('author.index') }}">Autor*innen</a>
         </li>
     </ul>
+    <hr>
     {{-- Latest Search Requests --}}
     <ul class="navigation-list">
         @if ($latestSearchRequests)

@@ -21,7 +21,7 @@
                 <div class="entry-details-value --authors">
                     <!--
                     @forelse ($entry->author()->get() as $author)
-                        --><a href="{{ route('author.details', $author->id) }}">{{ $author->name }}</a><!--
+                        --><a href="{{ route('author.show', $author->id) }}">{{ $author->name }}</a><!--
                     @empty
                         -->-<!--
                     @endforelse

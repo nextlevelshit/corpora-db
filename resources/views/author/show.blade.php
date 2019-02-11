@@ -27,6 +27,9 @@
                     Geburtsjahr
                 </div>
             </div>
+            <div class="column">
+                <a href="{{ route('author.edit', $author->id) }}" class="button hollow float-right">Autor*in bearbeiten</a>
+            </div>
         </div>
         <br>
         <br>
@@ -35,7 +38,7 @@
                 <table class="stack">
                     <tr>
                         <th colspan="3" class="text-left">
-                            Passende Einträge zum Autor
+                            Passende Einträge zum Autor bzw. zur Autorin
                         </th>
                     </tr>
                     @forelse ($author->entries as $entry)
