@@ -3,7 +3,7 @@
     <li class="search-list-item">
       <div class="row">
         <div class="small-2 medium-1 column">
-          <mark-all parent="#entriesList" identifier="[name='entries[]']"></mark-all>
+          <mark-all parent="#entriesList" identifier=".search-list-item-check-input"></mark-all>
         </div>
         <div class="small-10 medium-11 column">
           <h5>
