@@ -2,7 +2,7 @@
   <div class="row">
     <div class="small-2 medium-1 column">
       <label class="search-list-item-check">
-        <input type="checkbox" class="search-list-item-check-input" name="entries[]" value="{{ $entry->id }}">
+        <input type="checkbox" class="search-list-item-check-input" value="{{ $entry->id }}">
         <div class="search-list-item-check-trigger">
           <i class="fa fa-check-square-o"></i>
         </div>

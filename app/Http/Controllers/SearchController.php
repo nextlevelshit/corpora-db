@@ -30,7 +30,6 @@ class SearchController extends Controller
         $search = $request->all();
         $term = $search['term'];
         $states = State::all();
-        // search entries with scout
         // search authors with scout
         $entries = Entry::search($term)->get();
         $authors = Author::search($term)->get();
@@ -92,8 +91,9 @@ class SearchController extends Controller
         $zipper = new \Chumper\Zipper\Zipper;
         $zipper->make($exportFileName);
 
-        foreach ($input['entries'] as $id) {
-            $entry = Entry::findOrFail($id);
+        $allEntries = Entry::whereIn('id', explode(',', $input['entries']))->get();
+
+        foreach ($allEntries as $entry) {
 
             foreach ($input['states'] as $state) {
                 $text = $entry->textByState($state);
@@ -114,7 +114,6 @@ class SearchController extends Controller
             }
         }
 
-
         try {
             $zipper->close();
             if (file_exists($exportFileName)) {
@@ -131,7 +130,6 @@ class SearchController extends Controller
                     ->withInput();
             }
         } catch(Exception $e) {
-            dd('not');
             return back()->withInput()->withErrors(['Es ist zu einem unerwarteten Fehler gekommen. Bitte versuchen Sie es erneut.']);
         }
     }
